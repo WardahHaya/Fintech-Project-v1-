@@ -1,0 +1,23 @@
+{
+  "servers": {
+    "magic": {
+      "type": "stdio",
+      "command": "C:\\Program Files\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@21st-dev/magic@latest"
+      ],
+      "env": {
+        "API_KEY": "${input:3a15e4f644437d4df8e4f4e95aad0077ff3dedda740e2e3bdbad98754efd3538}"
+      }
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "3a15e4f644437d4df8e4f4e95aad0077ff3dedda740e2e3bdbad98754efd3538",
+      "description": "21st.dev Magic API Key",
+      "password": true
+    }
+  ]
+}

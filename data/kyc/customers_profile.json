@@ -1,0 +1,57 @@
+[
+  {
+    "customer_id": "cust-1001",
+    "full_name": "Aisha Al Harbi",
+    "date_of_birth": "1994-09-12",
+    "country_of_residence": "Saudi Arabia",
+    "nationality": "Saudi Arabia",
+    "email": "aisha.alharbi@tiqmo.demo",
+    "phone": "+966500100001",
+    "pep_status": false,
+    "risk_watchlist_match": false
+  },
+  {
+    "customer_id": "cust-1002",
+    "full_name": "Omar Farooq",
+    "date_of_birth": "1988-02-17",
+    "country_of_residence": "Saudi Arabia",
+    "nationality": "Pakistan",
+    "email": "omar.farooq@tiqmo.demo",
+    "phone": "+966500100002",
+    "pep_status": false,
+    "risk_watchlist_match": false
+  },
+  {
+    "customer_id": "cust-1003",
+    "full_name": "Leila Hosseini",
+    "date_of_birth": "1991-06-04",
+    "country_of_residence": "Iran",
+    "nationality": "Iran",
+    "email": "leila.hosseini@tiqmo.demo",
+    "phone": "+966500100003",
+    "pep_status": true,
+    "risk_watchlist_match": false
+  },
+  {
+    "customer_id": "cust-1004",
+    "full_name": "Noura Al Qahtani",
+    "date_of_birth": "1996-01-29",
+    "country_of_residence": "Saudi Arabia",
+    "nationality": "Saudi Arabia",
+    "email": "noura.qahtani@tiqmo.demo",
+    "phone": "+966500100004",
+    "pep_status": false,
+    "risk_watchlist_match": true
+  },
+  {
+    "customer_id": "cust-1005",
+    "full_name": "Khalid Rahman",
+    "date_of_birth": "1990-11-02",
+    "country_of_residence": "Oman",
+    "nationality": null,
+    "email": "khalid.rahman@tiqmo.demo",
+    "phone": "+966500100005",
+    "pep_status": false,
+    "risk_watchlist_match": false
+  }
+]

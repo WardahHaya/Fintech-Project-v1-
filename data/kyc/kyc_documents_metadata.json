@@ -1,0 +1,75 @@
+[
+  {
+    "customer_id": "cust-1001",
+    "documents": [
+      {
+        "document_type": "national_id",
+        "extracted_name": "Aisha Al Harbi",
+        "expiration_date": "2027-12-15",
+        "ocr_confidence": 0.99
+      },
+      {
+        "document_type": "proof_of_address",
+        "extracted_name": "Aisha Al Harbi",
+        "expiration_date": "2026-12-31",
+        "ocr_confidence": 0.96
+      }
+    ]
+  },
+  {
+    "customer_id": "cust-1002",
+    "documents": [
+      {
+        "document_type": "passport",
+        "extracted_name": "Omar Farooq",
+        "expiration_date": "2026-05-14",
+        "ocr_confidence": 0.97
+      }
+    ]
+  },
+  {
+    "customer_id": "cust-1003",
+    "documents": [
+      {
+        "document_type": "passport",
+        "extracted_name": "Leila Hosseini",
+        "expiration_date": "2027-03-20",
+        "ocr_confidence": 0.98
+      },
+      {
+        "document_type": "proof_of_address",
+        "extracted_name": "Leila Hosseini",
+        "expiration_date": "2026-09-01",
+        "ocr_confidence": 0.95
+      }
+    ]
+  },
+  {
+    "customer_id": "cust-1004",
+    "documents": [
+      {
+        "document_type": "national_id",
+        "extracted_name": "Noura Al Qahtan",
+        "expiration_date": "2028-08-11",
+        "ocr_confidence": 0.93
+      },
+      {
+        "document_type": "proof_of_address",
+        "extracted_name": "Noura Al Qahtani",
+        "expiration_date": "2026-11-21",
+        "ocr_confidence": 0.94
+      }
+    ]
+  },
+  {
+    "customer_id": "cust-1005",
+    "documents": [
+      {
+        "document_type": "passport",
+        "extracted_name": "Salim Rahman",
+        "expiration_date": "2027-01-09",
+        "ocr_confidence": 0.88
+      }
+    ]
+  }
+]

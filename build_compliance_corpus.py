@@ -1,0 +1,362 @@
+"""
+build_compliance_corpus.py — Tiqmo Compliance RAG Corpus Builder
+Creates structured SAMA-compliant document chunks for ChromaDB ingestion.
+Run: python build_compliance_corpus.py
+Output: output/compliance_corpus.json + output/compliance_corpus_flat.csv
+"""
+
+import json
+import uuid
+import pandas as pd
+
+# ─── CORPUS DEFINITION ───────────────────────────────────────────────────────
+# Based on publicly available SAMA regulatory frameworks:
+# - SAMA Payment Services Provider Regulations (2021/2023)
+# - AML/CFT Framework for Licensed Financial Institutions
+# - Consumer Protection Principles
+# - Open Banking Framework
+
+CORPUS = [
+
+    # ── DOMAIN: KYC ──────────────────────────────────────────────────────────
+
+    {
+        "source":   "SAMA_PSP_Regulations_2021",
+        "domain":   "kyc",
+        "article":  "Article 14 — Customer Identification",
+        "title":    "KYC Minimum Requirements for Individual Customers",
+        "content":  (
+            "Payment service providers must verify the identity of all customers before "
+            "activating wallet services. For individual customers, the following minimum "
+            "data must be collected and verified: full name (Arabic and English), national "
+            "identity number or Iqama number, date of birth, nationality, and residential "
+            "address. Verification must be performed against official government-issued "
+            "documents. Customers must be at least 18 years of age to open a wallet account."
+        ),
+        "keywords": ["kyc", "identity", "national id", "iqama", "onboarding", "age", "verification"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_PSP_Regulations_2021",
+        "domain":   "kyc",
+        "article":  "Article 15 — Document Verification",
+        "title":    "Acceptable Identity Documents for KYC",
+        "content":  (
+            "Acceptable identity documents for Saudi nationals are the National Identity Card "
+            "issued by the National Information Center. For expatriates, an Iqama (residency "
+            "permit) or a valid passport is acceptable. All documents must be valid and not "
+            "expired at the time of submission. Documents with expiry dates within 30 days "
+            "of application may require additional verification steps at the provider's discretion."
+        ),
+        "keywords": ["national id", "iqama", "passport", "expiry", "document", "saudi", "expatriate"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_PSP_Regulations_2021",
+        "domain":   "kyc",
+        "article":  "Article 16 — Biometric Verification",
+        "title":    "Selfie and Liveness Check Requirements",
+        "content":  (
+            "Payment service providers offering remote digital onboarding must implement "
+            "biometric verification as part of the KYC process. This includes a liveness "
+            "check and facial matching against the identity document photo. The biometric "
+            "match confidence score must meet a minimum threshold defined by the provider's "
+            "risk policy. Records of biometric verification attempts must be retained for "
+            "a minimum of 5 years."
+        ),
+        "keywords": ["biometric", "selfie", "liveness", "facial match", "confidence score", "remote onboarding"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_PSP_Regulations_2021",
+        "domain":   "kyc",
+        "article":  "Article 18 — KYC for High-Risk Customers",
+        "title":    "Enhanced Due Diligence for High-Risk Profiles",
+        "content":  (
+            "Customers identified as high-risk based on nationality, transaction patterns, "
+            "or other risk indicators must undergo Enhanced Due Diligence (EDD). EDD requires "
+            "additional documentation, source of funds declaration, and senior management "
+            "approval before account activation. High-risk nationalities are defined per "
+            "FATF guidance and the provider's internal risk policy. Manual review is mandatory "
+            "for all EDD cases before onboarding is completed."
+        ),
+        "keywords": ["enhanced due diligence", "EDD", "high risk", "nationality", "manual review", "FATF"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_PSP_Regulations_2021",
+        "domain":   "kyc",
+        "article":  "Article 20 — KYC Rejection Procedures",
+        "title":    "Customer Notification on KYC Rejection",
+        "content":  (
+            "When a customer's KYC application is rejected, the payment service provider must "
+            "notify the customer within 3 business days. The notification must include the "
+            "reason for rejection in general terms (without disclosing sensitive risk assessment "
+            "details) and instructions for resubmission if the rejection is due to incomplete "
+            "or incorrect documents. Providers are not required to disclose internal risk "
+            "scoring thresholds."
+        ),
+        "keywords": ["rejection", "notification", "resubmission", "customer notice", "kyc outcome"],
+        "language": "en",
+    },
+
+    # ── DOMAIN: AML ──────────────────────────────────────────────────────────
+
+    {
+        "source":   "SAMA_AML_CFT_Framework_2023",
+        "domain":   "aml",
+        "article":  "Article 4 — Transaction Monitoring",
+        "title":    "Real-Time Transaction Monitoring Requirements",
+        "content":  (
+            "All licensed payment service providers must implement a transaction monitoring "
+            "system capable of detecting suspicious activity in real-time or near real-time. "
+            "The system must flag transactions that exceed defined thresholds, exhibit unusual "
+            "patterns inconsistent with the customer's profile, involve high-risk jurisdictions, "
+            "or show signs of structuring (multiple small transactions designed to avoid reporting "
+            "thresholds). Flagged transactions must be reviewed within 24 hours."
+        ),
+        "keywords": ["transaction monitoring", "AML", "suspicious", "structuring", "flagging", "real-time"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_AML_CFT_Framework_2023",
+        "domain":   "aml",
+        "article":  "Article 6 — Suspicious Activity Reporting",
+        "title":    "SAR Filing Requirements",
+        "content":  (
+            "Payment service providers must file a Suspicious Activity Report (SAR) with the "
+            "Saudi Financial Intelligence Unit (SAFIU) within 3 business days of identifying "
+            "a suspicious transaction or activity pattern. SARs must include: customer identification "
+            "details, transaction details, the nature of suspicion, and any supporting documentation. "
+            "Filing a SAR does not require prior notice to the customer. Tipping off a customer "
+            "that a SAR has been filed is strictly prohibited."
+        ),
+        "keywords": ["SAR", "suspicious activity report", "SAFIU", "filing", "tipping off", "reporting"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_AML_CFT_Framework_2023",
+        "domain":   "aml",
+        "article":  "Article 9 — International Transfers and AML",
+        "title":    "AML Controls for Cross-Border Payments",
+        "content":  (
+            "Cross-border payment transactions require additional AML screening. Providers must "
+            "screen both sender and receiver against OFAC, UN, and Saudi sanctions lists before "
+            "processing. Transactions to or from FATF high-risk and monitored jurisdictions "
+            "require enhanced scrutiny. International transfers above SAR 3,000 require "
+            "complete originator and beneficiary information. Incomplete information must result "
+            "in transaction suspension pending verification."
+        ),
+        "keywords": ["international transfer", "sanctions", "OFAC", "cross-border", "AML", "beneficiary", "FATF"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_AML_CFT_Framework_2023",
+        "domain":   "aml",
+        "article":  "Article 11 — Record Keeping",
+        "title":    "AML Record Retention Requirements",
+        "content":  (
+            "All records related to customer due diligence, transaction history, and AML investigations "
+            "must be retained for a minimum of 10 years from the date of the transaction or the "
+            "closure of the customer relationship, whichever is later. Records must be stored "
+            "securely and must be retrievable within 48 hours upon request by SAMA or law "
+            "enforcement authorities. Electronic records are acceptable if integrity and "
+            "authenticity can be demonstrated."
+        ),
+        "keywords": ["record keeping", "retention", "10 years", "audit", "data storage", "SAMA request"],
+        "language": "en",
+    },
+
+    # ── DOMAIN: PAYMENT SERVICES ──────────────────────────────────────────────
+
+    {
+        "source":   "SAMA_PSP_Regulations_2021",
+        "domain":   "payment_services",
+        "article":  "Article 5 — Licensing Requirements",
+        "title":    "Payment Institution License Classes",
+        "content":  (
+            "SAMA classifies payment service providers into three categories: Small Payment "
+            "Institution (SPI), Large Payment Institution (LPI), and Payment System Operator. "
+            "Tiqmo operates as a Large Payment Institution. LPI licensees are authorized to "
+            "issue e-money, provide payment accounts, execute payment transactions, issue "
+            "payment instruments, and offer money remittance services. Minimum paid-up capital "
+            "for LPI is SAR 50 million."
+        ),
+        "keywords": ["license", "LPI", "payment institution", "e-money", "capital", "SAMA", "authorization"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_PSP_Regulations_2021",
+        "domain":   "payment_services",
+        "article":  "Article 22 — Transaction Limits",
+        "title":    "Wallet Transaction Limits by Verification Tier",
+        "content":  (
+            "Licensed payment service providers must implement a tiered transaction limit system "
+            "based on customer verification level. Tier 1 (basic KYC): maximum wallet balance "
+            "SAR 5,000; maximum monthly transactions SAR 10,000. Tier 2 (full KYC): maximum "
+            "wallet balance SAR 60,000; maximum monthly transactions SAR 120,000. Tier 3 "
+            "(enhanced KYC for premium customers): limits defined by provider risk policy "
+            "subject to SAMA approval. International transfers are subject to separate limits."
+        ),
+        "keywords": ["transaction limits", "wallet balance", "tier", "KYC tier", "monthly limit", "SAR"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_PSP_Regulations_2021",
+        "domain":   "payment_services",
+        "article":  "Article 28 — Fees and Charges Disclosure",
+        "title":    "Transparency Requirements for Fees",
+        "content":  (
+            "Payment service providers must disclose all applicable fees and charges to customers "
+            "prior to transaction execution. For international transfers, the exchange rate, "
+            "transfer fee, and estimated delivery time must be displayed before the customer "
+            "confirms the transaction. Changes to fee structures must be communicated to "
+            "customers at least 30 days in advance. Hidden or undisclosed fees are strictly "
+            "prohibited under SAMA consumer protection guidelines."
+        ),
+        "keywords": ["fees", "disclosure", "transparency", "exchange rate", "international", "consumer protection"],
+        "language": "en",
+    },
+
+    # ── DOMAIN: CONSUMER PROTECTION ──────────────────────────────────────────
+
+    {
+        "source":   "SAMA_Consumer_Protection_Principles_2022",
+        "domain":   "consumer_protection",
+        "article":  "Principle 3 — Complaints Handling",
+        "title":    "Customer Complaints Resolution Requirements",
+        "content":  (
+            "Licensed financial institutions must have a formal complaints handling procedure. "
+            "Customer complaints must be acknowledged within 2 business days and resolved within "
+            "15 business days. Complex complaints may be extended to 30 business days with "
+            "customer notification. Unresolved complaints may be escalated to SAMA's Consumer "
+            "Protection Department. Providers must maintain a complaints log and report "
+            "quarterly statistics to SAMA."
+        ),
+        "keywords": ["complaints", "resolution", "15 days", "escalation", "SAMA", "consumer", "handling"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_Consumer_Protection_Principles_2022",
+        "domain":   "consumer_protection",
+        "article":  "Principle 5 — Account Freezing",
+        "title":    "Procedures for Account Restriction and Freezing",
+        "content":  (
+            "A payment service provider may freeze or restrict a customer account in cases of "
+            "suspected fraud, AML concerns, or regulatory compliance requirements. The customer "
+            "must be notified within 24 hours of an account freeze unless a law enforcement "
+            "authority has instructed the provider to withhold notification. Frozen accounts "
+            "must be reviewed within 5 business days and either unfrozen or formally suspended "
+            "with documented justification."
+        ),
+        "keywords": ["account freeze", "restriction", "fraud", "notification", "5 days", "suspension"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_Consumer_Protection_Principles_2022",
+        "domain":   "consumer_protection",
+        "article":  "Principle 7 — Data Privacy",
+        "title":    "Customer Data Protection Requirements",
+        "content":  (
+            "Payment service providers must comply with the Saudi Personal Data Protection Law (PDPL). "
+            "Customer data may only be used for the purpose for which it was collected. "
+            "Biometric data collected during KYC must be stored in encrypted form and may not "
+            "be shared with third parties without explicit customer consent, except as required "
+            "by law. Customers have the right to request access to their data and to request "
+            "corrections to inaccurate information."
+        ),
+        "keywords": ["PDPL", "data privacy", "personal data", "biometric", "consent", "encryption", "customer rights"],
+        "language": "en",
+    },
+
+    # ── DOMAIN: DIGITAL WALLET ────────────────────────────────────────────────
+
+    {
+        "source":   "SAMA_Digital_Wallet_Guidelines_2022",
+        "domain":   "digital_wallet",
+        "article":  "Section 3 — Safeguarding of Funds",
+        "title":    "Customer Funds Protection and Segregation",
+        "content":  (
+            "All customer funds held in digital wallets must be safeguarded in accordance with "
+            "SAMA guidelines. Providers must hold customer funds in segregated accounts at a "
+            "SAMA-licensed bank, separate from operational funds. Wallet balances must be "
+            "covered at all times by equivalent funds in the safeguarding account. In the event "
+            "of insolvency, customer wallet funds are protected and prioritized for return "
+            "to customers ahead of other creditors."
+        ),
+        "keywords": ["safeguarding", "segregation", "customer funds", "insolvency", "bank account", "protection"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_Digital_Wallet_Guidelines_2022",
+        "domain":   "digital_wallet",
+        "article":  "Section 6 — Merchant Onboarding",
+        "title":    "Requirements for Merchant Acceptance",
+        "content":  (
+            "Payment service providers accepting merchant payments must conduct due diligence on "
+            "merchants prior to onboarding. Required merchant documentation includes: Commercial "
+            "Registration (CR) certificate, Municipal License, owner's national identity document, "
+            "and VAT registration (where applicable). Merchants must be classified by business "
+            "category (MCC code) for transaction monitoring purposes. High-risk merchant categories "
+            "require enhanced due diligence and periodic review."
+        ),
+        "keywords": ["merchant onboarding", "CR", "commercial registration", "MCC", "merchant category", "due diligence"],
+        "language": "en",
+    },
+    {
+        "source":   "SAMA_Digital_Wallet_Guidelines_2022",
+        "domain":   "digital_wallet",
+        "article":  "Section 8 — Cashback and Rewards",
+        "title":    "Regulatory Treatment of Rewards Programs",
+        "content":  (
+            "Cashback and rewards programs offered by licensed digital wallet providers are "
+            "permitted under SAMA guidelines provided they are clearly disclosed and do not "
+            "constitute a disguised interest payment. Rewards earned on transactions must be "
+            "credited to the customer's account within the timeframe stated in the program "
+            "terms. Providers must disclose the full terms and conditions of rewards programs, "
+            "including any restrictions on eligible transaction types and redemption conditions."
+        ),
+        "keywords": ["cashback", "rewards", "disclosure", "terms", "redemption", "interest", "wallet"],
+        "language": "en",
+    },
+]
+
+
+# ─── BUILD CORPUS ────────────────────────────────────────────────────────────
+
+def build_corpus():
+    chunks = []
+    for i, item in enumerate(CORPUS):
+        chunk = {
+            "chunk_id": f"COMP-{str(i+1).zfill(4)}-{uuid.uuid4().hex[:6].upper()}",
+            **item,
+        }
+        chunks.append(chunk)
+    return chunks
+
+
+# ─── MAIN ────────────────────────────────────────────────────────────────────
+
+if __name__ == "__main__":
+    chunks = build_corpus()
+
+    print("✅ Compliance RAG Corpus Built")
+    print(f"   Total chunks : {len(chunks)}")
+    print(f"\n   Domain distribution:")
+    from collections import Counter
+    domain_counts = Counter(c["domain"] for c in chunks)
+    for domain, count in domain_counts.most_common():
+        print(f"   • {domain}: {count} chunks")
+
+    # Save full JSON
+    with open("output/compliance_corpus.json", "w", encoding="utf-8") as f:
+        json.dump(chunks, f, ensure_ascii=False, indent=2)
+
+    # Save flat CSV (keywords as string)
+    flat = [{**c, "keywords": ", ".join(c["keywords"])} for c in chunks]
+    pd.DataFrame(flat).to_csv("output/compliance_corpus_flat.csv", index=False)
+
+    print("\n💾 Saved → output/compliance_corpus.json")
+    print("💾 Saved → output/compliance_corpus_flat.csv")
+    print("\n📌 Usage: load compliance_corpus.json into ChromaDB with chunk_id as document ID")
+    print("   embed the 'content' field, store all other fields as metadata")

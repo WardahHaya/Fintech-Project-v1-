@@ -1,0 +1,501 @@
+record_id,full_name_en,full_name_ar,national_id,document_type,nationality,dob,issue_date,expiry_date,is_expired,selfie_match_score,name_match_score,address,phone,risk_flags,age,is_underage,duplicate_flag,label,rejection_reason
+KYC-00001,Mrs. Maria Morris,الأستاذة دانة بيروتي,2433218196,passport,India,2010-01-19,2017-06-14,2025-04-19,False,0.644,0.913,"Riyadh, Saudi Arabia",+966526542351,['underage'],16,True,False,rejected,underage
+KYC-00002,Carolyn Carey,الآنسة سجى بو مدين,1155940781,national_id,Saudi Arabia,1961-12-24,2015-11-19,2029-01-21,False,0.749,0.956,"Dammam, Saudi Arabia",+966513164752,[],64,False,False,approved,
+KYC-00003,Kelly Leonard,صدّام شهران,1341928327,national_id,Saudi Arabia,1998-09-16,2022-09-19,2028-08-21,False,0.934,0.855,"Medina, Saudi Arabia",+966595376724,[],27,False,False,approved,
+KYC-00004,Claudia Ho,,1884969653,national_id,Saudi Arabia,1951-03-17,2020-09-18,2025-07-12,False,0.647,0.873,"Buraidah, Saudi Arabia",+966516697848,[],75,False,False,manual_review,multiple_soft_risk_flags
+KYC-00005,Jacqueline Campbell,مجد عبد القيس,2184514627,passport,Yemen,2011-12-15,2020-08-12,2030-09-11,False,1.0,0.946,"Mecca, Saudi Arabia",+966588095701,"['underage', 'high_risk_nationality']",14,True,False,rejected,underage
+KYC-00006,Kathleen Davis DVM,اصيل الحويطات,2303911718,iqama,Syria,1975-10-05,2022-05-26,2026-11-08,False,0.693,0.981,"Abha, Saudi Arabia",+966534657871,['high_risk_nationality'],50,False,False,manual_review,multiple_soft_risk_flags
+KYC-00007,Rebecca Jones,الآنسة لوجين الزماميري,1150983930,national_id,Saudi Arabia,1998-04-23,2015-08-30,2025-05-09,False,0.849,0.95,"Buraidah, Saudi Arabia",+966597376311,[],28,False,False,approved,
+KYC-00008,Donald Rodgers,مقدام السمان,2667010651,iqama,India,1978-07-14,2021-01-05,2029-09-25,False,0.784,0.919,"Abha, Saudi Arabia",+966510801326,[],47,False,False,approved,
+KYC-00009,Christopher Jones,,2602606474,passport,Egypt,2002-10-08,2023-10-14,2030-06-17,False,0.877,0.937,"Riyadh, Saudi Arabia",+966509788208,[],23,False,False,approved,
+KYC-00010,Nicholas Ward,,1219136193,national_id,Saudi Arabia,1971-10-14,2021-12-11,2024-07-18,True,0.903,0.897,"Khobar, Saudi Arabia",+966534624751,['expired_document'],54,False,False,rejected,expired_document
+KYC-00011,Aaron Curry,السيد نصر الدّين يافع,1991183842,national_id,Saudi Arabia,1948-02-02,2017-09-27,2026-10-09,False,0.681,0.998,"Abha, Saudi Arabia",+966541241182,[],78,False,False,manual_review,multiple_soft_risk_flags
+KYC-00012,Tammy Marshall,,1935348740,national_id,Saudi Arabia,1988-12-31,2018-02-07,2021-09-28,True,0.877,0.946,"Abha, Saudi Arabia",+966568011280,['expired_document'],37,False,False,rejected,expired_document
+KYC-00013,Christopher Clark,,2620450533,passport,Bangladesh,1985-11-12,2023-10-01,2029-07-23,False,1.0,0.886,"Mecca, Saudi Arabia",+966560256342,[],40,False,False,approved,
+KYC-00014,Manuel Davis,,2607337543,passport,Philippines,1999-08-10,2017-03-02,2028-02-16,False,0.787,0.995,"Taif, Saudi Arabia",+966585014294,[],26,False,False,approved,
+KYC-00015,Christopher Yang,,1965569816,national_id,Saudi Arabia,1978-07-12,2017-11-09,2022-11-22,True,1.0,0.958,"Khobar, Saudi Arabia",+966561595148,['expired_document'],47,False,False,rejected,expired_document
+KYC-00016,Sarah Smith,بيلسان عكاوي,1656482366,national_id,Saudi Arabia,1977-10-22,2021-11-26,2029-07-22,False,0.823,0.85,"Buraidah, Saudi Arabia",+966595777387,[],48,False,False,approved,
+KYC-00017,John Roy,,2148951343,passport,Philippines,1976-08-11,2015-04-11,2023-05-01,True,0.663,0.983,"Taif, Saudi Arabia",+966576320163,['expired_document'],49,False,False,rejected,expired_document
+KYC-00018,Dominique Turner,,1870831727,national_id,Saudi Arabia,1995-01-27,2021-09-04,2029-12-18,False,0.688,0.958,"Abha, Saudi Arabia",+966572774348,[],31,False,False,manual_review,multiple_soft_risk_flags
+KYC-00019,Brooke Wells,عذب مشعشع,2471434558,passport,Egypt,1976-10-07,2017-08-05,2026-09-18,False,0.808,0.931,"Taif, Saudi Arabia",+966569096705,[],49,False,False,approved,
+KYC-00020,Ashley Mills,,1668893734,national_id,Saudi Arabia,1971-04-21,2019-05-12,2029-07-15,False,0.778,0.976,"Abha, Saudi Arabia",+966506990162,[],55,False,False,approved,
+KYC-00021,Christopher Mahoney,,2046537556,passport,Yemen,1988-11-28,2017-10-30,2030-04-11,False,0.968,0.902,"Riyadh, Saudi Arabia",+966503309232,['high_risk_nationality'],37,False,False,approved,
+KYC-00022,Travis Lee DDS,الدكتورة ليم بتروني,2937452991,passport,Egypt,1977-05-07,2018-06-28,2018-04-16,True,0.838,0.936,"Medina, Saudi Arabia",+966519314919,['expired_document'],49,False,False,rejected,expired_document
+KYC-00023,Matthew Stevens,,2865185067,iqama,Philippines,1986-04-01,2022-02-16,2030-02-27,False,0.786,0.995,"Abha, Saudi Arabia",+966577694531,[],40,False,False,approved,
+KYC-00024,James Perez II,وضّاح سموم,1737996507,national_id,Saudi Arabia,1978-02-27,2020-06-20,2027-11-25,False,0.696,0.982,"Riyadh, Saudi Arabia",+966583136783,[],48,False,False,manual_review,multiple_soft_risk_flags
+KYC-00025,Jeremy Andersen,الآنسة سلسبيل اسطمبولي,2701436349,iqama,Pakistan,1994-10-30,2020-12-14,2028-09-16,False,0.741,0.885,"Abha, Saudi Arabia",+966523374989,[],31,False,False,approved,
+KYC-00026,Ms. Paula Carpenter,مُنجد المؤقت,1134352408,national_id,Saudi Arabia,1972-01-16,2015-08-12,2026-06-02,False,0.926,0.963,"Dammam, Saudi Arabia",+966577752047,[],54,False,False,approved,
+KYC-00027,Ms. Kim Johnson,المهندس ناجي السادة الراويون,1167190229,national_id,Saudi Arabia,1948-10-27,2017-10-13,2022-09-01,True,0.653,0.928,"Buraidah, Saudi Arabia",+966564990913,['expired_document'],77,False,False,rejected,expired_document
+KYC-00028,Jessica Jackson,المهندس ساجد الحويطات,2123281206,iqama,India,1996-08-21,2020-04-08,2027-08-07,False,0.689,0.892,"Medina, Saudi Arabia",+966549361832,[],29,False,False,manual_review,multiple_soft_risk_flags
+KYC-00029,Yolanda Wagner,ريما بدرية,2102499471,passport,Syria,1983-08-23,2022-11-06,2028-01-21,False,0.68,0.606,"Dammam, Saudi Arabia",+966501399049,"['name_mismatch', 'high_risk_nationality', 'identity_uncertainty']",42,False,False,rejected,name_mismatch
+KYC-00030,Cheryl Clark,,1278742967,national_id,Saudi Arabia,1966-01-31,2018-11-26,2028-08-08,False,0.82,0.979,"Dammam, Saudi Arabia",+966568071545,[],60,False,False,approved,
+KYC-00031,Ashley Hopkins,آيات البخاري,1680876038,national_id,Saudi Arabia,2003-12-07,2020-08-03,2025-07-31,False,0.864,0.916,"Buraidah, Saudi Arabia",+966532480861,[],22,False,False,approved,
+KYC-00032,Daniel Fletcher,,1171274846,national_id,Saudi Arabia,1991-03-08,2017-09-25,2026-08-16,False,0.965,0.988,"Jeddah, Saudi Arabia",+966546584044,[],35,False,False,approved,
+KYC-00033,Christopher Fleming,,2278755886,iqama,Bangladesh,1984-06-08,2017-02-11,2027-09-06,False,0.741,0.857,"Taif, Saudi Arabia",+966562702895,[],42,False,False,approved,
+KYC-00034,Billy Alvarado,,2187026217,iqama,Yemen,1981-11-21,2018-10-18,2029-06-17,False,0.782,0.978,"Taif, Saudi Arabia",+966557809134,['high_risk_nationality'],44,False,False,approved,
+KYC-00035,Monica Boyd,,2611724005,passport,Other,1983-02-28,2019-01-08,2026-08-20,False,0.825,0.877,"Taif, Saudi Arabia",+966593792374,[],43,False,False,approved,
+KYC-00036,Matthew Hernandez,المهندسة تالا صيداوي,2748217594,passport,Egypt,1989-01-12,2022-09-28,2028-05-22,False,0.944,0.908,"Buraidah, Saudi Arabia",+966559440640,[],37,False,False,approved,
+KYC-00037,Savannah Brady,تولين ابو عيد,2974395339,passport,Egypt,2003-11-23,2023-01-31,2026-07-15,False,0.64,0.896,"Mecca, Saudi Arabia",+966514562328,[],22,False,False,manual_review,multiple_soft_risk_flags
+KYC-00038,Annette Cruz,,2884247451,iqama,Yemen,1973-05-18,2016-07-30,2027-07-14,False,0.633,0.959,"Abha, Saudi Arabia",+966551604817,['high_risk_nationality'],53,False,False,manual_review,multiple_soft_risk_flags
+KYC-00039,Michael Paul,الأستاذة تمام الكبابيش,1496513709,national_id,Saudi Arabia,1995-03-09,2018-09-05,2027-06-26,False,0.718,0.955,"Riyadh, Saudi Arabia",+966504711382,[],31,False,False,approved,
+KYC-00040,Melissa Tucker,كوثر بديرية,1586926179,national_id,Saudi Arabia,1982-07-20,2015-05-15,2027-06-09,False,0.684,0.993,"Khobar, Saudi Arabia",+966585064317,[],43,False,False,manual_review,multiple_soft_risk_flags
+KYC-00041,Dr. Angel Miller,بلند سموم,1390053293,national_id,Saudi Arabia,2004-04-28,2021-03-20,2027-06-04,False,0.854,0.968,"Mecca, Saudi Arabia",+966528421020,[],22,False,False,approved,
+KYC-00042,Margaret Powell,,1395024026,national_id,Saudi Arabia,2003-06-13,2015-09-18,2029-01-22,False,0.739,0.866,"Riyadh, Saudi Arabia",+966584700766,[],23,False,False,approved,
+KYC-00043,Michael Parker,,2711592124,iqama,Pakistan,1996-04-04,2021-02-24,2029-04-10,False,0.967,0.941,"Abha, Saudi Arabia",+966536736576,[],30,False,False,approved,
+KYC-00044,Janice Palmer,الآنسة لوجين بلقرن,1156545271,national_id,Saudi Arabia,1973-10-30,2016-01-17,2029-03-07,False,0.815,0.933,"Khobar, Saudi Arabia",+966516560494,[],52,False,False,approved,
+KYC-00045,Lindsey Henry,ابتسام المفتي,1983273158,national_id,Saudi Arabia,2004-03-17,2018-02-15,2029-10-24,False,1.0,0.942,"Dammam, Saudi Arabia",+966502445502,[],22,False,False,approved,
+KYC-00046,Justin Chapman,ابتسام لخم,2120183667,iqama,Yemen,1986-08-07,2018-06-30,2025-12-14,False,0.551,0.873,"Jeddah, Saudi Arabia",+966547679764,"['low_selfie_match', 'high_risk_nationality']",39,False,False,manual_review,multiple_soft_risk_flags
+KYC-00047,Samantha Rivera,المهندس شكيب طسم,1815614978,national_id,Saudi Arabia,1972-01-15,2017-06-22,2025-08-13,False,0.922,0.871,"Riyadh, Saudi Arabia",+966576226838,[],54,False,False,approved,
+KYC-00048,William Castillo,,2160607159,iqama,Egypt,1988-02-22,2022-12-16,2028-03-31,False,0.825,0.603,"Buraidah, Saudi Arabia",+966575161369,['name_mismatch'],38,False,False,rejected,name_mismatch
+KYC-00049,Thomas Jones,سيف الدّين البامية,1164535218,national_id,Saudi Arabia,1993-10-20,2020-09-19,2028-12-02,False,0.641,0.872,"Mecca, Saudi Arabia",+966592127799,[],32,False,False,manual_review,multiple_soft_risk_flags
+KYC-00050,Jennifer Ibarra,قانت قبيلة هذيل البقوم,1995527177,national_id,Saudi Arabia,2005-09-21,2018-01-30,2028-12-12,False,1.0,0.897,"Dammam, Saudi Arabia",+966511998679,[],20,False,False,approved,
+KYC-00051,Amanda Mcneil,الآنسة اعتماد ضبيعة,2793597820,passport,Egypt,1985-05-28,2023-01-04,2019-12-08,True,1.0,0.929,"Dammam, Saudi Arabia",+966566590515,['expired_document'],41,False,False,rejected,expired_document
+KYC-00052,Breanna Gomez,مُصلح تغلب بن وائل,1644925192,national_id,Saudi Arabia,1983-12-01,2022-05-11,2029-05-25,False,0.866,0.699,"Khobar, Saudi Arabia",+966528168505,['name_mismatch'],42,False,False,rejected,name_mismatch
+KYC-00053,Barbara Rogers,بتول العفيفي,1357332214,national_id,Saudi Arabia,1974-07-16,2020-09-10,2030-11-27,False,0.926,0.87,"Buraidah, Saudi Arabia",+966527065379,[],51,False,False,approved,
+KYC-00054,Connor Bennett,وسيل جودة,1738347359,national_id,Saudi Arabia,1965-09-17,2023-08-18,2029-04-14,False,0.846,0.913,"Buraidah, Saudi Arabia",+966524075818,[],60,False,False,approved,
+KYC-00055,Nathan Foster,,2124782613,iqama,Bangladesh,1985-09-06,2015-04-20,2029-06-12,False,0.732,0.906,"Khobar, Saudi Arabia",+966522047277,['duplicate_id'],40,False,True,rejected,duplicate_id
+KYC-00056,Patrick Holland,تاج الدّين هوازن,2043289861,passport,India,1980-08-29,2018-05-18,2020-09-03,True,0.819,0.969,"Tabuk, Saudi Arabia",+966598089324,['expired_document'],45,False,False,rejected,expired_document
+KYC-00057,Jason Rose,جلاء القلموني,1953962185,national_id,Saudi Arabia,1993-08-06,2021-02-06,2030-09-11,False,0.707,0.945,"Riyadh, Saudi Arabia",+966551531952,[],32,False,False,approved,
+KYC-00058,Terri Key,,1852772217,national_id,Saudi Arabia,2011-04-06,2015-06-29,2025-06-21,False,0.78,0.897,"Tabuk, Saudi Arabia",+966540345054,['underage'],15,True,False,rejected,underage
+KYC-00059,John Smith,ميرا شويفاتي,1566765277,national_id,Saudi Arabia,2005-10-06,2020-10-27,2025-12-05,False,0.813,0.973,"Jeddah, Saudi Arabia",+966554479627,[],20,False,False,approved,
+KYC-00060,Joshua Lloyd,المهندس نصري بنو ضمرة,1059640165,national_id,Saudi Arabia,2003-08-22,2022-08-14,2025-05-08,False,0.772,0.685,"Jeddah, Saudi Arabia",+966535569092,['name_mismatch'],22,False,False,rejected,name_mismatch
+KYC-00061,Mrs. Kristin Parker,جهراء البقوم,2571928565,iqama,Pakistan,1981-03-13,2016-04-09,2020-02-02,True,0.701,0.889,"Buraidah, Saudi Arabia",+966547312172,['expired_document'],45,False,False,rejected,expired_document
+KYC-00062,Charles Salazar,عتاب جرهم,2155188442,iqama,Yemen,2001-05-30,2022-02-25,2029-01-20,False,0.821,0.868,"Tabuk, Saudi Arabia",+966505895782,['high_risk_nationality'],25,False,False,approved,
+KYC-00063,Bobby Hart,ريتال بنو شهر,2146786691,passport,India,1984-03-22,2022-03-16,2023-03-24,True,0.773,0.967,"Mecca, Saudi Arabia",+966568018242,['expired_document'],42,False,False,rejected,expired_document
+KYC-00064,Christina Johnson,جودي بنو النجار,1358414384,national_id,Saudi Arabia,1983-08-02,2021-11-21,2030-08-21,False,0.72,0.939,"Buraidah, Saudi Arabia",+966595900109,[],42,False,False,approved,
+KYC-00065,Sara Harrison,تاليا بكر بن عبد مناة,1396907844,national_id,Saudi Arabia,2000-09-22,2019-07-22,2025-10-26,False,0.794,0.92,"Khobar, Saudi Arabia",+966556258815,[],25,False,False,approved,
+KYC-00066,Candice Clark,السيدة هايدي الهدمي,1147321046,national_id,Saudi Arabia,1988-10-03,2017-10-13,2026-10-17,False,0.755,0.99,"Mecca, Saudi Arabia",+966578774701,[],37,False,False,approved,
+KYC-00067,David Ibarra,سالم عنزة,2339500479,iqama,Sudan,1999-05-08,2022-07-17,2025-02-03,False,0.893,0.959,"Taif, Saudi Arabia",+966509835841,['high_risk_nationality'],27,False,False,approved,
+KYC-00068,Sarah Wilson,الدكتور سعدي الحجر بن الهنوء بن الأزد,1784991216,national_id,Saudi Arabia,1985-03-18,2021-04-03,2026-08-14,False,0.716,0.926,"Mecca, Saudi Arabia",+966557872982,[],41,False,False,approved,
+KYC-00069,Luis Shea,جالا الامام,1952694958,national_id,Saudi Arabia,1993-11-17,2020-06-29,2028-05-12,False,0.798,0.866,"Riyadh, Saudi Arabia",+966597499309,[],32,False,False,approved,
+KYC-00070,James Allen,,2230913075,iqama,Egypt,1988-07-10,2022-09-29,2030-08-18,False,0.823,0.988,"Riyadh, Saudi Arabia",+966528385786,[],37,False,False,approved,
+KYC-00071,Benjamin Brown,الدكتور فوزي عدوان,1278585497,national_id,Saudi Arabia,1981-01-21,2018-02-16,2027-07-11,False,1.0,0.956,"Tabuk, Saudi Arabia",+966558441986,[],45,False,False,approved,
+KYC-00072,Elizabeth Jones,,2524041574,iqama,Yemen,1979-08-07,2017-04-07,2028-01-16,False,0.698,0.954,"Buraidah, Saudi Arabia",+966533083301,['high_risk_nationality'],46,False,False,manual_review,multiple_soft_risk_flags
+KYC-00073,Amy Lee,,1712082677,national_id,Saudi Arabia,2003-11-28,2018-03-22,2025-08-31,False,0.864,0.93,"Mecca, Saudi Arabia",+966562067240,[],22,False,False,approved,
+KYC-00074,Erik Lester,,1991547887,national_id,Saudi Arabia,1976-01-08,2020-08-27,2027-03-01,False,0.792,0.9,"Mecca, Saudi Arabia",+966505493296,[],50,False,False,approved,
+KYC-00075,Kevin Webb,بهاء بيرقدار,2161227530,iqama,Bangladesh,1980-07-25,2020-01-04,2028-09-12,False,0.758,0.49,"Jeddah, Saudi Arabia",+966574268414,['name_mismatch'],45,False,False,rejected,name_mismatch
+KYC-00076,Thomas Silva,,1332727956,national_id,Saudi Arabia,1991-02-14,2023-06-30,2027-06-14,False,1.0,0.952,"Abha, Saudi Arabia",+966578519108,[],35,False,False,approved,
+KYC-00077,Samantha Snyder,بلماء إياد,2982258713,passport,Syria,1991-12-05,2016-01-08,2029-12-30,False,0.868,0.919,"Dammam, Saudi Arabia",+966506403910,['high_risk_nationality'],34,False,False,approved,
+KYC-00078,Theresa Howard,,1180170462,national_id,Saudi Arabia,2004-05-09,2022-03-12,2029-09-18,False,0.697,0.984,"Taif, Saudi Arabia",+966561825128,[],22,False,False,manual_review,multiple_soft_risk_flags
+KYC-00079,Mr. Edward Miles,السيد صنديد صيداني,1230047868,national_id,Saudi Arabia,1980-04-20,2017-10-10,2026-09-28,False,0.775,0.867,"Riyadh, Saudi Arabia",+966533119079,[],46,False,False,approved,
+KYC-00080,Tammie Carroll,السيد كنعان الأزد,2306738302,passport,Pakistan,1982-12-23,2017-08-17,2028-07-30,False,1.0,0.966,"Mecca, Saudi Arabia",+966583644089,[],43,False,False,approved,
+KYC-00081,Emily White,الأستاذ شجاع العفيفي,2687056856,passport,Yemen,1983-06-15,2019-03-22,2030-04-24,False,0.825,0.872,"Taif, Saudi Arabia",+966568826343,['high_risk_nationality'],43,False,False,approved,
+KYC-00082,Stephanie Medina,كتوم ابو الحاج,1175183046,national_id,Saudi Arabia,1997-01-17,2015-06-11,2027-02-10,False,0.906,0.938,"Medina, Saudi Arabia",+966554033173,[],29,False,False,approved,
+KYC-00083,Erica Horn,الدكتورة ألين الشعباني,2638546785,passport,Pakistan,1986-02-18,2020-10-01,2030-03-24,False,1.0,0.976,"Taif, Saudi Arabia",+966509320489,[],40,False,False,approved,
+KYC-00084,Zachary Delgado,جنى معتوق,2423536937,iqama,India,2000-09-20,2018-10-14,2030-06-25,False,1.0,0.946,"Khobar, Saudi Arabia",+966522872808,[],25,False,False,approved,
+KYC-00085,Donna Carpenter,الدكتورة حلا بنو معقل,1100623120,national_id,Saudi Arabia,1990-06-16,2019-03-09,2024-11-30,True,0.97,0.454,"Dammam, Saudi Arabia",+966584086211,"['expired_document', 'name_mismatch']",36,False,False,rejected,expired_document
+KYC-00086,Lindsay Harris,,2398454615,passport,Egypt,1965-08-04,2021-05-03,2027-07-15,False,0.728,0.974,"Riyadh, Saudi Arabia",+966516668700,[],60,False,False,approved,
+KYC-00087,Janet Simpson,فيّاض العوازم,2765918033,passport,Pakistan,2001-01-20,2021-05-10,2025-07-10,False,0.982,0.931,"Khobar, Saudi Arabia",+966503926142,[],25,False,False,approved,
+KYC-00088,Bobby Wagner,,2856218501,iqama,Egypt,1973-05-30,2018-10-27,2029-06-13,False,0.736,0.899,"Tabuk, Saudi Arabia",+966573586629,[],53,False,False,approved,
+KYC-00089,Joseph Smith,الأستاذ مكرّم شمران,2943114262,passport,India,1984-03-16,2019-01-17,2018-01-22,True,0.942,0.865,"Abha, Saudi Arabia",+966588610158,['expired_document'],42,False,False,rejected,expired_document
+KYC-00090,Mark Hernandez,الأستاذ توفيق العوالق,1956046618,national_id,Saudi Arabia,1980-11-21,2021-05-31,2029-04-09,False,0.774,0.89,"Mecca, Saudi Arabia",+966564647154,[],45,False,False,approved,
+KYC-00091,Amanda Vazquez,رباح هوازن,2993712406,iqama,Sudan,1997-10-27,2019-04-06,2028-09-11,False,0.702,0.948,"Buraidah, Saudi Arabia",+966537526547,['high_risk_nationality'],28,False,False,approved,
+KYC-00092,Jennifer Fry,السيد سهيل العفيفي,2564651939,passport,Other,1953-01-26,2022-08-24,2025-04-21,False,0.867,0.919,"Dammam, Saudi Arabia",+966516724342,[],73,False,False,approved,
+KYC-00093,Sarah Cook,زكي بتروني,2179796886,iqama,Pakistan,2005-06-21,2019-01-12,2025-12-15,False,0.89,0.875,"Taif, Saudi Arabia",+966556101438,[],21,False,False,approved,
+KYC-00094,Christopher Wright,المهندس تقيّ الدّين بكر بن وائل,2756798250,passport,Pakistan,1983-04-03,2019-08-31,2025-12-18,False,0.878,0.732,"Tabuk, Saudi Arabia",+966538757177,['name_mismatch'],43,False,False,rejected,name_mismatch
+KYC-00095,Amanda Arnold,جميلة عبد القيس,1401051238,national_id,Saudi Arabia,1977-03-08,2018-09-17,2030-03-08,False,0.834,0.946,"Buraidah, Saudi Arabia",+966537966033,[],49,False,False,approved,
+KYC-00096,James Schultz,ميلاء حب رمان,1191825537,national_id,Saudi Arabia,2000-02-01,2020-06-27,2028-07-07,False,0.941,0.942,"Tabuk, Saudi Arabia",+966592499125,[],26,False,False,approved,
+KYC-00097,Timothy Collins,الدكتورة نوره الدقاق,1412528669,national_id,Saudi Arabia,1987-03-19,2019-09-29,2026-12-11,False,0.689,0.644,"Khobar, Saudi Arabia",+966507236887,"['name_mismatch', 'identity_uncertainty']",39,False,False,rejected,name_mismatch
+KYC-00098,John Sanchez,المهندس فهد قرش,1767721903,national_id,Saudi Arabia,1982-05-01,2017-07-09,2026-11-20,False,0.773,0.935,"Abha, Saudi Arabia",+966519148580,[],44,False,False,approved,
+KYC-00099,Heather Chaney,,2836134074,iqama,Philippines,1973-11-26,2019-12-04,2026-04-26,False,0.834,0.938,"Taif, Saudi Arabia",+966529233095,[],52,False,False,approved,
+KYC-00100,Jose Singleton,,2544948126,passport,Egypt,1982-06-10,2022-05-10,2019-06-28,True,0.733,0.957,"Taif, Saudi Arabia",+966572946671,['expired_document'],44,False,False,rejected,expired_document
+KYC-00101,Sharon Lynch,,2684577590,passport,India,2002-11-13,2016-01-17,2030-02-21,False,0.697,0.969,"Medina, Saudi Arabia",+966574545892,[],23,False,False,manual_review,multiple_soft_risk_flags
+KYC-00102,Caroline Gonzalez,,2500170127,iqama,Egypt,1989-03-11,2017-04-08,2026-06-25,False,0.681,0.895,"Jeddah, Saudi Arabia",+966554152064,[],37,False,False,manual_review,multiple_soft_risk_flags
+KYC-00103,Charles Acevedo,شعبان قريش,2611037129,passport,Pakistan,2000-07-02,2019-12-28,2021-11-08,True,0.966,0.87,"Jeddah, Saudi Arabia",+966515542622,['expired_document'],25,False,False,rejected,expired_document
+KYC-00104,Andrew Hudson,الآنسة زهرة العقيدات,1909275326,national_id,Saudi Arabia,1989-11-05,2017-06-08,2019-02-16,True,0.494,0.617,"Taif, Saudi Arabia",+966552341389,"['expired_document', 'low_selfie_match', 'name_mismatch', 'identity_uncertainty']",36,False,False,rejected,expired_document
+KYC-00105,Eric Lewis,علاء المنتفق,2043898364,iqama,India,2005-02-27,2023-11-26,2030-07-21,False,0.753,0.861,"Khobar, Saudi Arabia",+966552696582,[],21,False,False,approved,
+KYC-00106,Brittany Butler,قحطان خولان,2091043006,passport,Philippines,1998-03-13,2022-12-28,2029-08-29,False,0.879,0.91,"Mecca, Saudi Arabia",+966541418328,[],28,False,False,approved,
+KYC-00107,Steve Gray,الأستاذة يارا بنو الدئل,1914630316,national_id,Saudi Arabia,1997-06-19,2021-10-29,2019-12-21,True,0.958,0.875,"Dammam, Saudi Arabia",+966525241056,['expired_document'],29,False,False,rejected,expired_document
+KYC-00108,John Moreno,ليساء ازحيمان,1149177850,national_id,Saudi Arabia,1995-06-06,2016-11-14,2027-11-11,False,0.948,0.984,"Abha, Saudi Arabia",+966500030756,[],31,False,False,approved,
+KYC-00109,Marcus Roberts,عرفه شمران,2086353654,passport,Syria,1995-08-22,2019-03-08,2018-08-04,True,0.913,0.993,"Dammam, Saudi Arabia",+966545187053,"['expired_document', 'high_risk_nationality']",30,False,False,rejected,expired_document
+KYC-00110,Mr. Anthony Santos,,1493759738,national_id,Saudi Arabia,1980-12-30,2016-09-08,2022-08-07,True,1.0,0.457,"Riyadh, Saudi Arabia",+966550641383,"['expired_document', 'name_mismatch']",45,False,False,rejected,expired_document
+KYC-00111,David Marquez,,1024103865,national_id,Saudi Arabia,2003-07-20,2015-12-14,2030-09-02,False,0.969,0.465,"Medina, Saudi Arabia",+966544565574,['name_mismatch'],22,False,False,rejected,name_mismatch
+KYC-00112,Kyle Mason,ابتسام العفيفي,1329121277,national_id,Saudi Arabia,1975-06-02,2021-01-04,2027-05-01,False,0.985,0.92,"Dammam, Saudi Arabia",+966590352135,[],51,False,False,approved,
+KYC-00113,Dennis Blair,بهجة النمر,1044206788,national_id,Saudi Arabia,1990-09-23,2016-02-22,2026-07-27,False,0.851,0.883,"Jeddah, Saudi Arabia",+966599410137,[],35,False,False,approved,
+KYC-00114,Angela Griffith,,2510702966,passport,Philippines,1987-03-03,2022-08-30,2028-12-20,False,0.85,0.878,"Riyadh, Saudi Arabia",+966599934768,[],39,False,False,approved,
+KYC-00115,Jason Taylor,كنار كهلان,2462638380,passport,Egypt,1961-02-09,2020-05-18,2030-06-09,False,0.734,0.891,"Riyadh, Saudi Arabia",+966540785932,['duplicate_id'],65,False,True,rejected,duplicate_id
+KYC-00116,Julie Hart,,1348039652,national_id,Saudi Arabia,1996-07-30,2018-07-26,2029-01-09,False,0.949,0.854,"Buraidah, Saudi Arabia",+966529378427,[],29,False,False,approved,
+KYC-00117,Richard Vargas,,1039308705,national_id,Saudi Arabia,1979-01-14,2016-06-18,2026-12-28,False,1.0,0.853,"Jeddah, Saudi Arabia",+966585156915,[],47,False,False,approved,
+KYC-00118,Peggy Church,,1226752895,national_id,Saudi Arabia,1996-06-02,2016-12-19,2028-04-21,False,0.707,0.702,"Taif, Saudi Arabia",+966590295939,"['name_mismatch', 'identity_uncertainty']",30,False,False,rejected,name_mismatch
+KYC-00119,Benjamin Evans,السيدة هند الدقاق,1725135521,national_id,Saudi Arabia,2000-01-21,2022-03-02,2028-10-07,False,0.731,0.86,"Riyadh, Saudi Arabia",+966506762676,[],26,False,False,approved,
+KYC-00120,Jason Terry,كاملة أفغاني,1617932710,national_id,Saudi Arabia,1984-04-18,2017-12-05,2025-10-31,False,0.851,0.983,"Jeddah, Saudi Arabia",+966559970629,[],42,False,False,approved,
+KYC-00121,Jessica Chang,المهندس سعود المهرة,2015336884,passport,Yemen,1983-05-05,2017-08-30,2022-05-29,True,0.613,0.904,"Buraidah, Saudi Arabia",+966573103241,"['expired_document', 'high_risk_nationality']",43,False,False,rejected,expired_document
+KYC-00122,Katelyn Porter,نبهان بنو فراس,2467741862,passport,Egypt,1987-02-10,2019-02-22,2025-07-02,False,0.72,0.92,"Riyadh, Saudi Arabia",+966521158693,[],39,False,False,approved,
+KYC-00123,Rachel Clark,الدكتورة تمام الهدمي,2868793741,iqama,Egypt,2002-01-16,2015-05-23,2030-10-18,False,0.876,0.868,"Mecca, Saudi Arabia",+966533206163,[],24,False,False,approved,
+KYC-00124,Beverly Martinez,ياسمين ثقيف,2945116868,passport,Other,1982-05-23,2020-10-29,2025-02-20,False,0.648,0.943,"Taif, Saudi Arabia",+966522999119,[],44,False,False,manual_review,multiple_soft_risk_flags
+KYC-00125,Rachael Townsend,المهندس سعدي الشعباني,2856467997,iqama,Philippines,2012-02-03,2019-07-09,2024-10-29,True,0.769,0.982,"Tabuk, Saudi Arabia",+966545054447,"['expired_document', 'underage']",14,True,False,rejected,expired_document
+KYC-00126,Veronica Moore,الدكتور ثامر البامية,2324754691,passport,Bangladesh,1979-06-26,2019-07-26,2030-10-17,False,0.71,0.973,"Dammam, Saudi Arabia",+966586289023,[],47,False,False,approved,
+KYC-00127,William Chang,أروى بنو ذي أصبح,2030705345,passport,Yemen,1992-08-28,2019-06-14,2026-05-23,False,0.783,0.917,"Abha, Saudi Arabia",+966555241406,['high_risk_nationality'],33,False,False,approved,
+KYC-00128,Jesse Larson,الأستاذ مروان بارق,1933334680,national_id,Saudi Arabia,2004-06-06,2022-08-26,2019-06-26,True,0.739,0.94,"Dammam, Saudi Arabia",+966546657437,"['expired_document', 'duplicate_id']",22,False,True,rejected,expired_document
+KYC-00129,Brian Garcia,,1896910858,national_id,Saudi Arabia,1997-04-27,2018-03-03,2026-03-19,False,0.712,0.899,"Dammam, Saudi Arabia",+966532830965,[],29,False,False,approved,
+KYC-00130,Melissa Dudley,السيد صدّام المظفر,2744666099,passport,Pakistan,1985-05-24,2023-02-23,2030-12-30,False,0.832,0.921,"Dammam, Saudi Arabia",+966528241724,[],41,False,False,approved,
+KYC-00131,Amanda Fletcher,الدكتور صدّاح الرباب,2513534655,passport,Pakistan,1983-03-11,2020-03-14,2030-04-12,False,0.981,0.943,"Jeddah, Saudi Arabia",+966568460223,[],43,False,False,approved,
+KYC-00132,Kevin Brown,الآنسة جوريّة هذيل,1972521752,national_id,Saudi Arabia,1972-08-08,2015-01-20,2027-05-08,False,0.876,0.875,"Jeddah, Saudi Arabia",+966529666676,[],53,False,False,approved,
+KYC-00133,Mr. Anthony Olson,ليان طقش,1835058300,national_id,Saudi Arabia,1981-02-28,2017-07-15,2028-11-11,False,0.799,0.896,"Dammam, Saudi Arabia",+966578985625,[],45,False,False,approved,
+KYC-00134,Stephanie Houston,,2532603323,iqama,Other,1996-06-14,2020-08-28,2029-02-10,False,0.872,0.969,"Abha, Saudi Arabia",+966590901001,[],30,False,False,approved,
+KYC-00135,Mrs. Sheena Fleming,,1618472304,national_id,Saudi Arabia,1974-07-13,2022-06-06,2026-07-16,False,0.596,0.943,"Tabuk, Saudi Arabia",+966539348356,['low_selfie_match'],51,False,False,manual_review,multiple_soft_risk_flags
+KYC-00136,Michelle Mills,,1087375300,national_id,Saudi Arabia,1974-12-15,2021-06-09,2026-09-03,False,0.945,0.967,"Dammam, Saudi Arabia",+966537447012,[],51,False,False,approved,
+KYC-00137,Erica Patterson,,2556110022,iqama,Yemen,1989-08-20,2021-12-21,2026-01-16,False,0.743,0.656,"Tabuk, Saudi Arabia",+966562120216,"['name_mismatch', 'high_risk_nationality', 'identity_uncertainty']",36,False,False,rejected,name_mismatch
+KYC-00138,Benjamin Baxter,,2972965902,iqama,Syria,1991-11-24,2016-04-07,2029-12-11,False,0.899,0.376,"Abha, Saudi Arabia",+966599358891,"['name_mismatch', 'high_risk_nationality']",34,False,False,rejected,name_mismatch
+KYC-00139,Jill Hicks,المهندسة جمان طوطح,1375628900,national_id,Saudi Arabia,1977-01-15,2020-09-01,2030-07-24,False,0.852,0.886,"Medina, Saudi Arabia",+966586631779,[],49,False,False,approved,
+KYC-00140,Robert Larson,الدكتور عبد العليم حميضة,1775170166,national_id,Saudi Arabia,2015-02-28,2015-01-01,2028-06-01,False,0.785,0.934,"Khobar, Saudi Arabia",+966550375899,['underage'],11,True,False,rejected,underage
+KYC-00141,Justin Keller,خاشعة زحيكة,2711305548,iqama,Egypt,2001-06-30,2016-03-11,2019-11-04,True,0.597,0.911,"Jeddah, Saudi Arabia",+966563735160,"['expired_document', 'low_selfie_match']",24,False,False,rejected,expired_document
+KYC-00142,Joshua Hernandez,عقيل الرباب,2779827080,passport,Syria,1989-06-01,2021-07-24,2030-09-14,False,0.831,0.987,"Mecca, Saudi Arabia",+966516995866,['high_risk_nationality'],37,False,False,approved,
+KYC-00143,Michelle Mann,وفاء بلقرن,2465472269,passport,Other,2003-07-29,2020-09-29,2028-07-09,False,0.753,0.88,"Khobar, Saudi Arabia",+966522885158,[],22,False,False,approved,
+KYC-00144,Jordan Graham,جاسم خولان,2846081062,iqama,Egypt,1972-07-16,2017-03-29,2026-10-22,False,0.547,0.953,"Dammam, Saudi Arabia",+966538057198,['low_selfie_match'],53,False,False,manual_review,multiple_soft_risk_flags
+KYC-00145,Madeline Lopez,بثينة الكالوتي,2384066658,iqama,Yemen,2003-05-12,2017-10-26,2029-12-20,False,0.947,0.947,"Buraidah, Saudi Arabia",+966533472122,['high_risk_nationality'],23,False,False,approved,
+KYC-00146,Lori Cochran,,2606484229,passport,Pakistan,1970-04-03,2018-09-15,2026-09-27,False,0.588,0.569,"Buraidah, Saudi Arabia",+966547985158,"['low_selfie_match', 'name_mismatch', 'identity_uncertainty']",56,False,False,rejected,name_mismatch
+KYC-00147,Robert Norris,,1281826886,national_id,Saudi Arabia,1979-12-04,2017-05-23,2028-09-18,False,0.766,0.93,"Riyadh, Saudi Arabia",+966515739930,[],46,False,False,approved,
+KYC-00148,Jason Rogers,,2616484085,iqama,Pakistan,1992-10-27,2019-12-31,2028-04-29,False,0.885,0.879,"Mecca, Saudi Arabia",+966588013361,[],33,False,False,approved,
+KYC-00149,Jason Smith,أريج جرهم,1612075011,national_id,Saudi Arabia,2005-08-17,2017-10-28,2027-07-22,False,0.924,0.911,"Jeddah, Saudi Arabia",+966580919015,[],20,False,False,approved,
+KYC-00150,Cynthia Peters,,2449147660,passport,Syria,1993-12-06,2017-06-19,2022-05-21,True,0.755,0.977,"Dammam, Saudi Arabia",+966550882100,"['expired_document', 'high_risk_nationality']",32,False,False,rejected,expired_document
+KYC-00151,Renee Edwards,,2881435368,iqama,India,1978-04-03,2017-06-23,2027-11-02,False,0.846,0.978,"Abha, Saudi Arabia",+966578141413,[],48,False,False,approved,
+KYC-00152,Rebecca Fox,,2552314913,iqama,Pakistan,1990-03-20,2018-09-06,2028-06-06,False,0.891,0.873,"Taif, Saudi Arabia",+966520533645,[],36,False,False,approved,
+KYC-00153,Shannon Joyce,,1577754781,national_id,Saudi Arabia,1997-03-18,2015-12-02,2026-07-28,False,0.882,0.944,"Abha, Saudi Arabia",+966509969308,[],29,False,False,approved,
+KYC-00154,Anita Woods,,1872563942,national_id,Saudi Arabia,1992-11-23,2016-01-06,2030-08-19,False,0.77,0.369,"Mecca, Saudi Arabia",+966582722992,['name_mismatch'],33,False,False,rejected,name_mismatch
+KYC-00155,Andrea Henson,حيدر ترابين,2503731453,iqama,Pakistan,1979-04-11,2020-10-22,2029-01-19,False,0.615,0.856,"Abha, Saudi Arabia",+966544989266,[],47,False,False,manual_review,multiple_soft_risk_flags
+KYC-00156,Brian Bowman,لاما عاملة,1184638655,national_id,Saudi Arabia,1991-08-17,2021-10-10,2019-07-24,True,0.993,0.884,"Mecca, Saudi Arabia",+966522591365,['expired_document'],34,False,False,rejected,expired_document
+KYC-00157,Christopher Norris,,2773926030,iqama,Pakistan,1996-07-28,2016-10-21,2023-10-01,True,0.972,0.375,"Buraidah, Saudi Arabia",+966590413797,"['expired_document', 'name_mismatch']",29,False,False,rejected,expired_document
+KYC-00158,Sarah Jackson,الأستاذ مروان الدجاني,2369292984,passport,Yemen,2000-10-02,2018-11-04,2025-10-09,False,0.858,0.908,"Abha, Saudi Arabia",+966562912799,['high_risk_nationality'],25,False,False,approved,
+KYC-00159,Allen Reed,أسيل بنو ياس,1881172980,national_id,Saudi Arabia,2004-10-04,2022-08-11,2030-11-09,False,0.605,0.914,"Taif, Saudi Arabia",+966559916247,[],21,False,False,manual_review,multiple_soft_risk_flags
+KYC-00160,Caleb Hicks,السيد سامح البديري,2498643009,passport,Philippines,1993-04-25,2015-01-30,2027-04-22,False,0.937,0.897,"Buraidah, Saudi Arabia",+966544869594,[],33,False,False,approved,
+KYC-00161,Kimberly Freeman,,2368872588,iqama,Other,1983-10-04,2021-06-24,2029-06-19,False,0.799,0.962,"Mecca, Saudi Arabia",+966513865890,[],42,False,False,approved,
+KYC-00162,John Robinson,السيدة ديمه الترجمان الصالح,1012796114,national_id,Saudi Arabia,1973-08-04,2021-10-30,2022-04-24,True,0.585,0.91,"Buraidah, Saudi Arabia",+966502770384,"['expired_document', 'low_selfie_match']",52,False,False,rejected,expired_document
+KYC-00163,Bonnie Hunter,عبد القدّوس طقش,1988392053,national_id,Saudi Arabia,1977-01-23,2015-12-22,2029-06-25,False,0.747,0.928,"Jeddah, Saudi Arabia",+966584895543,[],49,False,False,approved,
+KYC-00164,Ross Carpenter,,2769042681,passport,India,1992-07-27,2018-04-20,2026-04-25,False,0.916,0.994,"Buraidah, Saudi Arabia",+966547697357,[],33,False,False,approved,
+KYC-00165,Alexander Lopez,,2714163356,passport,Pakistan,1968-03-03,2021-01-03,2020-12-14,True,0.821,0.973,"Tabuk, Saudi Arabia",+966555394237,['expired_document'],58,False,False,rejected,expired_document
+KYC-00166,Amber Cooley,مختار عذرة,2343333952,passport,Pakistan,1975-05-19,2015-11-18,2030-07-11,False,0.873,0.965,"Tabuk, Saudi Arabia",+966559579472,[],51,False,False,approved,
+KYC-00167,Mary Edwards,,2639208678,iqama,Other,2012-11-23,2019-06-01,2026-12-17,False,0.761,0.897,"Taif, Saudi Arabia",+966591559428,"['underage', 'duplicate_id']",13,True,True,rejected,underage
+KYC-00168,Julia Fletcher,سائد ضبيعة,1479552763,national_id,Saudi Arabia,2003-09-28,2019-03-05,2029-06-29,False,0.836,0.877,"Medina, Saudi Arabia",+966514386632,[],22,False,False,approved,
+KYC-00169,Crystal Gardner,,2702672885,passport,Philippines,1983-06-17,2017-10-24,2025-07-15,False,0.672,0.536,"Tabuk, Saudi Arabia",+966554558845,"['name_mismatch', 'identity_uncertainty']",43,False,False,rejected,name_mismatch
+KYC-00170,Nicole Conrad,,1159399824,national_id,Saudi Arabia,2000-03-13,2020-09-21,2030-01-05,False,0.93,0.907,"Mecca, Saudi Arabia",+966525699611,[],26,False,False,approved,
+KYC-00171,Carlos Dyer,,1355449647,national_id,Saudi Arabia,1986-04-17,2023-05-22,2030-01-19,False,0.754,0.511,"Jeddah, Saudi Arabia",+966532611178,['name_mismatch'],40,False,False,rejected,name_mismatch
+KYC-00172,Mark Montoya,,1681149216,national_id,Saudi Arabia,1981-02-05,2023-04-10,2026-06-02,False,0.859,0.717,"Khobar, Saudi Arabia",+966577848728,"['name_mismatch', 'duplicate_id']",45,False,True,rejected,name_mismatch
+KYC-00173,Ronald Trevino,الأستاذ نيازي عليان,1979688457,national_id,Saudi Arabia,1974-01-07,2019-12-15,2029-08-16,False,0.814,0.536,"Tabuk, Saudi Arabia",+966580774064,['name_mismatch'],52,False,False,rejected,name_mismatch
+KYC-00174,Johnny Hernandez,,2853686632,passport,India,1998-12-23,2019-05-16,2027-06-23,False,0.922,0.913,"Buraidah, Saudi Arabia",+966544846312,[],27,False,False,approved,
+KYC-00175,Adrienne Martinez,نور الحقّ عبيد,1179749735,national_id,Saudi Arabia,2009-07-23,2020-12-31,2019-02-23,True,0.808,0.851,"Medina, Saudi Arabia",+966556475705,"['expired_document', 'underage']",16,True,False,rejected,expired_document
+KYC-00176,Lisa Mathews,,1204618723,national_id,Saudi Arabia,1981-03-21,2019-04-12,2026-05-15,False,0.881,0.957,"Medina, Saudi Arabia",+966503718376,[],45,False,False,approved,
+KYC-00177,Richard Alvarez,الآنسة إباء الدواسر,2520881474,iqama,Pakistan,1972-05-03,2022-06-23,2026-04-08,False,0.831,0.53,"Medina, Saudi Arabia",+966500979251,['name_mismatch'],54,False,False,rejected,name_mismatch
+KYC-00178,Kathy Love,,1719500528,national_id,Saudi Arabia,1975-08-24,2020-06-21,2028-11-23,False,0.948,0.916,"Khobar, Saudi Arabia",+966524077848,[],50,False,False,approved,
+KYC-00179,Theodore Gray,,2928557498,passport,Pakistan,1993-10-29,2016-09-26,2027-12-15,False,0.692,0.926,"Buraidah, Saudi Arabia",+966559351863,[],32,False,False,manual_review,multiple_soft_risk_flags
+KYC-00180,William Chung,الأستاذ طارق ابو عيد,2829456511,iqama,Egypt,1972-12-28,2015-06-29,2026-06-16,False,0.786,0.855,"Riyadh, Saudi Arabia",+966596789940,[],53,False,False,approved,
+KYC-00181,David Kirk,,1910371705,national_id,Saudi Arabia,1988-08-28,2019-02-20,2025-08-27,False,0.862,0.32,"Abha, Saudi Arabia",+966511386338,['name_mismatch'],37,False,False,rejected,name_mismatch
+KYC-00182,Eugene Miller,,2886195761,passport,India,1978-02-03,2021-03-02,2028-10-14,False,0.736,0.93,"Khobar, Saudi Arabia",+966585566593,[],48,False,False,approved,
+KYC-00183,Amber Chavez,,2684577600,passport,Egypt,1945-09-25,2020-10-21,2021-05-21,True,1.0,0.897,"Dammam, Saudi Arabia",+966588899210,['expired_document'],80,False,False,rejected,expired_document
+KYC-00184,Lance Martinez,,2245933441,passport,Egypt,1995-07-12,2017-06-09,2028-08-22,False,0.834,0.876,"Buraidah, Saudi Arabia",+966519409610,[],30,False,False,approved,
+KYC-00185,Karina West,,2566139060,iqama,Syria,1971-11-06,2018-07-31,2026-09-05,False,0.734,0.951,"Buraidah, Saudi Arabia",+966598136462,['high_risk_nationality'],54,False,False,approved,
+KYC-00186,Lawrence Davis,المهندس نشأت حميضة,1179086416,national_id,Saudi Arabia,2004-09-17,2022-10-29,2019-07-07,True,0.984,0.88,"Abha, Saudi Arabia",+966598331465,['expired_document'],21,False,False,rejected,expired_document
+KYC-00187,Sean Wilcox,,2166553559,passport,Pakistan,2004-07-11,2018-06-02,2028-12-03,False,0.548,0.872,"Medina, Saudi Arabia",+966552110392,['low_selfie_match'],21,False,False,manual_review,multiple_soft_risk_flags
+KYC-00188,Andrea Erickson,,2051477053,iqama,Yemen,1979-07-04,2017-04-14,2027-11-26,False,0.577,0.943,"Riyadh, Saudi Arabia",+966569804204,"['low_selfie_match', 'high_risk_nationality']",46,False,False,manual_review,multiple_soft_risk_flags
+KYC-00189,Shannon Collins,,1940701645,national_id,Saudi Arabia,1970-11-09,2018-04-13,2029-05-03,False,0.834,0.865,"Abha, Saudi Arabia",+966512387800,[],55,False,False,approved,
+KYC-00190,Ronald Torres,بنان بنو مالك,1845762055,national_id,Saudi Arabia,1983-07-25,2017-08-25,2030-08-16,False,0.937,0.859,"Riyadh, Saudi Arabia",+966584325621,[],42,False,False,approved,
+KYC-00191,Jeffrey Green,,2639264957,passport,Pakistan,1979-04-11,2022-04-26,2024-01-27,True,0.788,0.696,"Taif, Saudi Arabia",+966529251881,"['expired_document', 'name_mismatch']",47,False,False,rejected,expired_document
+KYC-00192,Michael Edwards,السيد جليل سرندح,1205664742,national_id,Saudi Arabia,1974-10-16,2016-06-22,2027-12-30,False,0.746,0.942,"Riyadh, Saudi Arabia",+966551728975,[],51,False,False,approved,
+KYC-00193,Tina White,,1677223306,national_id,Saudi Arabia,1970-09-03,2018-01-10,2027-07-01,False,0.803,0.86,"Buraidah, Saudi Arabia",+966575736609,[],55,False,False,approved,
+KYC-00194,Anthony Cobb,الدكتور واصل الامام,2569998808,iqama,Pakistan,1990-06-30,2015-06-23,2027-10-04,False,0.463,0.909,"Abha, Saudi Arabia",+966503476447,['low_selfie_match'],35,False,False,manual_review,multiple_soft_risk_flags
+KYC-00195,Wendy Williams,,1490827718,national_id,Saudi Arabia,2004-12-06,2021-07-25,2026-07-09,False,0.737,0.432,"Tabuk, Saudi Arabia",+966514521117,"['name_mismatch', 'identity_uncertainty']",21,False,False,rejected,name_mismatch
+KYC-00196,Ronald Jackson,الأستاذ عطاء الجاعوني,2868926860,passport,India,1985-01-13,2021-05-05,2026-09-07,False,0.886,0.872,"Dammam, Saudi Arabia",+966547421230,[],41,False,False,approved,
+KYC-00197,Gina Morton,كايد عبده,2077780973,iqama,India,1999-08-01,2020-05-02,2029-12-15,False,0.963,0.932,"Medina, Saudi Arabia",+966502205020,[],26,False,False,approved,
+KYC-00198,Anne Dean,جوان جهينة,2510162249,iqama,India,2001-05-24,2021-09-02,2026-12-28,False,0.898,0.962,"Dammam, Saudi Arabia",+966555616814,[],25,False,False,approved,
+KYC-00199,George Jackson,,2458683390,passport,Egypt,2002-09-25,2022-01-20,2025-12-26,False,0.638,0.998,"Khobar, Saudi Arabia",+966548995299,[],23,False,False,manual_review,multiple_soft_risk_flags
+KYC-00200,Lisa Abbott,السيد شعلان شمران,2729343010,iqama,Egypt,2005-09-27,2016-04-28,2027-04-30,False,0.839,1.0,"Abha, Saudi Arabia",+966530344144,[],20,False,False,approved,
+KYC-00201,Carlos Reyes,راجح الرباب,2015569902,iqama,Egypt,1985-02-27,2022-07-17,2030-04-28,False,0.871,0.944,"Khobar, Saudi Arabia",+966576084958,[],41,False,False,approved,
+KYC-00202,Brian Martinez,,2955124056,passport,Egypt,1977-06-12,2021-05-27,2027-02-07,False,0.655,0.98,"Khobar, Saudi Arabia",+966504617357,[],49,False,False,manual_review,multiple_soft_risk_flags
+KYC-00203,Victoria Morris,الأستاذ نسيب جودة,2384215031,iqama,Bangladesh,1971-02-13,2023-12-17,2030-08-11,False,0.882,0.981,"Jeddah, Saudi Arabia",+966582307681,[],55,False,False,approved,
+KYC-00204,Gerald Fowler,,1091570184,national_id,Saudi Arabia,2012-07-02,2022-03-01,2028-08-07,False,0.91,0.893,"Jeddah, Saudi Arabia",+966542241098,['underage'],13,True,False,rejected,underage
+KYC-00205,Chad Alvarado,مُنير الطحان,2858542493,passport,Egypt,1983-12-20,2021-11-16,2029-12-23,False,0.848,0.858,"Taif, Saudi Arabia",+966529979545,[],42,False,False,approved,
+KYC-00206,Cory Castro,,2792171747,passport,Bangladesh,1980-01-15,2016-08-11,2027-11-23,False,0.829,0.909,"Khobar, Saudi Arabia",+966577017157,[],46,False,False,approved,
+KYC-00207,Thomas Henderson,فداء عتيبة,2459928161,passport,Egypt,1999-02-18,2015-10-18,2030-12-23,False,0.664,0.887,"Jeddah, Saudi Arabia",+966553966958,[],27,False,False,manual_review,multiple_soft_risk_flags
+KYC-00208,Tracy Wagner,,2197199758,passport,Pakistan,1989-12-21,2016-12-22,2029-07-21,False,0.859,0.332,"Taif, Saudi Arabia",+966557013290,['name_mismatch'],36,False,False,rejected,name_mismatch
+KYC-00209,Henry Vega,الأستاذة يسرى المنتفق,2784699733,passport,Philippines,1984-03-15,2018-05-12,2028-06-01,False,1.0,0.987,"Buraidah, Saudi Arabia",+966586240580,[],42,False,False,approved,
+KYC-00210,Zachary Floyd,وفاء وهبة,1851403696,national_id,Saudi Arabia,2001-12-05,2019-04-17,2029-11-18,False,0.682,0.949,"Taif, Saudi Arabia",+966556242201,[],24,False,False,manual_review,multiple_soft_risk_flags
+KYC-00211,Charles Lowery,,2762126796,passport,India,1990-05-20,2020-09-17,2030-01-18,False,0.756,0.851,"Abha, Saudi Arabia",+966546895009,[],36,False,False,approved,
+KYC-00212,Melanie Gonzales,,2197128478,iqama,Egypt,1997-05-14,2015-12-29,2025-11-16,False,0.877,0.931,"Khobar, Saudi Arabia",+966580778795,[],29,False,False,approved,
+KYC-00213,Anthony Cabrera,,1442094940,national_id,Saudi Arabia,1995-12-08,2016-11-23,2028-04-10,False,0.881,0.862,"Dammam, Saudi Arabia",+966542944401,[],30,False,False,approved,
+KYC-00214,Madison Mccoy,خاطر ارناؤوط,2752437280,passport,India,1973-10-14,2016-08-17,2026-09-24,False,0.663,0.963,"Tabuk, Saudi Arabia",+966523950410,[],52,False,False,manual_review,multiple_soft_risk_flags
+KYC-00215,Jessica Patel,اعتكاف البغدادي,1674783667,national_id,Saudi Arabia,1993-10-17,2019-11-16,2023-01-13,True,0.743,0.993,"Khobar, Saudi Arabia",+966569454414,['expired_document'],32,False,False,rejected,expired_document
+KYC-00216,Elizabeth Young,,2739385258,iqama,India,2009-02-04,2015-10-06,2019-02-05,True,0.891,0.953,"Dammam, Saudi Arabia",+966530091093,"['expired_document', 'underage']",17,True,False,rejected,expired_document
+KYC-00217,Carly Rodriguez,ليم السيفي,2119269212,passport,Sudan,1990-12-12,2022-05-29,2030-02-01,False,0.905,0.986,"Mecca, Saudi Arabia",+966514066504,['high_risk_nationality'],35,False,False,approved,
+KYC-00218,Kerry Hahn,السيدة بهاء بنو خالد,2271739627,iqama,Sudan,1994-04-02,2023-08-15,2026-03-12,False,0.775,0.957,"Buraidah, Saudi Arabia",+966547072006,['high_risk_nationality'],32,False,False,approved,
+KYC-00219,Tracy Nicholson,,1569087766,national_id,Saudi Arabia,2005-01-11,2023-10-22,2020-07-14,True,1.0,0.922,"Khobar, Saudi Arabia",+966554601585,['expired_document'],21,False,False,rejected,expired_document
+KYC-00220,Cheryl Stewart,جودي الخزرج,1743280634,national_id,Saudi Arabia,1974-10-16,2022-01-27,2030-06-16,False,0.826,0.689,"Medina, Saudi Arabia",+966509376184,['name_mismatch'],51,False,False,rejected,name_mismatch
+KYC-00221,Dawn Jackson,المهندس مُرضي جعفر,2005050613,iqama,Egypt,1999-12-08,2020-11-12,2026-09-03,False,0.815,0.513,"Buraidah, Saudi Arabia",+966503202041,['name_mismatch'],26,False,False,rejected,name_mismatch
+KYC-00222,John Rogers,زيدان جعفر,2911179931,passport,Egypt,1989-02-13,2018-10-13,2029-07-05,False,0.733,0.996,"Medina, Saudi Arabia",+966509251142,[],37,False,False,approved,
+KYC-00223,Sharon Schmidt,,2582739021,passport,Philippines,1998-05-11,2021-11-13,2026-10-09,False,0.958,0.352,"Dammam, Saudi Arabia",+966567232487,['name_mismatch'],28,False,False,rejected,name_mismatch
+KYC-00224,Mrs. Diane Ramos,,1290927914,national_id,Saudi Arabia,1970-03-16,2021-04-03,2026-04-27,False,0.834,0.997,"Abha, Saudi Arabia",+966583734031,[],56,False,False,approved,
+KYC-00225,Shirley Faulkner,شهم صيداني,2722005436,iqama,Philippines,1997-09-01,2023-07-04,2026-03-04,False,0.804,0.968,"Medina, Saudi Arabia",+966579956353,[],28,False,False,approved,
+KYC-00226,Jason Smith,,2313636317,iqama,Philippines,1972-06-09,2019-11-21,2024-11-01,True,0.547,0.908,"Khobar, Saudi Arabia",+966543520904,"['expired_document', 'low_selfie_match']",54,False,False,rejected,expired_document
+KYC-00227,Amber Stanton,,1776253492,national_id,Saudi Arabia,1998-08-14,2021-11-09,2027-07-30,False,1.0,0.999,"Dammam, Saudi Arabia",+966506335693,[],27,False,False,approved,
+KYC-00228,Matthew Allen,الدكتور جميل أنمار,2906007806,passport,Yemen,1991-07-02,2023-12-13,2026-02-06,False,0.942,0.886,"Taif, Saudi Arabia",+966532543107,['high_risk_nationality'],34,False,False,approved,
+KYC-00229,Maurice Olson,المهندسة ميار بنو الأحمر,2799077262,passport,India,1986-08-13,2022-01-11,2025-01-06,False,0.849,0.9,"Dammam, Saudi Arabia",+966598931950,[],39,False,False,approved,
+KYC-00230,Ms. Kara Green,,2016579055,iqama,Egypt,1995-01-25,2022-11-27,2020-04-18,True,0.785,0.647,"Buraidah, Saudi Arabia",+966533554864,"['expired_document', 'name_mismatch']",31,False,False,rejected,expired_document
+KYC-00231,Scott Benton,,1557788178,national_id,Saudi Arabia,1993-11-26,2018-04-12,2029-02-16,False,0.909,0.991,"Tabuk, Saudi Arabia",+966511624112,[],32,False,False,approved,
+KYC-00232,Patricia Chandler,فوّاز الزماميري,1272380468,national_id,Saudi Arabia,1966-04-05,2018-11-21,2025-03-29,False,0.545,0.859,"Abha, Saudi Arabia",+966556955798,['low_selfie_match'],60,False,False,manual_review,multiple_soft_risk_flags
+KYC-00233,David Wilkinson,مايا الجاعوني,2749242437,iqama,Bangladesh,1982-12-04,2023-08-19,2026-08-31,False,0.74,0.989,"Mecca, Saudi Arabia",+966522310592,[],43,False,False,approved,
+KYC-00234,Matthew Thompson,ليم السيفي,1523805525,national_id,Saudi Arabia,1977-04-17,2020-12-25,2025-04-13,False,0.926,0.925,"Khobar, Saudi Arabia",+966520885474,[],49,False,False,approved,
+KYC-00235,Gabrielle Mason,,2975170281,passport,Other,1988-01-07,2021-12-04,2030-01-01,False,0.753,0.879,"Dammam, Saudi Arabia",+966530187186,[],38,False,False,approved,
+KYC-00236,Justin Huber,السيد كاظم بني بيات,1599805626,national_id,Saudi Arabia,1986-09-22,2015-02-19,2028-12-10,False,0.903,0.917,"Tabuk, Saudi Arabia",+966567426629,[],39,False,False,approved,
+KYC-00237,Heather Mosley,المهندسة جوين العفيفي,2347851961,passport,India,2016-03-01,2018-01-24,2030-03-08,False,0.77,0.626,"Riyadh, Saudi Arabia",+966549478730,"['name_mismatch', 'underage']",10,True,False,rejected,name_mismatch
+KYC-00238,Debra Maxwell,الأستاذ رجاء بنو الحارث بن كعب,2447146273,passport,Philippines,2012-02-10,2020-07-12,2025-10-01,False,0.625,0.904,"Dammam, Saudi Arabia",+966571589042,['underage'],14,True,False,rejected,underage
+KYC-00239,Nicholas Harris,أجوان قطينة,2572520456,passport,India,1985-12-20,2015-07-19,2030-12-10,False,0.789,0.944,"Mecca, Saudi Arabia",+966585544518,[],40,False,False,approved,
+KYC-00240,Joseph Reynolds,,2028457652,passport,India,1976-12-07,2020-08-23,2027-02-11,False,0.783,0.934,"Abha, Saudi Arabia",+966581671120,[],49,False,False,approved,
+KYC-00241,Sharon Martinez,,2527985240,iqama,Egypt,1975-04-28,2017-06-29,2019-08-07,True,0.781,0.997,"Jeddah, Saudi Arabia",+966510760310,['expired_document'],51,False,False,rejected,expired_document
+KYC-00242,Jennifer Andrews,,2714014011,passport,Philippines,1954-03-20,2021-08-03,2027-01-27,False,0.725,0.854,"Dammam, Saudi Arabia",+966595528938,[],72,False,False,approved,
+KYC-00243,Angela Hess,فردوس الزرقان,2908334280,passport,India,1949-06-05,2017-05-26,2030-04-29,False,0.713,0.994,"Taif, Saudi Arabia",+966563836151,[],77,False,False,approved,
+KYC-00244,Catherine Key,ريما مرازيق البقوم,2754801571,passport,Egypt,1990-07-01,2021-09-25,2029-12-24,False,0.939,0.911,"Jeddah, Saudi Arabia",+966575207167,[],35,False,False,approved,
+KYC-00245,Jason Matthews,بتلاء الدجاني,2126691215,passport,Egypt,1960-03-11,2017-03-31,2029-07-14,False,0.984,0.892,"Dammam, Saudi Arabia",+966565796784,[],66,False,False,approved,
+KYC-00246,Karen Ward MD,سفير العجمان,1711477320,national_id,Saudi Arabia,1972-05-15,2015-10-07,2025-04-20,False,0.98,0.907,"Buraidah, Saudi Arabia",+966591187734,[],54,False,False,approved,
+KYC-00247,Shelby Williams,,2848588006,iqama,India,1975-05-06,2019-04-21,2029-03-22,False,0.79,0.949,"Mecca, Saudi Arabia",+966576246719,[],51,False,False,approved,
+KYC-00248,Madeline Diaz,بلقيس زبيد,2782806479,iqama,Pakistan,1960-10-28,2023-08-06,2028-08-05,False,0.831,0.471,"Buraidah, Saudi Arabia",+966505616556,['name_mismatch'],65,False,False,rejected,name_mismatch
+KYC-00249,Maria Wong,ناضر قرش,1333491141,national_id,Saudi Arabia,1970-11-19,2021-01-14,2030-03-03,False,0.751,0.913,"Riyadh, Saudi Arabia",+966556965917,['duplicate_id'],55,False,True,rejected,duplicate_id
+KYC-00250,Richard Sherman,يسرى ربيعة,1357852945,national_id,Saudi Arabia,1954-01-19,2020-07-28,2025-11-05,False,0.715,0.93,"Buraidah, Saudi Arabia",+966563919195,[],72,False,False,approved,
+KYC-00251,Joshua Parrish,,1987635148,national_id,Saudi Arabia,1989-06-02,2022-06-10,2027-03-31,False,0.742,0.951,"Abha, Saudi Arabia",+966529737489,[],37,False,False,approved,
+KYC-00252,Martin Cooper,المهندس معمّر مشعشع,2908357232,iqama,Bangladesh,2004-05-04,2018-05-14,2029-08-08,False,0.867,0.975,"Taif, Saudi Arabia",+966544249363,[],22,False,False,approved,
+KYC-00253,Joshua Smith,دانة بلغازي,1303477866,national_id,Saudi Arabia,1971-08-30,2017-04-07,2026-07-13,False,1.0,0.933,"Tabuk, Saudi Arabia",+966500159416,[],54,False,False,approved,
+KYC-00254,Brian Baldwin,جوليا السروري,2623198189,passport,Yemen,1968-07-24,2017-10-28,2026-01-05,False,0.859,0.868,"Buraidah, Saudi Arabia",+966563632123,['high_risk_nationality'],57,False,False,approved,
+KYC-00255,Jerry Daniels,المهندسة بتول نجم,2649078515,iqama,Other,1991-04-21,2022-08-28,2028-02-12,False,1.0,0.957,"Buraidah, Saudi Arabia",+966500348645,[],35,False,False,approved,
+KYC-00256,Christopher Garcia,,2837606441,passport,Syria,1955-07-25,2018-05-03,2026-10-19,False,0.626,0.945,"Taif, Saudi Arabia",+966504177656,['high_risk_nationality'],70,False,False,manual_review,multiple_soft_risk_flags
+KYC-00257,Elizabeth Ramirez,المهندسة كوثر الظفير,2248156985,passport,Yemen,1971-03-25,2023-07-19,2020-01-23,True,0.675,0.656,"Jeddah, Saudi Arabia",+966512382965,"['expired_document', 'name_mismatch', 'high_risk_nationality', 'identity_uncertainty']",55,False,False,rejected,expired_document
+KYC-00258,James Miller,,2429543165,passport,Egypt,1986-12-05,2021-05-25,2025-04-05,False,0.665,0.947,"Tabuk, Saudi Arabia",+966534206969,[],39,False,False,manual_review,multiple_soft_risk_flags
+KYC-00259,Amber Pierce,نوّاف ميرفاب,1152910867,national_id,Saudi Arabia,1992-03-02,2016-04-30,2027-04-13,False,0.907,0.893,"Medina, Saudi Arabia",+966593436262,[],34,False,False,approved,
+KYC-00260,Kathy Wood,,1439735971,national_id,Saudi Arabia,2010-06-30,2018-08-17,2029-06-17,False,1.0,0.957,"Dammam, Saudi Arabia",+966511800537,['underage'],15,True,False,rejected,underage
+KYC-00261,Travis Clark,,2048964652,passport,Syria,1970-02-06,2015-06-18,2027-12-03,False,0.887,0.92,"Taif, Saudi Arabia",+966524150274,['high_risk_nationality'],56,False,False,approved,
+KYC-00262,Michael Rowe,هايدي بنو لام,2449485625,iqama,Pakistan,1992-01-15,2023-07-26,2029-12-08,False,0.942,0.343,"Dammam, Saudi Arabia",+966527617075,['name_mismatch'],34,False,False,rejected,name_mismatch
+KYC-00263,Jo Martin,,2771215134,iqama,Other,1977-07-20,2023-05-30,2028-01-23,False,0.657,1.0,"Mecca, Saudi Arabia",+966561371504,['duplicate_id'],48,False,True,rejected,duplicate_id
+KYC-00264,Joseph Williams,,2659152017,passport,Pakistan,1999-08-02,2020-05-19,2028-01-09,False,0.751,0.851,"Tabuk, Saudi Arabia",+966559230450,[],26,False,False,approved,
+KYC-00265,Phillip Brown,,2164236103,iqama,Pakistan,2004-12-19,2019-07-07,2026-09-24,False,0.921,0.971,"Mecca, Saudi Arabia",+966551583776,[],21,False,False,approved,
+KYC-00266,Kenneth Riley,مصباح قرش,2165926610,iqama,Egypt,1990-10-17,2022-08-02,2026-09-28,False,0.916,0.929,"Tabuk, Saudi Arabia",+966561742243,[],35,False,False,approved,
+KYC-00267,Sophia Nelson,عبد القدّوس الماني,2908108186,iqama,Egypt,1990-11-04,2022-05-30,2027-11-04,False,0.722,0.852,"Mecca, Saudi Arabia",+966560164597,[],35,False,False,approved,
+KYC-00268,Jonathan Massey,الدكتورة بارعة المنتفق,2945232194,iqama,Philippines,1974-10-09,2019-11-12,2025-01-24,False,0.946,0.852,"Taif, Saudi Arabia",+966597499564,[],51,False,False,approved,
+KYC-00269,Michael Williams,,1203103037,national_id,Saudi Arabia,1999-02-23,2017-09-17,2027-02-21,False,0.996,0.659,"Tabuk, Saudi Arabia",+966577079334,['name_mismatch'],27,False,False,rejected,name_mismatch
+KYC-00270,Barbara Sanders,,2050166799,iqama,Egypt,1983-01-17,2015-06-01,2030-06-15,False,0.926,0.959,"Tabuk, Saudi Arabia",+966530806958,[],43,False,False,approved,
+KYC-00271,Nicholas Conway,,1671795760,national_id,Saudi Arabia,2002-07-30,2017-02-26,2029-11-30,False,0.829,0.901,"Tabuk, Saudi Arabia",+966524665729,[],23,False,False,approved,
+KYC-00272,Angel Boyd,,1172232971,national_id,Saudi Arabia,1992-02-24,2018-05-28,2025-07-12,False,0.904,0.904,"Mecca, Saudi Arabia",+966580156193,[],34,False,False,approved,
+KYC-00273,Jennifer Johnson,السيد شهاب قيس عيلان,1374550842,national_id,Saudi Arabia,1993-02-13,2021-10-11,2025-07-26,False,0.935,0.976,"Buraidah, Saudi Arabia",+966591808121,[],33,False,False,approved,
+KYC-00274,John Randolph,لمّاح القلموني,2247871255,iqama,Yemen,1975-07-08,2017-04-06,2029-08-30,False,0.763,0.851,"Dammam, Saudi Arabia",+966582145653,['high_risk_nationality'],50,False,False,approved,
+KYC-00275,Randall Lane,,1863266678,national_id,Saudi Arabia,1986-03-25,2015-05-02,2025-02-10,False,0.791,0.398,"Taif, Saudi Arabia",+966506029084,['name_mismatch'],40,False,False,rejected,name_mismatch
+KYC-00276,Adam Sawyer,هيمان بكر بن عبد مناة,1845504892,national_id,Saudi Arabia,1990-01-06,2022-03-22,2029-12-17,False,0.678,0.983,"Medina, Saudi Arabia",+966541085628,[],36,False,False,manual_review,multiple_soft_risk_flags
+KYC-00277,Maureen Dunn,,2318848520,iqama,Other,2015-01-21,2021-08-23,2028-05-29,False,0.768,0.608,"Khobar, Saudi Arabia",+966510174907,"['name_mismatch', 'underage']",11,True,False,rejected,name_mismatch
+KYC-00278,Eric Hunt,ريما الجبشة,1399893544,national_id,Saudi Arabia,2002-01-25,2021-06-04,2029-03-27,False,0.47,0.887,"Khobar, Saudi Arabia",+966571266110,['low_selfie_match'],24,False,False,manual_review,multiple_soft_risk_flags
+KYC-00279,Donald Kidd,عمر بنو العريج,1273715869,national_id,Saudi Arabia,2004-12-08,2019-06-06,2030-08-06,False,0.556,0.992,"Mecca, Saudi Arabia",+966528277288,['low_selfie_match'],21,False,False,manual_review,multiple_soft_risk_flags
+KYC-00280,Rodney Johnson,,1377028519,national_id,Saudi Arabia,1974-12-13,2016-05-10,2028-04-01,False,0.515,0.344,"Dammam, Saudi Arabia",+966547022960,"['low_selfie_match', 'name_mismatch', 'identity_uncertainty']",51,False,False,rejected,name_mismatch
+KYC-00281,Lisa Young,,2432701851,iqama,Sudan,1988-09-24,2020-05-24,2030-01-27,False,0.99,0.958,"Abha, Saudi Arabia",+966577725199,['high_risk_nationality'],37,False,False,approved,
+KYC-00282,Raymond Kline,الدكتور سيّد راجح,1365807412,national_id,Saudi Arabia,1995-08-29,2022-01-24,2028-06-19,False,0.697,0.869,"Buraidah, Saudi Arabia",+966589098378,[],30,False,False,manual_review,multiple_soft_risk_flags
+KYC-00283,Tara Lynn,بدرالدّجى الشحوح,2820433971,passport,Yemen,1997-03-22,2018-08-05,2025-07-04,False,0.541,0.877,"Taif, Saudi Arabia",+966541118242,"['low_selfie_match', 'duplicate_id', 'high_risk_nationality']",29,False,True,rejected,duplicate_id
+KYC-00284,Lauren Peters,,1124620952,national_id,Saudi Arabia,2009-08-28,2018-05-05,2028-08-03,False,0.835,0.725,"Jeddah, Saudi Arabia",+966503399378,"['name_mismatch', 'underage']",16,True,False,rejected,name_mismatch
+KYC-00285,Jerry Silva,,2140578617,iqama,Philippines,2016-02-08,2017-08-15,2025-03-18,False,0.783,0.887,"Dammam, Saudi Arabia",+966596718325,['underage'],10,True,False,rejected,underage
+KYC-00286,Sandra Wheeler,,2386870079,passport,Egypt,1977-07-05,2015-01-03,2023-05-30,True,1.0,0.888,"Medina, Saudi Arabia",+966598402891,['expired_document'],48,False,False,rejected,expired_document
+KYC-00287,Denise Waters,الأستاذة ترف قريش,1612846398,national_id,Saudi Arabia,1959-04-13,2022-08-25,2027-12-07,False,1.0,0.949,"Buraidah, Saudi Arabia",+966550209700,[],67,False,False,approved,
+KYC-00288,David Hernandez,,2876811807,iqama,Pakistan,1985-11-01,2019-03-22,2029-01-06,False,0.796,0.976,"Jeddah, Saudi Arabia",+966575370304,[],40,False,False,approved,
+KYC-00289,Sydney Neal,بوران العقيدات,2319433750,iqama,Pakistan,2001-08-01,2022-12-05,2025-01-30,False,0.894,0.98,"Abha, Saudi Arabia",+966539992192,[],24,False,False,approved,
+KYC-00290,Peter Krause,,2493843089,passport,Pakistan,1995-02-15,2020-02-03,2022-10-16,True,1.0,0.991,"Taif, Saudi Arabia",+966564187758,['expired_document'],31,False,False,rejected,expired_document
+KYC-00291,Nicole Reed,سلمان جديس,2046875063,passport,Philippines,1995-08-26,2015-04-14,2027-07-14,False,0.945,0.372,"Jeddah, Saudi Arabia",+966507609543,['name_mismatch'],30,False,False,rejected,name_mismatch
+KYC-00292,Alexis Jenkins,راما وهبة,1350583199,national_id,Saudi Arabia,1974-04-17,2022-01-05,2026-05-27,False,0.803,0.608,"Jeddah, Saudi Arabia",+966520704961,['name_mismatch'],52,False,False,rejected,name_mismatch
+KYC-00293,Kelly Caldwell,,1080466196,national_id,Saudi Arabia,1996-11-23,2023-10-31,2025-02-13,False,0.692,0.943,"Riyadh, Saudi Arabia",+966578593110,[],29,False,False,manual_review,multiple_soft_risk_flags
+KYC-00294,Justin Hoover,,2939284567,passport,India,1989-12-11,2017-01-31,2025-06-30,False,0.859,0.39,"Khobar, Saudi Arabia",+966549822749,['name_mismatch'],36,False,False,rejected,name_mismatch
+KYC-00295,Dr. Nicole Mcclure,,1508920388,national_id,Saudi Arabia,1988-12-07,2018-11-09,2027-04-01,False,0.769,0.355,"Tabuk, Saudi Arabia",+966595995946,['name_mismatch'],37,False,False,rejected,name_mismatch
+KYC-00296,Brian Johnson,,1170730337,national_id,Saudi Arabia,1980-09-21,2020-05-23,2028-09-19,False,0.758,0.906,"Riyadh, Saudi Arabia",+966550150812,[],45,False,False,approved,
+KYC-00297,Shelley Dawson,,1395003342,national_id,Saudi Arabia,1981-10-02,2023-01-23,2027-10-05,False,0.831,0.987,"Taif, Saudi Arabia",+966515347355,['duplicate_id'],44,False,True,rejected,duplicate_id
+KYC-00298,Katie Clark,الأستاذ حازم العوازم,2112233865,iqama,India,1989-04-08,2022-02-18,2025-07-09,False,0.843,0.938,"Mecca, Saudi Arabia",+966553042897,[],37,False,False,approved,
+KYC-00299,Natalie Medina,,1179128685,national_id,Saudi Arabia,1990-10-29,2017-01-03,2029-03-12,False,0.684,0.921,"Buraidah, Saudi Arabia",+966503337363,[],35,False,False,manual_review,multiple_soft_risk_flags
+KYC-00300,Jessica Brandt,المهندسة نشوة بارق,1692548121,national_id,Saudi Arabia,1993-04-10,2018-12-11,2025-06-18,False,0.798,0.943,"Taif, Saudi Arabia",+966557546027,[],33,False,False,approved,
+KYC-00301,Jennifer Jacobs,,1151488814,national_id,Saudi Arabia,1949-06-01,2016-04-30,2018-06-06,True,0.716,0.888,"Dammam, Saudi Arabia",+966539284044,['expired_document'],77,False,False,rejected,expired_document
+KYC-00302,Joe Howell,ثاقب الكبابيش,2690782633,iqama,Bangladesh,1979-06-01,2020-04-27,2030-04-04,False,0.789,0.919,"Medina, Saudi Arabia",+966566377805,[],47,False,False,approved,
+KYC-00303,Victoria Anderson,,1240755366,national_id,Saudi Arabia,1988-02-04,2023-07-22,2028-05-12,False,0.808,0.988,"Khobar, Saudi Arabia",+966599996636,[],38,False,False,approved,
+KYC-00304,Robert Fletcher,بلسم النمر,1637159741,national_id,Saudi Arabia,2000-04-10,2021-03-14,2030-06-25,False,0.843,0.358,"Medina, Saudi Arabia",+966534817058,['name_mismatch'],26,False,False,rejected,name_mismatch
+KYC-00305,Kyle Singh,ميار بلي,1566212867,national_id,Saudi Arabia,1987-06-14,2017-04-25,2020-04-22,True,0.739,0.874,"Medina, Saudi Arabia",+966587430271,['expired_document'],39,False,False,rejected,expired_document
+KYC-00306,Brenda Brooks,عرفه فهم,2859777901,passport,Bangladesh,1990-06-21,2018-11-21,2028-05-03,False,1.0,0.974,"Mecca, Saudi Arabia",+966596762916,[],36,False,False,approved,
+KYC-00307,Amanda Jackson,أفنان بحمدوني,2324841376,passport,Pakistan,1969-10-19,2016-05-11,2025-11-10,False,0.825,0.912,"Riyadh, Saudi Arabia",+966570176563,[],56,False,False,approved,
+KYC-00308,Johnny Burke,المهندس مجد قضاعة,1041257771,national_id,Saudi Arabia,1999-06-22,2017-09-19,2029-11-28,False,0.678,0.715,"Riyadh, Saudi Arabia",+966591241862,"['name_mismatch', 'identity_uncertainty']",27,False,False,rejected,name_mismatch
+KYC-00309,Tyler Nunez,هند كندة,1042752308,national_id,Saudi Arabia,2001-04-03,2015-07-15,2030-11-12,False,0.699,0.909,"Riyadh, Saudi Arabia",+966506335331,[],25,False,False,manual_review,multiple_soft_risk_flags
+KYC-00310,Heather Anderson,سعدي معتوق,1005313122,national_id,Saudi Arabia,1992-12-27,2016-03-17,2028-08-14,False,0.672,0.878,"Taif, Saudi Arabia",+966513315520,[],33,False,False,manual_review,multiple_soft_risk_flags
+KYC-00311,Jill Pierce,الدكتور رمزي عضل,1506373149,national_id,Saudi Arabia,1973-01-08,2017-06-14,2030-08-09,False,0.875,0.999,"Jeddah, Saudi Arabia",+966595625257,[],53,False,False,approved,
+KYC-00312,Dr. Ashley Hancock,,1099768389,national_id,Saudi Arabia,1970-08-06,2017-08-10,2019-05-24,True,0.814,0.961,"Riyadh, Saudi Arabia",+966525743263,['expired_document'],55,False,False,rejected,expired_document
+KYC-00313,April Drake,,2975245086,passport,India,1982-12-10,2023-06-02,2021-09-18,True,0.775,0.566,"Medina, Saudi Arabia",+966596852701,"['expired_document', 'name_mismatch']",43,False,False,rejected,expired_document
+KYC-00314,Chad Peterson,الدكتورة غيداء بنو أسد,2302321298,passport,Yemen,1979-03-03,2017-08-25,2029-10-12,False,0.888,0.897,"Mecca, Saudi Arabia",+966593449734,['high_risk_nationality'],47,False,False,approved,
+KYC-00315,Barbara Alvarez,الدكتور نوح العجمان,2156627768,iqama,Yemen,1989-06-11,2023-07-12,2030-05-29,False,0.937,0.964,"Mecca, Saudi Arabia",+966582467474,['high_risk_nationality'],37,False,False,approved,
+KYC-00316,Sabrina Kelly,,1971527323,national_id,Saudi Arabia,2014-08-13,2023-03-11,2030-07-06,False,0.835,0.912,"Taif, Saudi Arabia",+966574916016,['underage'],11,True,False,rejected,underage
+KYC-00317,Cassandra Walls,علوان فهم,2364587506,passport,Sudan,1956-01-27,2017-09-19,2029-01-20,False,0.697,0.947,"Mecca, Saudi Arabia",+966543992011,['high_risk_nationality'],70,False,False,manual_review,multiple_soft_risk_flags
+KYC-00318,Hayden Brown,,2691836264,iqama,India,1992-06-16,2020-12-23,2029-04-17,False,0.688,0.96,"Jeddah, Saudi Arabia",+966519524364,[],34,False,False,manual_review,multiple_soft_risk_flags
+KYC-00319,John Patterson,الدكتور كمال ابو عيد,1270116864,national_id,Saudi Arabia,1977-08-27,2016-12-23,2026-07-05,False,0.844,0.918,"Riyadh, Saudi Arabia",+966523467912,[],48,False,False,approved,
+KYC-00320,Jose Wallace,,1161415093,national_id,Saudi Arabia,2000-03-07,2023-07-13,2018-09-08,True,0.892,0.993,"Riyadh, Saudi Arabia",+966513806984,['expired_document'],26,False,False,rejected,expired_document
+KYC-00321,Amy Smith,,2596555535,iqama,Sudan,1986-12-23,2021-11-06,2021-12-29,True,0.972,0.552,"Mecca, Saudi Arabia",+966509184357,"['expired_document', 'name_mismatch', 'high_risk_nationality']",39,False,False,rejected,expired_document
+KYC-00322,Lorraine Zavala,المهندس عارف الطحان,2863050505,iqama,India,1980-06-23,2021-10-21,2025-11-30,False,0.664,0.991,"Jeddah, Saudi Arabia",+966564932898,[],46,False,False,manual_review,multiple_soft_risk_flags
+KYC-00323,Rebecca Lopez,زياد سليم,1714872717,national_id,Saudi Arabia,1980-10-21,2017-09-23,2026-01-02,False,1.0,0.569,"Dammam, Saudi Arabia",+966534712871,['name_mismatch'],45,False,False,rejected,name_mismatch
+KYC-00324,Anne Clark,دانة القضماني,2399156686,iqama,Philippines,1980-01-11,2017-11-27,2018-12-26,True,1.0,0.648,"Jeddah, Saudi Arabia",+966595256904,"['expired_document', 'name_mismatch']",46,False,False,rejected,expired_document
+KYC-00325,Adam Torres,الدكتورة أحلام يشكر,1836655289,national_id,Saudi Arabia,1974-10-13,2019-06-08,2023-03-02,True,0.731,0.883,"Dammam, Saudi Arabia",+966520954814,['expired_document'],51,False,False,rejected,expired_document
+KYC-00326,Kristine Nelson,,2374605233,iqama,Other,1972-05-11,2023-09-14,2030-06-20,False,1.0,0.895,"Mecca, Saudi Arabia",+966508656756,[],54,False,False,approved,
+KYC-00327,Sean Brown,المهندسة دارين العجمان,1844386125,national_id,Saudi Arabia,1996-01-14,2015-08-10,2028-05-30,False,0.751,0.697,"Medina, Saudi Arabia",+966530591266,['name_mismatch'],30,False,False,rejected,name_mismatch
+KYC-00328,Christina Allen,,2015720185,passport,Pakistan,1976-08-31,2022-01-12,2027-10-01,False,0.839,0.37,"Mecca, Saudi Arabia",+966561764750,['name_mismatch'],49,False,False,rejected,name_mismatch
+KYC-00329,Frank Johnson,المهندس محفوظ إياد,1117830999,national_id,Saudi Arabia,2001-02-13,2023-05-11,2024-08-25,True,0.878,0.915,"Jeddah, Saudi Arabia",+966582606888,['expired_document'],25,False,False,rejected,expired_document
+KYC-00330,Anthony Franklin,ناجي كندة,2312920875,passport,Egypt,1975-10-12,2021-06-13,2026-10-23,False,0.945,0.636,"Jeddah, Saudi Arabia",+966584582603,['name_mismatch'],50,False,False,rejected,name_mismatch
+KYC-00331,Linda Adams,,1848729758,national_id,Saudi Arabia,1985-10-18,2021-10-18,2027-05-10,False,0.753,0.311,"Medina, Saudi Arabia",+966529839542,['name_mismatch'],40,False,False,rejected,name_mismatch
+KYC-00332,Luke Hodges,,2184462671,iqama,Pakistan,1964-01-30,2022-10-15,2020-04-14,True,0.656,0.512,"Medina, Saudi Arabia",+966559892625,"['expired_document', 'name_mismatch', 'identity_uncertainty']",62,False,False,rejected,expired_document
+KYC-00333,Donna Hansen,رستم المظفر,2609314181,iqama,Other,1988-03-31,2015-09-28,2025-12-31,False,0.75,0.98,"Taif, Saudi Arabia",+966536112849,[],38,False,False,approved,
+KYC-00334,Sheryl Hall,,2185948491,iqama,Bangladesh,1977-08-29,2018-07-26,2029-05-15,False,0.902,0.971,"Abha, Saudi Arabia",+966596792408,[],48,False,False,approved,
+KYC-00335,Nancy Perez,,2269405396,passport,Pakistan,1978-03-19,2019-12-03,2030-04-04,False,0.724,0.991,"Dammam, Saudi Arabia",+966514651113,[],48,False,False,approved,
+KYC-00336,Charles Montgomery,,2901487068,passport,Sudan,1951-02-14,2020-05-18,2030-12-21,False,0.819,0.911,"Riyadh, Saudi Arabia",+966568538909,['high_risk_nationality'],75,False,False,approved,
+KYC-00337,Nicole Perkins,,1283215285,national_id,Saudi Arabia,1963-12-18,2020-07-22,2029-03-09,False,0.927,0.975,"Dammam, Saudi Arabia",+966547443096,[],62,False,False,approved,
+KYC-00338,Michael Flores,السيد طلعت شويفاتي,1480797050,national_id,Saudi Arabia,1984-09-26,2018-05-07,2025-01-22,False,0.799,0.958,"Taif, Saudi Arabia",+966573188261,[],41,False,False,approved,
+KYC-00339,Ashley Smith,,2243765456,passport,Syria,1994-01-23,2018-01-08,2022-12-02,True,0.748,0.705,"Medina, Saudi Arabia",+966513402665,"['expired_document', 'name_mismatch', 'duplicate_id', 'high_risk_nationality', 'identity_uncertainty']",32,False,True,rejected,expired_document
+KYC-00340,Kimberly Mason,الآنسة شادن الشايقية,2374167872,passport,Syria,2004-04-15,2023-10-02,2030-08-18,False,0.713,0.961,"Jeddah, Saudi Arabia",+966502258030,['high_risk_nationality'],22,False,False,approved,
+KYC-00341,Jesus King,,2690674471,iqama,Pakistan,1981-02-11,2021-12-04,2030-09-26,False,0.858,0.637,"Taif, Saudi Arabia",+966537189239,['name_mismatch'],45,False,False,rejected,name_mismatch
+KYC-00342,Stephen Weaver,الدكتورة ميلاء الأنصاري,2312604326,passport,India,2011-03-29,2016-01-08,2029-04-07,False,0.91,0.896,"Khobar, Saudi Arabia",+966567086041,['underage'],15,True,False,rejected,underage
+KYC-00343,Kimberly Fox DDS,الدكتور مؤمن أشجع,1456350200,national_id,Saudi Arabia,2003-05-30,2018-08-10,2030-04-18,False,0.789,0.888,"Jeddah, Saudi Arabia",+966510825559,[],23,False,False,approved,
+KYC-00344,Andrew Sawyer,جود نور الدين,2343961129,iqama,Egypt,1996-04-24,2022-05-04,2027-03-02,False,0.981,0.989,"Khobar, Saudi Arabia",+966547382023,[],30,False,False,approved,
+KYC-00345,Blake Newman,,1485571617,national_id,Saudi Arabia,1992-08-08,2023-11-14,2024-09-20,True,0.773,0.993,"Medina, Saudi Arabia",+966567881278,['expired_document'],33,False,False,rejected,expired_document
+KYC-00346,Vincent Myers,افتكار أنمار,1669432029,national_id,Saudi Arabia,2001-04-03,2015-02-06,2030-10-02,False,1.0,0.956,"Medina, Saudi Arabia",+966544812308,[],25,False,False,approved,
+KYC-00347,Traci Hanson,,1024240338,national_id,Saudi Arabia,1999-02-05,2018-11-24,2029-02-20,False,0.689,0.89,"Dammam, Saudi Arabia",+966550053424,[],27,False,False,manual_review,multiple_soft_risk_flags
+KYC-00348,Ryan Jefferson,,2649837354,passport,Other,1998-04-02,2023-06-11,2030-01-02,False,1.0,0.959,"Jeddah, Saudi Arabia",+966572722397,[],28,False,False,approved,
+KYC-00349,Sally Carter,السيدة هيا زحيكة,2404226931,passport,Sudan,1989-02-16,2017-10-01,2029-07-07,False,0.939,0.971,"Riyadh, Saudi Arabia",+966510023142,['high_risk_nationality'],37,False,False,approved,
+KYC-00350,Grace Becker,عابد بنو مالك,2018513279,passport,Sudan,1977-04-26,2018-06-13,2026-09-25,False,0.906,0.932,"Riyadh, Saudi Arabia",+966501841862,['high_risk_nationality'],49,False,False,approved,
+KYC-00351,Veronica Shaw,غالب ترابين,1303662543,national_id,Saudi Arabia,1962-04-05,2022-09-13,2026-04-06,False,0.453,0.993,"Khobar, Saudi Arabia",+966515109226,['low_selfie_match'],64,False,False,manual_review,multiple_soft_risk_flags
+KYC-00352,Natalie Washington,ريتال جزار,2624945147,passport,Egypt,1981-11-27,2022-12-23,2025-01-09,False,0.839,0.997,"Mecca, Saudi Arabia",+966567711964,[],44,False,False,approved,
+KYC-00353,Jade Brown,الآنسة سلسبيل حرب,1522655767,national_id,Saudi Arabia,1988-07-27,2021-09-30,2028-09-27,False,1.0,0.907,"Tabuk, Saudi Arabia",+966588361968,[],37,False,False,approved,
+KYC-00354,Kenneth Johnson,سامي خندف,2135030587,passport,India,1949-12-10,2015-09-02,2029-01-18,False,1.0,0.98,"Mecca, Saudi Arabia",+966586333021,[],76,False,False,approved,
+KYC-00355,Jessica Allen,السيد سراج ارناؤوط,2606501917,passport,Other,1977-02-04,2015-05-04,2019-08-02,True,0.862,0.972,"Mecca, Saudi Arabia",+966584765704,['expired_document'],49,False,False,rejected,expired_document
+KYC-00356,Monica Austin,الأستاذ ترف جهينة,1009282066,national_id,Saudi Arabia,1990-05-19,2021-03-19,2027-11-23,False,0.843,0.925,"Mecca, Saudi Arabia",+966541862369,[],36,False,False,approved,
+KYC-00357,Anna Collins,السيد عبد العزيز الكبابيش,1628917756,national_id,Saudi Arabia,1977-05-24,2015-08-12,2029-10-04,False,0.84,0.475,"Dammam, Saudi Arabia",+966528113904,['name_mismatch'],49,False,False,rejected,name_mismatch
+KYC-00358,Wendy Harvey,المهندسة فداء الأشراف,1303419909,national_id,Saudi Arabia,1966-09-14,2015-07-07,2019-01-17,True,0.874,0.851,"Taif, Saudi Arabia",+966583565215,['expired_document'],59,False,False,rejected,expired_document
+KYC-00359,Terri Moreno,,1818209679,national_id,Saudi Arabia,1971-09-05,2018-04-03,2030-03-12,False,0.968,0.885,"Mecca, Saudi Arabia",+966528898572,[],54,False,False,approved,
+KYC-00360,Ashley Dougherty,السيد راني بنو الحارث بن كعب,1596063399,national_id,Saudi Arabia,1976-11-01,2021-05-11,2030-07-31,False,0.9,0.602,"Jeddah, Saudi Arabia",+966571752421,['name_mismatch'],49,False,False,rejected,name_mismatch
+KYC-00361,Amanda Evans,,1551127474,national_id,Saudi Arabia,1989-10-30,2022-04-17,2026-05-23,False,0.957,0.893,"Mecca, Saudi Arabia",+966575895516,[],36,False,False,approved,
+KYC-00362,Brenda Miller,هيا السهول,2090380214,iqama,Egypt,1995-07-30,2019-06-24,2027-07-03,False,0.795,0.919,"Abha, Saudi Arabia",+966571121663,[],30,False,False,approved,
+KYC-00363,Kevin Miller,,1155973714,national_id,Saudi Arabia,1994-06-14,2016-09-29,2026-08-20,False,0.753,0.474,"Khobar, Saudi Arabia",+966567303064,['name_mismatch'],32,False,False,rejected,name_mismatch
+KYC-00364,Jesus Norris,السيد عبد السّميع جديس,1212146147,national_id,Saudi Arabia,1993-07-16,2017-05-26,2027-11-29,False,0.739,0.858,"Dammam, Saudi Arabia",+966523567782,[],32,False,False,approved,
+KYC-00365,Jennifer Dougherty,,2596089319,iqama,Other,1984-07-10,2022-06-13,2028-07-20,False,1.0,0.925,"Taif, Saudi Arabia",+966548072791,[],41,False,False,approved,
+KYC-00366,Mrs. Taylor Duncan,,1368296353,national_id,Saudi Arabia,1970-11-16,2015-02-28,2029-01-30,False,0.843,0.56,"Tabuk, Saudi Arabia",+966576655868,['name_mismatch'],55,False,False,rejected,name_mismatch
+KYC-00367,Nicole Hull,جوليا عنزة,2127652892,iqama,Other,1987-02-12,2018-03-13,2029-11-27,False,0.696,0.986,"Jeddah, Saudi Arabia",+966510961798,[],39,False,False,manual_review,multiple_soft_risk_flags
+KYC-00368,Alexa Burns,,1789046337,national_id,Saudi Arabia,1975-02-19,2017-03-12,2026-05-25,False,0.681,0.969,"Taif, Saudi Arabia",+966505384444,[],51,False,False,manual_review,multiple_soft_risk_flags
+KYC-00369,April Brooks,,2306000258,iqama,Bangladesh,1996-11-29,2018-07-24,2029-10-28,False,0.837,0.947,"Buraidah, Saudi Arabia",+966562626582,[],29,False,False,approved,
+KYC-00370,Christopher Krause,,1128196482,national_id,Saudi Arabia,1954-02-21,2016-01-17,2022-11-27,True,1.0,0.523,"Abha, Saudi Arabia",+966519602752,"['expired_document', 'name_mismatch']",72,False,False,rejected,expired_document
+KYC-00371,John Vargas,مؤيّد بنو عجل,1343836404,national_id,Saudi Arabia,1976-06-13,2022-01-13,2024-07-01,True,0.859,0.868,"Mecca, Saudi Arabia",+966511753617,['expired_document'],50,False,False,rejected,expired_document
+KYC-00372,Mr. Michael Pittman,,2171366572,iqama,Philippines,1970-06-16,2017-01-01,2025-05-09,False,0.777,0.648,"Buraidah, Saudi Arabia",+966580284139,['name_mismatch'],56,False,False,rejected,name_mismatch
+KYC-00373,Brian Davis,المهندس حاتم رصاص,1088235130,national_id,Saudi Arabia,1979-11-10,2015-12-08,2026-06-03,False,0.805,0.902,"Tabuk, Saudi Arabia",+966568634234,[],46,False,False,approved,
+KYC-00374,Monique Kerr,,2994237676,passport,Other,1982-03-10,2018-07-29,2029-04-18,False,0.957,0.935,"Jeddah, Saudi Arabia",+966572084964,[],44,False,False,approved,
+KYC-00375,Jeremiah Collins,,2601256253,iqama,India,1999-06-21,2019-03-03,2028-07-11,False,0.896,0.395,"Medina, Saudi Arabia",+966581649383,['name_mismatch'],27,False,False,rejected,name_mismatch
+KYC-00376,Ralph Wilson DDS,بوران بكر بن وائل,1491966553,national_id,Saudi Arabia,1992-02-27,2020-08-04,2021-01-29,True,0.893,0.869,"Taif, Saudi Arabia",+966539040907,['expired_document'],34,False,False,rejected,expired_document
+KYC-00377,James Bass,المهندس عرفات الحداء,1608805017,national_id,Saudi Arabia,2005-12-31,2019-08-28,2028-01-31,False,0.775,0.525,"Dammam, Saudi Arabia",+966577159103,['name_mismatch'],20,False,False,rejected,name_mismatch
+KYC-00378,Mackenzie Krueger,,1021563213,national_id,Saudi Arabia,1986-07-19,2021-01-10,2025-08-04,False,0.921,0.968,"Jeddah, Saudi Arabia",+966545964229,[],39,False,False,approved,
+KYC-00379,Ashley Williams,روعة معتوق,2529671883,passport,Egypt,1999-08-31,2020-06-30,2028-08-11,False,0.84,0.707,"Medina, Saudi Arabia",+966531170303,['name_mismatch'],26,False,False,rejected,name_mismatch
+KYC-00380,Kyle King,,2371539885,iqama,Egypt,1983-12-27,2022-12-12,2026-09-23,False,0.684,0.866,"Taif, Saudi Arabia",+966579836314,[],42,False,False,manual_review,multiple_soft_risk_flags
+KYC-00381,Susan Kline,أناهيد الكواهلة,1491271130,national_id,Saudi Arabia,1978-05-23,2017-12-28,2023-12-15,True,0.73,0.863,"Abha, Saudi Arabia",+966568507451,['expired_document'],48,False,False,rejected,expired_document
+KYC-00382,Samantha Keller,جيلان القرجولي,1663436294,national_id,Saudi Arabia,1992-02-22,2020-10-25,2025-07-24,False,0.848,0.994,"Riyadh, Saudi Arabia",+966594318143,[],34,False,False,approved,
+KYC-00383,Catherine Garcia,,2661347323,iqama,Yemen,1982-12-02,2022-12-01,2025-01-13,False,0.938,0.922,"Medina, Saudi Arabia",+966525122572,['high_risk_nationality'],43,False,False,approved,
+KYC-00384,Cindy Scott,,2650241209,iqama,Other,1991-04-04,2021-07-16,2020-10-10,True,0.899,0.857,"Dammam, Saudi Arabia",+966538822114,"['expired_document', 'duplicate_id']",35,False,True,rejected,expired_document
+KYC-00385,Tiffany Miller,,2775847457,iqama,Philippines,2012-12-15,2018-05-18,2030-10-23,False,0.856,0.939,"Riyadh, Saudi Arabia",+966526325703,['underage'],13,True,False,rejected,underage
+KYC-00386,Brianna Riley,,2531361487,iqama,India,1968-08-20,2016-12-17,2028-11-29,False,0.586,0.909,"Dammam, Saudi Arabia",+966530985916,['low_selfie_match'],57,False,False,manual_review,multiple_soft_risk_flags
+KYC-00387,Dustin Perez,هيام يافع,2410727284,iqama,Philippines,1999-10-20,2016-10-28,2028-03-26,False,0.912,0.883,"Tabuk, Saudi Arabia",+966540650042,[],26,False,False,approved,
+KYC-00388,Thomas Jones,رامي الكثيري,1488214236,national_id,Saudi Arabia,1973-08-15,2018-04-06,2030-04-23,False,0.86,0.887,"Taif, Saudi Arabia",+966514494296,[],52,False,False,approved,
+KYC-00389,Katherine Green,جالا بنو ياس,2923426834,iqama,Pakistan,1983-05-04,2021-05-10,2030-03-04,False,0.708,0.916,"Khobar, Saudi Arabia",+966585756766,[],43,False,False,approved,
+KYC-00390,Tammy Wagner,الأستاذ خاطر شتية,2612943985,passport,Egypt,1994-05-15,2021-05-05,2025-08-08,False,0.787,0.909,"Abha, Saudi Arabia",+966570104159,[],32,False,False,approved,
+KYC-00391,Kristine Jackson,,1497501980,national_id,Saudi Arabia,1993-02-27,2016-08-13,2030-07-22,False,0.987,0.873,"Riyadh, Saudi Arabia",+966579311029,[],33,False,False,approved,
+KYC-00392,Carolyn Rosario,,2331708760,passport,Yemen,1958-06-15,2019-07-16,2027-01-24,False,1.0,0.976,"Tabuk, Saudi Arabia",+966591620223,['high_risk_nationality'],68,False,False,approved,
+KYC-00393,Kyle Fritz,المهندس منيع الكثيري,1837744197,national_id,Saudi Arabia,1982-05-06,2019-05-22,2026-03-16,False,0.606,0.64,"Buraidah, Saudi Arabia",+966540970527,"['name_mismatch', 'identity_uncertainty']",44,False,False,rejected,name_mismatch
+KYC-00394,Mark Lowe,,2402588358,iqama,Yemen,1972-10-25,2016-12-15,2028-12-12,False,0.869,0.934,"Mecca, Saudi Arabia",+966544617679,['high_risk_nationality'],53,False,False,approved,
+KYC-00395,Vicki Thompson,,2259959961,iqama,India,2002-11-16,2016-10-13,2026-03-12,False,0.639,0.885,"Medina, Saudi Arabia",+966512661094,[],23,False,False,manual_review,multiple_soft_risk_flags
+KYC-00396,Peter Harris,المهندس شوقي القلموني,1175902517,national_id,Saudi Arabia,1998-08-05,2021-06-08,2027-03-13,False,0.821,0.916,"Mecca, Saudi Arabia",+966568319013,[],27,False,False,approved,
+KYC-00397,Melissa White,الدكتور نجيب شويفاتي,1205698152,national_id,Saudi Arabia,2002-09-02,2022-03-15,2027-02-18,False,0.897,0.903,"Mecca, Saudi Arabia",+966517661912,[],23,False,False,approved,
+KYC-00398,Patricia Baker,السيد صباح أولاد بوعزيز,2117309850,iqama,Philippines,1983-01-02,2017-10-26,2029-01-05,False,0.684,0.553,"Buraidah, Saudi Arabia",+966538984690,"['name_mismatch', 'identity_uncertainty']",43,False,False,rejected,name_mismatch
+KYC-00399,Vincent Holmes,سبأ بلي,2974005643,passport,Egypt,2004-04-21,2015-09-01,2024-02-19,True,0.864,0.987,"Buraidah, Saudi Arabia",+966590516991,['expired_document'],22,False,False,rejected,expired_document
+KYC-00400,William Coffey,,2240107835,iqama,Yemen,1983-08-12,2023-10-07,2027-07-22,False,0.722,0.316,"Abha, Saudi Arabia",+966596087066,"['name_mismatch', 'high_risk_nationality', 'identity_uncertainty']",42,False,False,rejected,name_mismatch
+KYC-00401,Christian Rivera,الدكتورة أفنان الجعليين,2682171955,iqama,Pakistan,1989-08-01,2015-08-26,2026-01-12,False,0.747,0.983,"Riyadh, Saudi Arabia",+966530102724,[],36,False,False,approved,
+KYC-00402,Edward Maddox,,1593429671,national_id,Saudi Arabia,1973-06-05,2017-10-21,2027-04-24,False,0.774,0.96,"Medina, Saudi Arabia",+966574584384,[],53,False,False,approved,
+KYC-00403,Anthony Byrd,هاجر النقيب,1881056974,national_id,Saudi Arabia,1976-02-25,2020-11-03,2027-05-14,False,0.958,0.855,"Tabuk, Saudi Arabia",+966510704496,[],50,False,False,approved,
+KYC-00404,Jennifer Christian,,1104967066,national_id,Saudi Arabia,1980-01-26,2017-04-22,2029-11-01,False,0.954,0.949,"Riyadh, Saudi Arabia",+966595493059,[],46,False,False,approved,
+KYC-00405,Michael Summers,السيدة ضياء بارق,1601864876,national_id,Saudi Arabia,1995-06-30,2023-08-16,2026-10-28,False,0.951,0.886,"Dammam, Saudi Arabia",+966513845960,[],30,False,False,approved,
+KYC-00406,Ryan Lucas,,2449014954,iqama,India,1989-11-28,2020-03-10,2018-02-06,True,0.787,0.995,"Medina, Saudi Arabia",+966560914985,['expired_document'],36,False,False,rejected,expired_document
+KYC-00407,Nathan Clark,تمام السمان,2244472322,iqama,Sudan,1999-06-05,2015-07-23,2025-06-07,False,0.877,0.898,"Dammam, Saudi Arabia",+966540580935,['high_risk_nationality'],27,False,False,approved,
+KYC-00408,Dana Patel,,1871813359,national_id,Saudi Arabia,2000-07-19,2019-08-31,2022-10-13,True,0.951,0.871,"Khobar, Saudi Arabia",+966565749025,['expired_document'],25,False,False,rejected,expired_document
+KYC-00409,Traci Moore,لمّاح صيام,1290193588,national_id,Saudi Arabia,2001-12-23,2018-11-10,2029-04-01,False,0.835,0.907,"Jeddah, Saudi Arabia",+966539898681,[],24,False,False,approved,
+KYC-00410,Alicia Park,,2978875439,passport,Bangladesh,1980-12-12,2018-09-08,2029-01-22,False,0.793,0.897,"Tabuk, Saudi Arabia",+966565158815,[],45,False,False,approved,
+KYC-00411,Robert Church,,2763928369,passport,India,1997-03-01,2017-12-02,2028-10-31,False,0.801,0.997,"Medina, Saudi Arabia",+966527021648,[],29,False,False,approved,
+KYC-00412,Jill Rhodes,الآنسة دانية ترابين,2120602128,iqama,Pakistan,1987-05-30,2019-09-26,2029-07-06,False,0.866,0.886,"Khobar, Saudi Arabia",+966599910157,[],39,False,False,approved,
+KYC-00413,Robin Smith,السيد كاظم الزرقان,2647229812,iqama,Syria,1996-08-16,2021-08-26,2030-02-01,False,0.726,0.938,"Dammam, Saudi Arabia",+966575098898,['high_risk_nationality'],29,False,False,approved,
+KYC-00414,Christopher Fuller,الأستاذ صادح بنو عمرو,2456522036,iqama,Bangladesh,1995-10-20,2021-11-25,2028-11-23,False,0.909,0.868,"Mecca, Saudi Arabia",+966544913421,[],30,False,False,approved,
+KYC-00415,Alexis Montgomery,,1820908830,national_id,Saudi Arabia,1971-02-27,2019-02-22,2029-10-13,False,0.804,0.894,"Jeddah, Saudi Arabia",+966576741241,[],55,False,False,approved,
+KYC-00416,Karen Ramirez,فتحي معتوق,2315285478,passport,Other,1973-04-28,2022-12-05,2025-06-07,False,0.675,0.99,"Abha, Saudi Arabia",+966500329633,[],53,False,False,manual_review,multiple_soft_risk_flags
+KYC-00417,Kerri Lyons,,1272742318,national_id,Saudi Arabia,2003-08-14,2017-05-27,2018-10-03,True,0.655,0.856,"Buraidah, Saudi Arabia",+966535782434,['expired_document'],22,False,False,rejected,expired_document
+KYC-00418,Zachary Meyers,,2695874131,iqama,India,1957-11-20,2019-09-15,2028-08-25,False,0.83,0.914,"Jeddah, Saudi Arabia",+966556277963,[],68,False,False,approved,
+KYC-00419,Anita Gonzalez,داوود بني بيات,1483608545,national_id,Saudi Arabia,1989-10-28,2019-10-08,2025-08-12,False,0.798,0.973,"Buraidah, Saudi Arabia",+966528319952,[],36,False,False,approved,
+KYC-00420,Harold Thompson,,2061558108,passport,India,1994-01-08,2017-03-23,2029-06-09,False,1.0,0.884,"Khobar, Saudi Arabia",+966563830008,[],32,False,False,approved,
+KYC-00421,Joel Moon,,1670244033,national_id,Saudi Arabia,2010-05-22,2023-10-17,2029-06-30,False,0.954,0.863,"Taif, Saudi Arabia",+966500892196,['underage'],16,True,False,rejected,underage
+KYC-00422,Tina Jones MD,فكري ألمع,1945680447,national_id,Saudi Arabia,1981-11-08,2022-05-11,2029-03-23,False,0.965,0.864,"Tabuk, Saudi Arabia",+966548836076,[],44,False,False,approved,
+KYC-00423,Holly Yang,الأستاذ مناف الكبابيش,2739063757,passport,Sudan,1998-11-01,2018-06-26,2025-12-09,False,0.88,0.923,"Buraidah, Saudi Arabia",+966578930746,['high_risk_nationality'],27,False,False,approved,
+KYC-00424,Daniel Warren,,1520599604,national_id,Saudi Arabia,2003-11-14,2021-04-22,2030-08-10,False,0.861,0.948,"Abha, Saudi Arabia",+966581161620,[],22,False,False,approved,
+KYC-00425,Gina Calderon,,1123710672,national_id,Saudi Arabia,1993-07-13,2020-06-18,2024-02-19,True,0.806,0.739,"Dammam, Saudi Arabia",+966585959224,"['expired_document', 'name_mismatch']",32,False,False,rejected,expired_document
+KYC-00426,Jason Johnson,الآنسة بهاء خثعم,2958947735,passport,Egypt,1951-01-27,2016-11-03,2030-04-25,False,0.828,0.421,"Riyadh, Saudi Arabia",+966543318751,['name_mismatch'],75,False,False,rejected,name_mismatch
+KYC-00427,Rebecca Gallagher MD,روبين ثقيف,1792158350,national_id,Saudi Arabia,1957-04-26,2018-03-10,2029-10-12,False,0.732,0.91,"Medina, Saudi Arabia",+966519213424,[],69,False,False,approved,
+KYC-00428,Ariana Kelley,السيد فكري بدرية,2896599949,passport,Egypt,1991-03-28,2017-05-07,2027-08-08,False,0.768,0.864,"Mecca, Saudi Arabia",+966570510287,[],35,False,False,approved,
+KYC-00429,Pam Adams,,1754813866,national_id,Saudi Arabia,2001-09-06,2020-04-27,2030-11-09,False,0.8,0.882,"Dammam, Saudi Arabia",+966526877418,[],24,False,False,approved,
+KYC-00430,Frank Davis,السيد مصباح العوازم,2205756398,iqama,Yemen,1978-07-27,2019-04-16,2025-02-13,False,0.864,0.904,"Khobar, Saudi Arabia",+966515480940,['high_risk_nationality'],47,False,False,approved,
+KYC-00431,Joseph Joseph,,2604409079,iqama,India,1991-12-30,2016-12-12,2026-03-02,False,0.848,0.873,"Mecca, Saudi Arabia",+966516107051,[],34,False,False,approved,
+KYC-00432,Ronald Newman,,2390552958,iqama,Bangladesh,2016-06-14,2019-07-10,2025-09-09,False,0.827,0.539,"Jeddah, Saudi Arabia",+966527049386,"['name_mismatch', 'underage']",10,True,False,rejected,name_mismatch
+KYC-00433,Susan Green,,1044851579,national_id,Saudi Arabia,1973-11-11,2021-05-08,2025-12-28,False,0.859,0.878,"Mecca, Saudi Arabia",+966503571343,[],52,False,False,approved,
+KYC-00434,Kayla Gentry,الدكتور زغلول أنمار,2406424295,passport,Pakistan,1978-06-12,2018-01-22,2026-12-27,False,0.855,0.889,"Khobar, Saudi Arabia",+966595587209,[],48,False,False,approved,
+KYC-00435,Melissa Green,,1893654358,national_id,Saudi Arabia,2003-05-03,2023-11-28,2030-10-04,False,0.834,0.855,"Mecca, Saudi Arabia",+966572795596,[],23,False,False,approved,
+KYC-00436,Allison Gibson,مقداد دوبلال,2515026755,passport,India,1974-06-30,2017-02-05,2028-06-08,False,0.728,0.932,"Buraidah, Saudi Arabia",+966579966734,[],52,False,False,approved,
+KYC-00437,Catherine Elliott,بنفسج الجبشة,2764038166,iqama,Pakistan,1995-11-27,2019-06-30,2026-11-03,False,0.55,0.995,"Buraidah, Saudi Arabia",+966522501425,['low_selfie_match'],30,False,False,manual_review,multiple_soft_risk_flags
+KYC-00438,Tamara Brown,الدكتور نائل بنو شيبة,2702324412,passport,Egypt,1979-02-14,2019-11-24,2020-09-29,True,0.799,0.933,"Mecca, Saudi Arabia",+966551786376,['expired_document'],47,False,False,rejected,expired_document
+KYC-00439,Andrew Franklin,,2162526546,passport,Bangladesh,1993-12-16,2015-10-21,2025-04-21,False,0.849,0.905,"Buraidah, Saudi Arabia",+966596132730,[],32,False,False,approved,
+KYC-00440,Christopher Bennett,المهندس مُصلح البديري,1615626244,national_id,Saudi Arabia,1991-07-25,2015-05-23,2029-09-24,False,0.982,0.91,"Jeddah, Saudi Arabia",+966551602529,[],34,False,False,approved,
+KYC-00441,Brian Gomez,ضاحي الحواش,2076604641,iqama,Egypt,2005-12-29,2020-01-19,2030-04-24,False,0.765,0.867,"Taif, Saudi Arabia",+966512059438,[],20,False,False,approved,
+KYC-00442,Lori Campbell,الأستاذ ريّان الفتياني,2607401775,iqama,Bangladesh,1996-11-19,2022-09-12,2029-10-10,False,0.595,0.894,"Mecca, Saudi Arabia",+966545607540,['low_selfie_match'],29,False,False,manual_review,multiple_soft_risk_flags
+KYC-00443,Natasha Collins,,2086321812,iqama,India,1998-05-23,2020-07-14,2028-01-31,False,0.745,0.988,"Abha, Saudi Arabia",+966597015502,[],28,False,False,approved,
+KYC-00444,Lindsay Stewart,ربى الخالدي,2681546602,passport,India,1956-07-10,2023-02-03,2025-11-21,False,0.93,0.915,"Dammam, Saudi Arabia",+966549883059,[],69,False,False,approved,
+KYC-00445,Zachary Burns,الدكتور رخاء طقش,2424809624,iqama,Egypt,1988-04-07,2017-04-28,2022-08-25,True,0.767,0.969,"Medina, Saudi Arabia",+966505319497,['expired_document'],38,False,False,rejected,expired_document
+KYC-00446,Diana Calhoun,فوّاز بنو هاشم,2867805555,iqama,India,1976-10-22,2020-03-07,2030-08-06,False,0.74,0.955,"Riyadh, Saudi Arabia",+966591785138,[],49,False,False,approved,
+KYC-00447,Jason Freeman,لورين بدرية,1457702992,national_id,Saudi Arabia,1995-05-05,2019-11-03,2025-04-06,False,0.821,0.998,"Taif, Saudi Arabia",+966591163319,[],31,False,False,approved,
+KYC-00448,Shelley Patrick,نوف اسطمبولي,1268653694,national_id,Saudi Arabia,1986-04-17,2022-01-25,2021-07-25,True,0.722,0.93,"Tabuk, Saudi Arabia",+966547226408,['expired_document'],40,False,False,rejected,expired_document
+KYC-00449,Mr. Trevor Wilson,السيدة لورا الدواسر,2216966630,iqama,Bangladesh,1976-03-20,2021-11-02,2025-11-26,False,0.662,0.899,"Tabuk, Saudi Arabia",+966515096883,[],50,False,False,manual_review,multiple_soft_risk_flags
+KYC-00450,Tiffany Watson,,2753273524,passport,Bangladesh,1971-05-22,2017-04-27,2030-02-24,False,0.706,0.94,"Tabuk, Saudi Arabia",+966581952371,[],55,False,False,approved,
+KYC-00451,Crystal Sullivan,,1068761648,national_id,Saudi Arabia,2004-11-01,2021-10-22,2030-12-28,False,0.792,0.859,"Riyadh, Saudi Arabia",+966556876112,[],21,False,False,approved,
+KYC-00452,Ashley Sandoval,,2256523734,passport,Bangladesh,1998-10-20,2022-10-12,2023-07-07,True,0.694,0.964,"Khobar, Saudi Arabia",+966574949022,['expired_document'],27,False,False,rejected,expired_document
+KYC-00453,Christopher Jones,ترانيم ضبيعة,2359544294,passport,Egypt,1989-09-24,2022-07-20,2026-06-11,False,0.88,0.946,"Dammam, Saudi Arabia",+966529045886,['duplicate_id'],36,False,True,rejected,duplicate_id
+KYC-00454,Gary Jones,خلدون غطفان,2529858567,passport,Egypt,1993-07-24,2020-05-28,2029-04-05,False,0.899,0.575,"Medina, Saudi Arabia",+966524913577,['name_mismatch'],32,False,False,rejected,name_mismatch
+KYC-00455,Michael Smith,,2833506158,passport,Egypt,1994-10-27,2020-12-30,2025-11-22,False,0.86,0.887,"Medina, Saudi Arabia",+966537209484,[],31,False,False,approved,
+KYC-00456,Michelle Hansen,مؤيّد العلمي,1312840333,national_id,Saudi Arabia,1996-01-28,2020-05-08,2025-07-29,False,0.812,0.945,"Jeddah, Saudi Arabia",+966573189397,[],30,False,False,approved,
+KYC-00457,Lori Webster,المهندسة أغاريد عتيبة,1096173997,national_id,Saudi Arabia,1956-04-17,2023-06-18,2028-01-14,False,0.745,0.927,"Abha, Saudi Arabia",+966535488471,[],70,False,False,approved,
+KYC-00458,Kimberly Townsend,السيدة ترانيم بلي,2705877221,passport,Other,2000-03-10,2018-06-01,2022-12-21,True,0.823,0.953,"Jeddah, Saudi Arabia",+966533484587,['expired_document'],26,False,False,rejected,expired_document
+KYC-00459,Erika Nixon,كوثر القزاز,1493925236,national_id,Saudi Arabia,1977-01-31,2021-11-04,2028-08-26,False,1.0,0.968,"Dammam, Saudi Arabia",+966574524555,[],49,False,False,approved,
+KYC-00460,Michelle Harris,اصيل طوطح,1696606065,national_id,Saudi Arabia,1976-04-11,2020-02-15,2025-03-21,False,0.729,0.88,"Khobar, Saudi Arabia",+966505665883,[],50,False,False,approved,
+KYC-00461,Michael Hayes,السيد نوري العجمان,2411325797,iqama,Philippines,1947-01-24,2023-10-05,2030-06-18,False,0.82,0.859,"Abha, Saudi Arabia",+966557417215,[],79,False,False,approved,
+KYC-00462,Tracy Marquez,المهندسة ضياء الحويطات,2229493817,iqama,Other,1995-09-10,2021-02-16,2027-12-04,False,1.0,0.973,"Jeddah, Saudi Arabia",+966555732573,[],30,False,False,approved,
+KYC-00463,Michael Irwin,,2344902166,iqama,Egypt,1991-10-26,2023-12-14,2023-12-05,True,1.0,0.935,"Khobar, Saudi Arabia",+966587495119,['expired_document'],34,False,False,rejected,expired_document
+KYC-00464,Kim Holland,,1818281979,national_id,Saudi Arabia,1978-07-25,2023-06-07,2022-11-01,True,0.954,0.92,"Mecca, Saudi Arabia",+966551295786,['expired_document'],47,False,False,rejected,expired_document
+KYC-00465,Mr. Jason Sanchez,,2940960035,iqama,Yemen,1981-08-12,2017-07-01,2028-08-30,False,0.649,0.973,"Buraidah, Saudi Arabia",+966523234210,['high_risk_nationality'],44,False,False,manual_review,multiple_soft_risk_flags
+KYC-00466,Beverly Moore,,2285155333,passport,Egypt,1989-01-12,2018-01-15,2027-06-09,False,0.785,0.854,"Jeddah, Saudi Arabia",+966560736077,[],37,False,False,approved,
+KYC-00467,Carla Craig,الآنسة بنفسج نور الدين,1369112898,national_id,Saudi Arabia,2003-12-10,2017-05-08,2023-06-27,True,0.813,0.912,"Abha, Saudi Arabia",+966557481700,['expired_document'],22,False,False,rejected,expired_document
+KYC-00468,Susan Townsend,,1661554164,national_id,Saudi Arabia,2001-06-15,2015-12-12,2029-05-16,False,0.707,0.852,"Khobar, Saudi Arabia",+966502329028,[],25,False,False,approved,
+KYC-00469,Johnathan Mendoza,عالية القباني,1700934596,national_id,Saudi Arabia,1988-10-21,2016-12-07,2030-10-26,False,1.0,0.877,"Mecca, Saudi Arabia",+966507346549,[],37,False,False,approved,
+KYC-00470,Kelsey Hoover,الآنسة نوره بنو حنيفة,1050702608,national_id,Saudi Arabia,1996-11-05,2023-02-07,2026-10-10,False,0.777,0.649,"Jeddah, Saudi Arabia",+966517768729,['name_mismatch'],29,False,False,rejected,name_mismatch
+KYC-00471,Craig Miller,,2477425859,passport,Philippines,1974-04-29,2020-05-11,2027-03-15,False,0.922,0.871,"Taif, Saudi Arabia",+966549133424,[],52,False,False,approved,
+KYC-00472,Sean Wheeler,,1798894256,national_id,Saudi Arabia,1976-07-07,2021-07-01,2025-05-21,False,0.923,0.97,"Mecca, Saudi Arabia",+966502032650,[],49,False,False,approved,
+KYC-00473,Russell Curtis,أريج بنو سعد بن ليث بن بكر,2539673794,iqama,India,1975-04-15,2023-05-10,2030-10-09,False,0.917,0.888,"Abha, Saudi Arabia",+966571584156,[],51,False,False,approved,
+KYC-00474,Mark Mccoy,,2137118425,passport,India,1989-07-26,2021-03-16,2025-12-06,False,0.77,0.996,"Abha, Saudi Arabia",+966532303589,[],36,False,False,approved,
+KYC-00475,Kayla Johns,,2858382521,passport,Philippines,1998-06-25,2022-02-11,2027-07-16,False,0.931,0.991,"Dammam, Saudi Arabia",+966506468677,[],28,False,False,approved,
+KYC-00476,Leslie Simon,,1401484399,national_id,Saudi Arabia,1947-08-29,2023-06-21,2026-08-12,False,0.653,0.874,"Medina, Saudi Arabia",+966562669335,[],78,False,False,manual_review,multiple_soft_risk_flags
+KYC-00477,Courtney Riley,الدكتورة غوى الترهي,1426192372,national_id,Saudi Arabia,2004-02-13,2018-09-03,2019-04-26,True,0.675,0.94,"Jeddah, Saudi Arabia",+966589721540,['expired_document'],22,False,False,rejected,expired_document
+KYC-00478,Peter Terrell,,1417692743,national_id,Saudi Arabia,1973-12-22,2023-03-17,2029-01-25,False,0.801,0.977,"Taif, Saudi Arabia",+966560144485,[],52,False,False,approved,
+KYC-00479,Sandra Dominguez,الأستاذة ربى بنو صخر,1451017397,national_id,Saudi Arabia,1989-06-16,2022-06-19,2030-06-22,False,0.608,0.928,"Buraidah, Saudi Arabia",+966519191135,[],37,False,False,manual_review,multiple_soft_risk_flags
+KYC-00480,Sharon White,السيدة نوره ميرفاب,2605779806,iqama,India,1998-03-06,2023-05-08,2025-04-16,False,0.735,0.877,"Dammam, Saudi Arabia",+966560745553,[],28,False,False,approved,
+KYC-00481,Joseph Ballard,,1057423885,national_id,Saudi Arabia,2003-10-17,2018-11-28,2026-12-06,False,0.953,0.942,"Medina, Saudi Arabia",+966554116597,[],22,False,False,approved,
+KYC-00482,David Long,السيد مرسال الخلفاوي,2347557522,iqama,India,1975-01-01,2017-02-16,2030-09-05,False,0.624,0.934,"Taif, Saudi Arabia",+966591311964,[],51,False,False,manual_review,multiple_soft_risk_flags
+KYC-00483,Julie Lewis,المهندس جرير النجار,1585626149,national_id,Saudi Arabia,1973-09-08,2018-08-19,2029-12-18,False,0.862,0.999,"Medina, Saudi Arabia",+966533732043,['duplicate_id'],52,False,True,rejected,duplicate_id
+KYC-00484,Mary Jensen,,2768893628,iqama,Other,1998-02-19,2021-06-15,2029-05-05,False,0.74,0.956,"Dammam, Saudi Arabia",+966565535851,[],28,False,False,approved,
+KYC-00485,Mitchell Rivera,الدكتورة مريم الفتياني,2538921878,passport,Sudan,1997-02-05,2017-07-22,2027-07-07,False,0.667,0.479,"Mecca, Saudi Arabia",+966508780572,"['name_mismatch', 'high_risk_nationality', 'identity_uncertainty']",29,False,False,rejected,name_mismatch
+KYC-00486,Carlos Stewart,الدكتورة أجوان المرازيق,1514940976,national_id,Saudi Arabia,1975-12-25,2019-06-12,2030-01-26,False,0.854,0.955,"Abha, Saudi Arabia",+966562895090,[],50,False,False,approved,
+KYC-00487,Diana Smith,السيدة جلنار الدليم,2911918623,iqama,Pakistan,1996-12-25,2023-09-05,2027-01-05,False,0.835,0.959,"Taif, Saudi Arabia",+966596667252,[],29,False,False,approved,
+KYC-00488,Erica Spears,,1526471246,national_id,Saudi Arabia,1985-10-03,2022-04-05,2028-10-23,False,0.795,0.864,"Riyadh, Saudi Arabia",+966580512080,[],40,False,False,approved,
+KYC-00489,Valerie Wu,راني غنيم,1640995123,national_id,Saudi Arabia,1992-05-07,2017-01-14,2028-11-15,False,0.969,0.906,"Mecca, Saudi Arabia",+966582709081,[],34,False,False,approved,
+KYC-00490,Angela Griffin,عتاب اليوزباشي,2415298217,iqama,Philippines,1976-12-18,2021-11-16,2030-02-06,False,0.924,0.932,"Jeddah, Saudi Arabia",+966581535237,[],49,False,False,approved,
+KYC-00491,Mark Miller,,1605079181,national_id,Saudi Arabia,1984-05-18,2020-11-29,2030-12-19,False,0.62,0.892,"Dammam, Saudi Arabia",+966566661707,[],42,False,False,manual_review,multiple_soft_risk_flags
+KYC-00492,Rebecca Wu,روبا جزيني,1879647408,national_id,Saudi Arabia,1978-06-09,2016-01-01,2026-12-12,False,0.793,0.961,"Dammam, Saudi Arabia",+966563580688,[],48,False,False,approved,
+KYC-00493,Elizabeth Doyle,السيدة جلنار سموم,2031723513,iqama,Bangladesh,1995-08-15,2022-03-08,2025-07-05,False,0.892,0.989,"Khobar, Saudi Arabia",+966526356022,['duplicate_id'],30,False,True,rejected,duplicate_id
+KYC-00494,Emily Yoder,ماذى الغوانمة,2694346066,iqama,India,1978-07-02,2023-09-27,2025-02-12,False,0.782,0.909,"Medina, Saudi Arabia",+966511127128,[],47,False,False,approved,
+KYC-00495,Christopher Gates,شيّق يشكر,1464844941,national_id,Saudi Arabia,1987-09-19,2017-04-07,2030-08-02,False,0.864,0.439,"Taif, Saudi Arabia",+966521136957,['name_mismatch'],38,False,False,rejected,name_mismatch
+KYC-00496,William Norman,السيدة سبأ البقوم,2908335090,iqama,Pakistan,1960-04-24,2017-10-24,2028-12-05,False,0.958,0.985,"Dammam, Saudi Arabia",+966581323570,[],66,False,False,approved,
+KYC-00497,Joshua Campbell,,2398482285,passport,Yemen,2000-09-19,2015-09-24,2030-12-29,False,1.0,0.898,"Medina, Saudi Arabia",+966506090691,['high_risk_nationality'],25,False,False,approved,
+KYC-00498,David Gray,,2981079649,passport,Bangladesh,2003-07-23,2017-08-31,2027-10-22,False,0.841,0.998,"Mecca, Saudi Arabia",+966578532426,[],22,False,False,approved,
+KYC-00499,Amy Taylor,,2506420768,passport,Other,1988-01-17,2016-05-27,2028-12-16,False,0.852,0.919,"Tabuk, Saudi Arabia",+966555562833,[],38,False,False,approved,
+KYC-00500,Erika Melendez,,1393957865,national_id,Saudi Arabia,1979-07-31,2019-05-29,2019-03-22,True,0.938,0.918,"Buraidah, Saudi Arabia",+966560335826,['expired_document'],46,False,False,rejected,expired_document

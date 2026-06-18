@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: tiqmo-kyc-review-api
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DATABASE_URL
+        value: sqlite:////var/data/tiqmo_kyc_reviews.db
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: KYC_REFERENCE_DATE
+        value: 2026-06-18
+      - key: CORS_ORIGINS
+        value: http://localhost:5173
+      - key: GROQ_API_KEY
+        sync: false
+    disk:
+      name: tiqmo-kyc-data
+      mountPath: /var/data
+      sizeGB: 1
