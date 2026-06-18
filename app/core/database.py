@@ -9,6 +9,14 @@ from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 from .config import get_settings
 
 
+def _normalize_database_url(database_url: str) -> str:
+    if database_url.startswith("postgres://"):
+        return database_url.replace("postgres://", "postgresql+psycopg://", 1)
+    if database_url.startswith("postgresql://"):
+        return database_url.replace("postgresql://", "postgresql+psycopg://", 1)
+    return database_url
+
+
 def _ensure_sqlite_directory(database_url: str) -> None:
     if not database_url.startswith("sqlite:///"):
         return
@@ -24,11 +32,12 @@ class Base(DeclarativeBase):
 
 
 settings = get_settings()
-_ensure_sqlite_directory(settings.database_url)
+normalized_database_url = _normalize_database_url(settings.database_url)
+_ensure_sqlite_directory(normalized_database_url)
 
 engine = create_engine(
-    settings.database_url,
-    connect_args={"check_same_thread": False} if settings.database_url.startswith("sqlite") else {},
+    normalized_database_url,
+    connect_args={"check_same_thread": False} if normalized_database_url.startswith("sqlite") else {},
     future=True,
 )
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, expire_on_commit=False, class_=Session)

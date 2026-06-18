@@ -1,8 +1,14 @@
+databases:
+  - name: tiqmo-kyc-db
+    plan: free
+    databaseName: tiqmo_kyc
+    user: tiqmo_kyc_user
+
 services:
   - type: web
     name: tiqmo-kyc-review-api
     runtime: python
-    plan: starter
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
@@ -10,7 +16,9 @@ services:
       - key: PYTHON_VERSION
         value: 3.11.9
       - key: DATABASE_URL
-        value: sqlite:////var/data/tiqmo_kyc_reviews.db
+        fromDatabase:
+          name: tiqmo-kyc-db
+          property: connectionString
       - key: GROQ_MODEL
         value: llama-3.3-70b-versatile
       - key: KYC_REFERENCE_DATE
@@ -19,7 +27,3 @@ services:
         value: http://localhost:5173
       - key: GROQ_API_KEY
         sync: false
-    disk:
-      name: tiqmo-kyc-data
-      mountPath: /var/data
-      sizeGB: 1
