@@ -52,7 +52,7 @@ export function ReviewPage() {
         setRecentReviews(reviews.slice(0, 4))
       })
     } catch {
-      setError('The KYC review could not be completed. Check the sample ID or backend status.')
+      setError('The KYC review could not be completed. Check the dataset record ID or backend status.')
     } finally {
       setIsSubmitting(false)
     }
@@ -67,22 +67,22 @@ export function ReviewPage() {
             Execute deterministic KYC reviews in a single motion.
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
-            The current backend evaluates a saved customer profile by ID, scores the case, and
-            returns decision reasoning plus missing document flags. This page is built to mirror
-            that exact workflow.
+            The current backend evaluates a real record from `kyc_dataset.csv`, scores the case,
+            and returns decision reasoning plus missing document flags. This page is built to
+            mirror that exact workflow.
           </p>
 
           <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
             <label className="block">
               <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
-                Customer ID
+                KYC Record ID
               </span>
               <div className="flex items-center gap-3 rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-3 focus-within:border-indigo-400 focus-within:bg-white">
                 <Search className="h-5 w-5 text-slate-400" />
                 <input
                   value={customerId}
                   onChange={(event) => setCustomerId(event.target.value)}
-                  placeholder="Enter sample customer ID"
+                  placeholder="Enter a record like KYC-00002"
                   className="w-full border-0 bg-transparent text-base text-slate-950 outline-none placeholder:text-slate-400"
                 />
               </div>
@@ -123,7 +123,7 @@ export function ReviewPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
                 Sample scenarios
               </p>
-              <h3 className="text-2xl font-semibold text-slate-950">Quick-launch customer IDs</h3>
+              <h3 className="text-2xl font-semibold text-slate-950">Quick-launch KYC records</h3>
             </div>
           </div>
 

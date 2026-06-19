@@ -101,7 +101,7 @@ export function HomePage() {
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
                 Review date
               </p>
-              <p className="mt-2 text-lg font-semibold text-slate-950">18 Jun 2026</p>
+              <p className="mt-2 text-lg font-semibold text-slate-950">19 Jun 2026</p>
             </div>
             <div className="rounded-3xl border border-white/70 bg-white/85 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
@@ -113,7 +113,7 @@ export function HomePage() {
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
                 Data source
               </p>
-              <p className="mt-2 text-lg font-semibold text-slate-950">Local KYC corpus</p>
+              <p className="mt-2 text-lg font-semibold text-slate-950">Repo CSV dataset</p>
             </div>
           </div>
         </div>
@@ -232,8 +232,9 @@ export function HomePage() {
             </div>
           </div>
           <p className="text-sm leading-7 text-slate-600">
-            Missing fields, expired credentials, sanctions exposure, PEP status, and watchlist
-            hits all feed the returned score before any model-assisted QA layer is considered.
+            Missing fields, selfie mismatch, expired credentials, underage records, duplicate
+            IDs, and high-risk nationality flags all feed the returned score before any
+            model-assisted QA layer is considered.
           </p>
         </div>
 
@@ -250,8 +251,8 @@ export function HomePage() {
             </div>
           </div>
           <p className="text-sm leading-7 text-slate-600">
-            Operators can launch a fresh KYC review from sample customer IDs, inspect the exact
-            reasoning returned by the backend, and move immediately into manual follow-up.
+            Operators can launch a fresh KYC review from real dataset record IDs, inspect the
+            exact reasoning returned by the backend, and move immediately into manual follow-up.
           </p>
         </div>
 
@@ -308,8 +309,8 @@ export function HomePage() {
           </h3>
           <div className="mt-6 space-y-4 text-sm leading-7 text-slate-300">
             <p>
-              Start with the review workspace, trigger a known sample ID, then validate that the
-              reasoning and missing documents line up with the policy outcome you expect.
+              Start with the review workspace, trigger a known dataset record, then validate that
+              the reasoning and missing documents line up with the policy outcome you expect.
             </p>
             <p>
               Once you like the flow, move to the history tab to verify that each decision is
@@ -322,9 +323,9 @@ export function HomePage() {
               Suggested smoke tests
             </p>
             <ul className="mt-4 space-y-3 text-sm text-slate-200">
-              <li>`cust-1001` should approve cleanly.</li>
-              <li>`cust-1003` should require review due to sanctions/PEP exposure.</li>
-              <li>`cust-1004` should reject on watchlist match.</li>
+              <li>`KYC-00002` should approve cleanly.</li>
+              <li>`KYC-00011` should require review due to borderline selfie verification.</li>
+              <li>`KYC-00010` should reject on document expiry.</li>
             </ul>
           </div>
         </div>

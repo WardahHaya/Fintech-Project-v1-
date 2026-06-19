@@ -41,7 +41,7 @@ export function ReviewResultCard({
           </div>
           <h3 className="text-2xl font-semibold text-slate-950">Decision output appears here</h3>
           <p className="mt-3 text-sm leading-7 text-slate-500">
-            Submit a sample customer ID to see the deterministic KYC verdict, confidence score,
+            Submit a KYC dataset record ID to see the deterministic verdict, confidence score,
             triggered rules, and missing document flags returned by the backend.
           </p>
         </div>

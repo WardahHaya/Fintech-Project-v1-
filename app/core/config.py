@@ -36,18 +36,18 @@ class Settings:
     cors_origins: list[str] = None  # type: ignore[assignment]
     reference_date: date = None  # type: ignore[assignment]
     data_root: Path = ROOT_DIR / "data" / "kyc"
-    customer_profiles_path: Path = ROOT_DIR / "data" / "kyc" / "customers_profile.json"
-    document_metadata_path: Path = ROOT_DIR / "data" / "kyc" / "kyc_documents_metadata.json"
+    kyc_dataset_path: Path = ROOT_DIR / "kyc_dataset.csv"
+    merchant_dataset_path: Path = ROOT_DIR / "merchant_dataset.csv"
     required_profile_fields: tuple[str, ...] = (
         "full_name",
         "date_of_birth",
         "country_of_residence",
         "nationality",
-        "pep_status",
-        "risk_watchlist_match",
+        "phone",
     )
-    required_document_types: tuple[str, ...] = ("identity_document", "proof_of_address")
+    required_document_types: tuple[str, ...] = ("identity_document",)
     high_risk_residence_countries: tuple[str, ...] = ("iran", "north korea")
+    high_risk_nationality_countries: tuple[str, ...] = ("yemen", "syria", "sudan", "iran", "north korea")
 
     def __post_init__(self) -> None:
         object.__setattr__(

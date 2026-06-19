@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+import ast
+import csv
 import json
 from dataclasses import dataclass
-from difflib import SequenceMatcher
+from datetime import date
 from functools import lru_cache
-from pathlib import Path
 from typing import Any, TypedDict
 
 from groq import Groq
@@ -12,19 +13,14 @@ from langgraph.graph import END, START, StateGraph
 from pydantic import ValidationError
 
 from app.core.config import get_settings
-from app.schemas.kyc import (
-    CustomerDocumentBundle,
-    CustomerProfile,
-    KYCDecision,
-    KYCReviewResponse,
-)
+from app.schemas.kyc import CustomerDocumentBundle, CustomerProfile, DocumentMetadata, KYCDecision, KYCReviewResponse
 
 
-IDENTITY_DOCUMENT_TYPES = {"national_id", "passport", "iqama", "residence_permit"}
+WATCHLIST_FLAGS = {"watchlist_match", "sanction_match", "risk_watchlist_match"}
 
 
 class CustomerNotFoundError(Exception):
-    """Raised when the customer is missing from the local profile dataset."""
+    """Raised when the customer is missing from the local KYC dataset."""
 
 
 @dataclass(frozen=True)
@@ -34,8 +30,58 @@ class KYCReviewExecution:
     result: KYCReviewResponse
 
 
+@dataclass(frozen=True)
+class KYCDatasetRecord:
+    record_id: str
+    full_name_en: str | None
+    full_name_ar: str | None
+    national_id: str | None
+    document_type: str | None
+    nationality: str | None
+    dob: date | None
+    issue_date: date | None
+    expiry_date: date | None
+    is_expired: bool
+    selfie_match_score: float | None
+    name_match_score: float | None
+    address: str | None
+    phone: str | None
+    risk_flags: tuple[str, ...]
+    age: int | None
+    is_underage: bool
+    duplicate_flag: bool
+    label: str | None
+    rejection_reason: str | None
+
+    @property
+    def full_name(self) -> str | None:
+        return self.full_name_en or self.full_name_ar
+
+    @property
+    def country_of_residence(self) -> str | None:
+        if not self.address:
+            return None
+        segments = [segment.strip() for segment in self.address.split(",") if segment.strip()]
+        if not segments:
+            return None
+        return segments[-1]
+
+    @property
+    def risk_watchlist_match(self) -> bool:
+        return any(flag in WATCHLIST_FLAGS for flag in self.normalized_risk_flags)
+
+    @property
+    def pep_status(self) -> bool:
+        return "pep" in self.normalized_risk_flags
+
+    @property
+    def normalized_risk_flags(self) -> tuple[str, ...]:
+        return tuple(flag.strip().lower() for flag in self.risk_flags if flag and flag.strip())
+
+
 class ReviewState(TypedDict, total=False):
     customer_id: str
+    dataset_record: KYCDatasetRecord
     profile: CustomerProfile
     document_bundle: CustomerDocumentBundle
     reasoning: list[str]
@@ -49,15 +95,85 @@ class ReviewState(TypedDict, total=False):
     result: KYCReviewResponse
 
 
-def _normalize_name(value: str | None) -> str:
-    if not value:
-        return ""
-    sanitized = "".join(character.lower() if character.isalnum() else " " for character in value)
-    return " ".join(sanitized.split())
+def _parse_optional_string(value: str | None) -> str | None:
+    if value is None:
+        return None
+    normalized = value.strip()
+    return normalized or None
 
 
-def _similarity_ratio(left: str | None, right: str | None) -> float:
-    return SequenceMatcher(a=_normalize_name(left), b=_normalize_name(right)).ratio()
+def _parse_bool(value: str | bool | None) -> bool:
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return False
+    return value.strip().lower() in {"1", "true", "yes", "y"}
+
+
+def _parse_float(value: str | None) -> float | None:
+    normalized = _parse_optional_string(value)
+    if normalized is None:
+        return None
+    return float(normalized)
+
+
+def _parse_int(value: str | None) -> int | None:
+    normalized = _parse_optional_string(value)
+    if normalized is None:
+        return None
+    return int(normalized)
+
+
+def _parse_date(value: str | None) -> date | None:
+    normalized = _parse_optional_string(value)
+    if normalized is None:
+        return None
+    return date.fromisoformat(normalized)
+
+
+def _parse_flags(value: str | None) -> tuple[str, ...]:
+    normalized = _parse_optional_string(value)
+    if normalized is None:
+        return tuple()
+    try:
+        parsed = ast.literal_eval(normalized)
+    except (SyntaxError, ValueError):
+        return tuple()
+    if not isinstance(parsed, list):
+        return tuple()
+    return tuple(str(item).strip() for item in parsed if str(item).strip())
+
+
+@lru_cache
+def _load_kyc_dataset(dataset_path: str) -> dict[str, KYCDatasetRecord]:
+    records: dict[str, KYCDatasetRecord] = {}
+    with open(dataset_path, newline="", encoding="utf-8-sig") as handle:
+        reader = csv.DictReader(handle)
+        for row in reader:
+            record = KYCDatasetRecord(
+                record_id=row["record_id"].strip(),
+                full_name_en=_parse_optional_string(row.get("full_name_en")),
+                full_name_ar=_parse_optional_string(row.get("full_name_ar")),
+                national_id=_parse_optional_string(row.get("national_id")),
+                document_type=_parse_optional_string(row.get("document_type")),
+                nationality=_parse_optional_string(row.get("nationality")),
+                dob=_parse_date(row.get("dob")),
+                issue_date=_parse_date(row.get("issue_date")),
+                expiry_date=_parse_date(row.get("expiry_date")),
+                is_expired=_parse_bool(row.get("is_expired")),
+                selfie_match_score=_parse_float(row.get("selfie_match_score")),
+                name_match_score=_parse_float(row.get("name_match_score")),
+                address=_parse_optional_string(row.get("address")),
+                phone=_parse_optional_string(row.get("phone")),
+                risk_flags=_parse_flags(row.get("risk_flags")),
+                age=_parse_int(row.get("age")),
+                is_underage=_parse_bool(row.get("is_underage")),
+                duplicate_flag=_parse_bool(row.get("duplicate_flag")),
+                label=_parse_optional_string(row.get("label")),
+                rejection_reason=_parse_optional_string(row.get("rejection_reason")),
+            )
+            records[record.record_id] = record
+    return records
 
 
 class KYCReviewAgent:
@@ -66,38 +182,51 @@ class KYCReviewAgent:
         self.client = Groq(api_key=self.settings.groq_api_key) if self.settings.groq_enabled else None
         self.graph = self._build_graph()
 
-    def _load_profiles(self) -> list[CustomerProfile]:
-        with open(self.settings.customer_profiles_path, encoding="utf-8") as handle:
-            payload = json.load(handle)
-        return [CustomerProfile.model_validate(item) for item in payload]
+    def _find_customer_context(self, customer_id: str) -> tuple[KYCDatasetRecord, CustomerProfile, CustomerDocumentBundle]:
+        records = _load_kyc_dataset(str(self.settings.kyc_dataset_path))
+        dataset_record = records.get(customer_id)
+        if dataset_record is None:
+            raise CustomerNotFoundError(
+                f"Customer '{customer_id}' was not found in kyc_dataset.csv."
+            )
 
-    def _load_document_bundles(self) -> list[CustomerDocumentBundle]:
-        with open(self.settings.document_metadata_path, encoding="utf-8") as handle:
-            payload = json.load(handle)
-        return [CustomerDocumentBundle.model_validate(item) for item in payload]
+        profile = CustomerProfile(
+            customer_id=dataset_record.record_id,
+            full_name=dataset_record.full_name,
+            date_of_birth=dataset_record.dob,
+            country_of_residence=dataset_record.country_of_residence,
+            nationality=dataset_record.nationality,
+            phone=dataset_record.phone,
+            pep_status=dataset_record.pep_status,
+            risk_watchlist_match=dataset_record.risk_watchlist_match,
+        )
 
-    def _find_customer_context(self, customer_id: str) -> tuple[CustomerProfile, CustomerDocumentBundle]:
-        profiles = {profile.customer_id: profile for profile in self._load_profiles()}
-        bundles = {bundle.customer_id: bundle for bundle in self._load_document_bundles()}
-
-        profile = profiles.get(customer_id)
-        if profile is None:
-            raise CustomerNotFoundError(f"Customer '{customer_id}' was not found in customers_profile.json.")
-
-        document_bundle = bundles.get(customer_id)
-        if document_bundle is None:
-            document_bundle = CustomerDocumentBundle(customer_id=customer_id, documents=[])
-
-        return profile, document_bundle
+        documents = []
+        if dataset_record.document_type:
+            documents.append(
+                DocumentMetadata(
+                    document_type=dataset_record.document_type,
+                    extracted_name=dataset_record.full_name,
+                    expiration_date=dataset_record.expiry_date,
+                )
+            )
+        document_bundle = CustomerDocumentBundle(customer_id=dataset_record.record_id, documents=documents)
+        return dataset_record, profile, document_bundle
 
     def _load_context(self, state: ReviewState) -> ReviewState:
-        profile, document_bundle = self._find_customer_context(state["customer_id"])
-        return {"profile": profile, "document_bundle": document_bundle}
+        dataset_record, profile, document_bundle = self._find_customer_context(state["customer_id"])
+        return {
+            "dataset_record": dataset_record,
+            "profile": profile,
+            "document_bundle": document_bundle,
+        }
 
     def _evaluate_rules(self, state: ReviewState) -> ReviewState:
+        dataset_record = state["dataset_record"]
         profile = state["profile"]
         document_bundle = state["document_bundle"]
         reference_date = self.settings.reference_date
+        normalized_flags = set(dataset_record.normalized_risk_flags)
 
         reasoning: list[str] = []
         missing_documents: list[str] = []
@@ -105,68 +234,98 @@ class KYCReviewAgent:
         hard_reject = False
         review_required = False
 
-        missing_fields = [field for field in self.settings.required_profile_fields if getattr(profile, field, None) in (None, "")]
+        missing_fields = [
+            field_name
+            for field_name in self.settings.required_profile_fields
+            if getattr(profile, field_name, None) in (None, "")
+        ]
         for field_name in missing_fields:
-            reasoning.append(f"Missing required profile field: {field_name}.")
+            reasoning.append(f"Missing required profile field in kyc_dataset.csv: {field_name}.")
             risk_score += 12
 
         if len(missing_fields) >= 2:
             hard_reject = True
 
-        documents_by_type = {document.document_type.strip().lower(): document for document in document_bundle.documents}
-        identity_document = next((document for document in document_bundle.documents if document.document_type.strip().lower() in IDENTITY_DOCUMENT_TYPES), None)
-
-        if identity_document is None:
+        if not dataset_record.national_id or not dataset_record.document_type:
             missing_documents.append("identity_document")
-            reasoning.append("Missing required identity document for KYC verification.")
+            reasoning.append("Missing identity document metadata in kyc_dataset.csv.")
             risk_score += 45
             hard_reject = True
 
-        if "proof_of_address" not in documents_by_type:
-            missing_documents.append("proof_of_address")
-            reasoning.append("Missing required document type: proof_of_address.")
+        if not document_bundle.documents:
+            missing_documents.append("identity_document")
+
+        name_match_score = dataset_record.name_match_score
+        if name_match_score is None:
+            reasoning.append("Name match score is unavailable in the KYC dataset.")
             risk_score += 18
             review_required = True
+        elif name_match_score < 0.60:
+            reasoning.append(
+                f"Severe OCR name discrepancy detected from dataset name_match_score {name_match_score:.3f}."
+            )
+            risk_score += 35
+            hard_reject = True
+        elif name_match_score < 0.75:
+            reasoning.append(
+                f"Moderate OCR name discrepancy detected from dataset name_match_score {name_match_score:.3f}."
+            )
+            risk_score += 20
+            review_required = True
 
-        if identity_document is not None:
-            similarity = _similarity_ratio(profile.full_name, identity_document.extracted_name)
-            if similarity < 0.70:
-                reasoning.append(
-                    "Severe OCR name discrepancy detected between the profile name and identity document extraction."
-                )
-                risk_score += 35
-                hard_reject = True
-            elif similarity < 0.90:
-                reasoning.append(
-                    "Moderate OCR name discrepancy detected between the profile name and identity document extraction."
-                )
-                risk_score += 20
-                review_required = True
+        selfie_match_score = dataset_record.selfie_match_score
+        if selfie_match_score is not None and selfie_match_score < 0.60:
+            reasoning.append(
+                f"Low selfie match score {selfie_match_score:.3f} indicates elevated identity verification risk."
+            )
+            risk_score += 25
+            review_required = True
+        elif selfie_match_score is not None and selfie_match_score < 0.70:
+            reasoning.append(
+                f"Borderline selfie match score {selfie_match_score:.3f} requires analyst review."
+            )
+            risk_score += 12
+            review_required = True
 
-            if identity_document.expiration_date and identity_document.expiration_date < reference_date:
-                reasoning.append(
-                    f"Identity document expired on {identity_document.expiration_date.isoformat()} relative to review date {reference_date.isoformat()}."
-                )
-                risk_score += 45
-                hard_reject = True
-
-        for document in document_bundle.documents:
-            normalized_type = document.document_type.strip().lower()
-            if normalized_type in IDENTITY_DOCUMENT_TYPES:
-                continue
-            if document.expiration_date and document.expiration_date < reference_date:
-                reasoning.append(
-                    f"Supporting document '{normalized_type}' expired on {document.expiration_date.isoformat()} relative to review date {reference_date.isoformat()}."
-                )
-                risk_score += 12
-                review_required = True
+        if dataset_record.is_expired or (
+            dataset_record.expiry_date is not None and dataset_record.expiry_date < reference_date
+        ):
+            expiration_date = dataset_record.expiry_date.isoformat() if dataset_record.expiry_date else "unknown"
+            reasoning.append(
+                f"Identity document expired on {expiration_date} relative to review date {reference_date.isoformat()}."
+            )
+            risk_score += 45
+            hard_reject = True
 
         residence = (profile.country_of_residence or "").strip().lower()
+        nationality = (profile.nationality or "").strip().lower()
         if residence in self.settings.high_risk_residence_countries:
             reasoning.append(
-                f"Country of residence '{profile.country_of_residence}' matches the configured high-risk sanctions list."
+                f"Country of residence '{profile.country_of_residence}' matches the configured high-risk residence list."
             )
             risk_score += 30
+            review_required = True
+
+        if nationality in self.settings.high_risk_nationality_countries or "high_risk_nationality" in normalized_flags:
+            reasoning.append(
+                f"Nationality '{profile.nationality}' is marked as high-risk in the provided KYC dataset."
+            )
+            risk_score += 24
+            review_required = True
+
+        if dataset_record.is_underage or (dataset_record.age is not None and dataset_record.age < 18):
+            reasoning.append("Customer is underage according to the provided KYC dataset.")
+            risk_score += 55
+            hard_reject = True
+
+        if dataset_record.duplicate_flag or "duplicate_id" in normalized_flags:
+            reasoning.append("Duplicate identity signal detected in the provided KYC dataset.")
+            risk_score += 40
+            hard_reject = True
+
+        if "identity_uncertainty" in normalized_flags:
+            reasoning.append("Dataset risk flags include identity uncertainty.")
+            risk_score += 18
             review_required = True
 
         if profile.pep_status is True:
@@ -175,7 +334,7 @@ class KYCReviewAgent:
             review_required = True
 
         if profile.risk_watchlist_match is True:
-            reasoning.append("Risk watchlist match is true and triggers hard rejection.")
+            reasoning.append("Risk watchlist or sanctions match is true and triggers hard rejection.")
             risk_score += 55
             hard_reject = True
 
@@ -191,7 +350,7 @@ class KYCReviewAgent:
             confidence = max(0.85, round(0.98 - (risk_score / 500), 2))
 
         if not reasoning:
-            reasoning.append("All required profile and document checks passed without exceptions.")
+            reasoning.append("All KYC checks passed using the provided kyc_dataset.csv record.")
 
         return {
             "reasoning": reasoning,
@@ -209,9 +368,21 @@ class KYCReviewAgent:
 
         profile = state["profile"]
         document_bundle = state["document_bundle"]
+        dataset_record = state["dataset_record"]
         payload = {
             "profile": profile.model_dump(mode="json"),
             "documents": document_bundle.model_dump(mode="json"),
+            "dataset_record": {
+                "record_id": dataset_record.record_id,
+                "national_id": dataset_record.national_id,
+                "document_type": dataset_record.document_type,
+                "expiry_date": dataset_record.expiry_date.isoformat() if dataset_record.expiry_date else None,
+                "selfie_match_score": dataset_record.selfie_match_score,
+                "name_match_score": dataset_record.name_match_score,
+                "risk_flags": list(dataset_record.risk_flags),
+                "label": dataset_record.label,
+                "rejection_reason": dataset_record.rejection_reason,
+            },
             "reference_date": self.settings.reference_date.isoformat(),
             "deterministic_result": {
                 "decision": state["decision"],
