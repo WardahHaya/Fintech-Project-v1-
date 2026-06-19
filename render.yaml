@@ -22,8 +22,23 @@ services:
       - key: GROQ_MODEL
         value: llama-3.3-70b-versatile
       - key: KYC_REFERENCE_DATE
-        value: 2026-06-18
+        value: 2026-06-19
       - key: CORS_ORIGINS
-        value: http://localhost:5173
+        value: http://localhost:5173,http://127.0.0.1:5173,https://tiqmo-kyc-review-frontend.onrender.com
       - key: GROQ_API_KEY
         sync: false
+  - type: web
+    name: tiqmo-kyc-review-frontend
+    runtime: static
+    plan: free
+    buildCommand: cd frontend && npm ci && npm run build
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: VITE_API_BASE_URL
+        value: https://tiqmo-kyc-review-api.onrender.com
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
