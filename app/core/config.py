@@ -38,6 +38,7 @@ class Settings:
     data_root: Path = ROOT_DIR / "data" / "kyc"
     kyc_dataset_path: Path = ROOT_DIR / "kyc_dataset.csv"
     merchant_dataset_path: Path = ROOT_DIR / "merchant_dataset.csv"
+    frontend_dist_path: Path = ROOT_DIR / "frontend" / "dist"
     required_profile_fields: tuple[str, ...] = (
         "full_name",
         "date_of_birth",

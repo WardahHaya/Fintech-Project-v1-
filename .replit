@@ -1,0 +1,12 @@
+entrypoint = "app/main.py"
+hidden = [".local-logs", "frontend/node_modules", "frontend/dist"]
+build = "cd frontend && npm ci && npm run build"
+run = "python -m uvicorn app.main:app --host 0.0.0.0 --port 3000"
+
+[deployment]
+build = "cd frontend && npm ci && npm run build"
+run = "python -m uvicorn app.main:app --host 0.0.0.0 --port 3000"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
