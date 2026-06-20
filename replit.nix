@@ -1,6 +1,6 @@
 { pkgs }: {
   deps = [
-    pkgs.python311Full
-    pkgs.nodejs
+    pkgs.python311
+    pkgs.nodejs_20
   ];
 }
