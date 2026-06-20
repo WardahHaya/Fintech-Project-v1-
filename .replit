@@ -1,11 +1,27 @@
 entrypoint = "app/main.py"
+language = "python3"
 hidden = [".local-logs", "frontend/node_modules", "frontend/dist"]
-build = "cd frontend && npm ci && npm run build"
-run = "python -m uvicorn app.main:app --host 0.0.0.0 --port 3000"
+build = "python3 -m pip install -r requirements.txt && cd frontend && npm ci && npm run build"
+run = ["python3", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "3000"]
+
+[nix]
+channel = "stable-23_11"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", "requirements.txt", "frontend/package.json"]
+
+[packager]
+language = "python3"
+
+[packager.features]
+guessImports = false
+packageSearch = true
+enabledForHosting = false
 
 [deployment]
-build = "cd frontend && npm ci && npm run build"
-run = "python -m uvicorn app.main:app --host 0.0.0.0 --port 3000"
+deploymentTarget = "cloudrun"
+build = "python3 -m pip install -r requirements.txt && cd frontend && npm ci && npm run build"
+run = ["python3", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "3000"]
 
 [[ports]]
 localPort = 3000

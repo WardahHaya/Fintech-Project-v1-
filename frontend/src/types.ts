@@ -1,4 +1,10 @@
 export type KycDecision = 'APPROVED' | 'REVIEW_REQUIRED' | 'REJECTED'
+export type AppAccessRole = 'admin' | 'user'
+
+export interface AppShellContext {
+  role: AppAccessRole
+  setRole: (role: AppAccessRole) => void
+}
 
 export interface HealthResponse {
   status: string

@@ -19,7 +19,7 @@ export function ReviewTimeline({
 }) {
   if (reviews.length === 0) {
     return (
-      <div className="rounded-[26px] border border-dashed border-slate-200 bg-white/80 px-5 py-12 text-center text-sm text-slate-500">
+      <div className="rounded-[26px] border border-dashed border-teal-900/10 bg-white/80 px-5 py-12 text-center text-sm text-slate-500">
         {emptyLabel}
       </div>
     )
@@ -30,11 +30,11 @@ export function ReviewTimeline({
       {reviews.map((review) => (
         <article
           key={review.id}
-          className="rounded-[26px] border border-white/70 bg-white/85 p-5 shadow-[0_18px_48px_rgba(15,23,42,0.08)]"
+          className="rounded-[26px] border border-teal-900/10 bg-white/88 p-5 shadow-[0_20px_60px_rgba(18,35,45,0.08)] transition hover:-translate-y-0.5"
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
                 {review.customer_id}
               </p>
               <h3 className="mt-1 text-xl font-semibold text-slate-950">{review.full_name}</h3>
@@ -43,7 +43,7 @@ export function ReviewTimeline({
           </div>
 
           <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-slate-500">
-            <span>Risk score {review.risk_score}/100</span>
+            <span>Risk {review.risk_score}/100</span>
             <span>Confidence {Math.round(review.confidence_score * 100)}%</span>
             <span className="inline-flex items-center gap-2">
               <Clock3 className="h-4 w-4" />
@@ -52,8 +52,8 @@ export function ReviewTimeline({
           </div>
 
           <div className="mt-4 grid gap-3 xl:grid-cols-[1.45fr_0.9fr]">
-            <div className="rounded-2xl bg-slate-50/90 px-4 py-4 text-sm leading-6 text-slate-600">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
+            <div className="rounded-2xl border border-teal-900/10 bg-stone-100/80 px-4 py-4 text-sm leading-6 text-slate-600">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
                 Reasoning
               </p>
               <ul className="space-y-2">
@@ -62,8 +62,8 @@ export function ReviewTimeline({
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl bg-slate-50/90 px-4 py-4 text-sm leading-6 text-slate-600">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
+            <div className="rounded-2xl border border-teal-900/10 bg-white/75 px-4 py-4 text-sm leading-6 text-slate-600">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-400">
                 Missing documents
               </p>
               {review.missing_documents.length > 0 ? (
