@@ -6,38 +6,38 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.agents.kyc_agent import CustomerNotFoundError, get_kyc_review_agent
+from app.agents.merchant_agent import MerchantNotFoundError, get_merchant_review_agent
 from app.core.database import get_db
 from app.core.security import get_current_user
-from app.models.kyc import KYCReview
+from app.models.merchant import MerchantReview
 from app.models.user import User
-from app.schemas.kyc import KYCReviewRecord, KYCReviewResponse
+from app.schemas.merchant import MerchantReviewRecord, MerchantReviewResponse
 
 
-router = APIRouter(prefix="/kyc", tags=["kyc"])
+router = APIRouter(prefix="/merchant", tags=["merchant"])
 
 
-@router.post("/review/{customer_id}", response_model=KYCReviewResponse)
-async def review_customer_kyc(
-    customer_id: str,
+@router.post("/review/{merchant_id}", response_model=MerchantReviewResponse)
+async def review_merchant(
+    merchant_id: str,
     db: Session = Depends(get_db),
     _current_user: User = Depends(get_current_user),
-) -> KYCReviewResponse:
-    agent = get_kyc_review_agent()
+) -> MerchantReviewResponse:
+    agent = get_merchant_review_agent()
 
     try:
-        execution = await agent.review_customer(customer_id)
-    except CustomerNotFoundError as exc:
+        execution = await agent.review_merchant(merchant_id)
+    except MerchantNotFoundError as exc:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc)) from exc
     except FileNotFoundError as exc:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Required KYC data file is missing: {exc.filename}",
+            detail=f"Required merchant data file is missing: {exc.filename}",
         ) from exc
 
-    review = KYCReview(
-        customer_id=execution.customer_id,
-        full_name=execution.full_name,
+    review = MerchantReview(
+        merchant_id=execution.merchant_id,
+        business_name=execution.business_name,
         risk_score=execution.result.risk_score,
         confidence_score=execution.result.confidence,
         decision=execution.result.decision.value,
@@ -51,11 +51,11 @@ async def review_customer_kyc(
     return execution.result
 
 
-@router.get("/reviews", response_model=list[KYCReviewRecord])
-def list_kyc_reviews(
+@router.get("/reviews", response_model=list[MerchantReviewRecord])
+def list_merchant_reviews(
     db: Session = Depends(get_db),
     _current_user: User = Depends(get_current_user),
-) -> list[KYCReviewRecord]:
-    statement = select(KYCReview).order_by(KYCReview.reviewed_at.desc())
+) -> list[MerchantReviewRecord]:
+    statement = select(MerchantReview).order_by(MerchantReview.reviewed_at.desc())
     reviews = db.scalars(statement).all()
-    return [KYCReviewRecord.model_validate(review) for review in reviews]
+    return [MerchantReviewRecord.model_validate(review) for review in reviews]

@@ -55,5 +55,7 @@ def get_db() -> Generator[Session, None, None]:
 
 def init_database() -> None:
     from app.models.kyc import KYCReview
+    from app.models.merchant import MerchantReview
+    from app.models.user import User
 
     Base.metadata.create_all(bind=engine)

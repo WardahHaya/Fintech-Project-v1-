@@ -1,12 +1,15 @@
-import type { KycDecision } from '../types'
+import type { ReviewDecision } from '../types'
 
-const styles: Record<KycDecision, string> = {
-  APPROVED: 'bg-emerald-500/10 text-emerald-700 ring-emerald-500/20',
-  REVIEW_REQUIRED: 'bg-amber-500/14 text-amber-800 ring-amber-500/20',
-  REJECTED: 'bg-rose-500/10 text-rose-700 ring-rose-500/20',
+
+const styles: Record<ReviewDecision, string> = {
+  APPROVED: 'bg-success/10 text-success ring-success/15',
+  ESCALATE: 'bg-accent/10 text-accent ring-accent/15',
+  REVIEW_REQUIRED: 'bg-warning/10 text-warning ring-warning/15',
+  REJECTED: 'bg-danger/10 text-danger ring-danger/15',
 }
 
-export function DecisionBadge({ decision }: { decision: KycDecision }) {
+
+export function DecisionBadge({ decision }: { decision: ReviewDecision }) {
   return (
     <span
       className={[

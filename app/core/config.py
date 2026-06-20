@@ -27,12 +27,17 @@ def _parse_reference_date(raw_value: str | None) -> date:
 
 @dataclass(frozen=True)
 class Settings:
-    app_name: str = os.getenv("APP_NAME", "Tiqmo KYC Review API")
+    app_name: str = os.getenv("APP_NAME", "Tiqmo AI Intelligence Layer")
     environment: str = os.getenv("ENVIRONMENT", "development")
     api_v1_prefix: str = "/api/v1"
     groq_api_key: str | None = os.getenv("GROQ_API_KEY")
     groq_model: str = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+    secret_key: str = os.getenv("SECRET_KEY", "change-me-in-production")
+    jwt_algorithm: str = "HS256"
+    access_token_expire_hours: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_HOURS", "24"))
     database_url: str = os.getenv("DATABASE_URL", "sqlite:///./data/tiqmo_kyc_reviews.db")
+    admin_email: str | None = os.getenv("ADMIN_EMAIL")
+    admin_password: str | None = os.getenv("ADMIN_PASSWORD")
     cors_origins: list[str] = None  # type: ignore[assignment]
     reference_date: date = None  # type: ignore[assignment]
     data_root: Path = ROOT_DIR / "data" / "kyc"

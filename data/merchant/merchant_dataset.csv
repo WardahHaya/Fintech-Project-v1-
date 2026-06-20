@@ -1,0 +1,401 @@
+merchant_id,business_name_en,business_name_ar,category,cr_number,owner_name,owner_national_id,registration_date,city,monthly_transaction_vol,avg_transaction_value,num_transactions_monthly,missing_docs,risk_level,risk_flags,decision,rejection_reason
+MER-0001,Al Faisaliah Griffin LLC,,restaurants,1039233214,Wendy Santiago,2881973699,2023-11-21,Medina,113326,563.81,201,[],low,['high_volume'],approved,
+MER-0002,Najd Odom Est.,,restaurants,1029518175,Leslie Miles,2048063581,2020-10-25,Tabuk,35962,112.38,320,[],low,[],approved,
+MER-0003,Noor Harvey Co.,,food,1027928201,John Phillips,1276161249,2019-04-10,Riyadh,26607,336.8,79,[],low,[],approved,
+MER-0004,Swift Anderson Group,,services,1074862570,Jason Mcclain,1929611124,2016-12-28,Mecca,16430,195.6,84,[],low,['high_risk_category'],approved,
+MER-0005,Shifa Long Est.,,healthcare,1041521840,Mark Williams,1536656665,2016-01-15,Abha,16876,36.69,460,"['vat_certificate', 'moh_license']",high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,"Missing required documents: vat_certificate, moh_license"
+MER-0006,Rapid Griffin Trading,,transport,1034153364,Jim Porter,2176418457,2016-06-05,Abha,20831,90.57,230,[],low,['high_risk_category'],approved,
+MER-0007,Baraka Sparks LLC,,food,1069973653,Rebecca Hayes,2054324636,2022-05-13,Khobar,31207,2837.0,11,['cr_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: cr_certificate
+MER-0008,Bab Pace LLC,,restaurants,1073467889,William Hudson,2301419006,2019-02-21,Dammam,83037,251.63,330,[],low,[],approved,
+MER-0009,Digital Le Co.,,electronics,1066247522,Jeffrey Matthews MD,2668254347,2024-06-20,Buraidah,198435,967.98,205,"['vat_certificate', 'owner_id']",medium,"['incomplete_documentation', 'high_volume']",rejected,"Missing required documents: vat_certificate, owner_id"
+MER-0010,Swift Santos LLC,,services,1078015715,Erica Ruiz,1984095642,2021-08-06,Mecca,4556,21.39,213,"['vat_certificate', 'cr_certificate']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: vat_certificate, cr_certificate"
+MER-0011,Med Rogers LLC,,healthcare,1006331724,Kristina Mathews,2518382581,2023-02-16,Jeddah,13237,30.64,432,['cr_certificate'],high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,Missing required documents: cr_certificate
+MER-0012,Star Phillips Trading,,retail,1039992505,Craig Vargas,2342127803,2022-08-25,Taif,20709,50.51,410,[],low,[],approved,
+MER-0013,Najd Hughes Co.,,restaurants,1091227545,Marc Hart,1960422048,2018-04-03,Dammam,26201,100.0,262,[],low,[],approved,
+MER-0014,Premium Cantu Co.,,retail,1095550649,John Brown MD,1820466832,2019-07-23,Abha,15152,128.41,118,"['cr_certificate', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, owner_id"
+MER-0015,Pro Walker Est.,,services,1003224042,Leslie Mitchell,2200867129,2018-10-30,Medina,17243,223.94,77,[],low,['high_risk_category'],approved,
+MER-0016,Najd Guerrero LLC,,restaurants,1039731693,Susan Haas,1273242888,2017-08-19,Jeddah,41523,149.36,278,"['owner_id', 'health_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: owner_id, health_certificate"
+MER-0017,Star Perez Est.,,retail,1095731006,Stephanie Williams,1530424409,2018-04-24,Abha,33721,88.51,381,[],low,[],approved,
+MER-0018,Al Faisaliah Leach Est.,,restaurants,1048437005,Mackenzie Chambers,1291605563,2016-09-20,Abha,112209,2387.43,47,['municipal_license'],medium,"['incomplete_documentation', 'high_volume']",rejected,Missing required documents: municipal_license
+MER-0019,Swift Li Trading,,services,1010616157,Catherine Murphy,2868455148,2015-09-21,Medina,4088,33.51,122,['owner_id'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: owner_id
+MER-0020,Pro Meadows Est.,,services,1037780941,Gina Smith,2104776583,2022-10-12,Buraidah,20517,42.57,482,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0021,Al Faisaliah Cole LLC,,restaurants,1031947759,Kyle Thomas,1009126369,2015-03-14,Buraidah,12567,174.54,72,[],low,[],approved,
+MER-0022,Pro Brown Co.,,services,1010642242,Matthew Sullivan,2142661148,2017-10-21,Dammam,26829,294.82,91,[],low,['high_risk_category'],approved,
+MER-0023,Smart Williams Trading,,electronics,1014762497,Wendy Smith,1847484274,2017-02-18,Mecca,101276,373.71,271,['vat_certificate'],medium,"['incomplete_documentation', 'high_volume']",rejected,Missing required documents: vat_certificate
+MER-0024,Bab Foley LLC,,restaurants,1038629056,Jennifer Lopez,1061671103,2023-09-17,Jeddah,41679,257.28,162,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0025,Shifa Nguyen LLC,,healthcare,1031915034,Jessica Martin,2580747895,2018-11-26,Medina,13566,423.94,32,[],low,[],approved,
+MER-0026,Heal Jenkins Est.,,healthcare,1089672958,Steven Alvarado,1884009952,2019-11-22,Mecca,8001,181.84,44,[],low,[],approved,
+MER-0027,Baraka Haynes Co.,,food,1051840563,Donna Marshall,1021766886,2021-08-22,Khobar,47043,107.9,436,[],low,[],approved,
+MER-0028,Speed Scott Trading,,transport,1052141056,Michael Brown,2939194462,2022-06-24,Mecca,12496,79.59,157,[],low,['high_risk_category'],approved,
+MER-0029,Najd Fernandez LLC,,restaurants,1042368824,Timothy Bass,2661507371,2024-11-12,Tabuk,49520,372.33,133,[],low,[],approved,
+MER-0030,Heritage Watson LLC,,restaurants,1015825801,Ashley Keller,1307387703,2021-10-22,Riyadh,38858,436.61,89,[],low,[],approved,
+MER-0031,Route Brown Trading,,transport,1087490040,Anthony Levine,1396572495,2022-10-02,Mecca,6091,14.75,413,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0032,Care Mathews LLC,,healthcare,1064284716,Kimberly Black,2494708204,2016-12-09,Medina,49193,107.17,459,[],low,[],approved,
+MER-0033,Al Faisaliah Reyes Trading,,restaurants,1034456562,Megan Williams,2520287747,2023-03-16,Khobar,92786,927.86,100,[],low,[],approved,
+MER-0034,Al Amal Morris LLC,,food,1068927381,James Buck,2568553113,2023-11-30,Medina,30341,337.12,90,[],low,[],approved,
+MER-0035,Premium Phillips Trading,,retail,1020017634,Ashley Thomas,2580286965,2023-04-06,Dammam,30103,91.78,328,[],low,[],approved,
+MER-0036,Gulf Williams Co.,,retail,1027772787,John Hooper,2879717073,2018-11-15,Jeddah,72202,4813.47,15,[],low,[],approved,
+MER-0037,Volt Little Est.,,electronics,1021868012,Jacob White,1234050030,2017-06-18,Medina,173162,1505.76,115,['cr_certificate'],medium,"['incomplete_documentation', 'high_volume']",rejected,Missing required documents: cr_certificate
+MER-0038,Heritage Cantu Co.,,restaurants,1055534071,Mackenzie Ford,1903645527,2022-05-02,Khobar,49531,119.93,413,[],low,[],approved,
+MER-0039,Bab Bradley Trading,,restaurants,1048915106,Michael Glover,2025559545,2019-05-17,Dammam,31930,100.41,318,[],low,[],approved,
+MER-0040,Al Safa Cardenas Co.,,food,1071131565,Shannon Casey,1302848620,2018-07-11,Khobar,17495,86.18,203,['municipal_license'],medium,['incomplete_documentation'],rejected,Missing required documents: municipal_license
+MER-0041,Al Amal Smith Group,,food,1045720245,Katherine Summers,2353034619,2024-01-20,Jeddah,41688,416.88,100,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0042,Premium White Co.,,retail,1093368746,Dr. Jennifer Howell DVM,1734803573,2021-03-17,Jeddah,12993,131.24,99,['municipal_license'],medium,['incomplete_documentation'],rejected,Missing required documents: municipal_license
+MER-0043,Al Safa Williams Est.,,food,1020311111,Mark Saunders,1455276906,2020-04-05,Mecca,17841,65.59,272,[],low,[],approved,
+MER-0044,Noor Burton LLC,,food,1044903308,William Hayes,2397148631,2016-10-31,Riyadh,36488,86.67,421,['municipal_license'],medium,['incomplete_documentation'],rejected,Missing required documents: municipal_license
+MER-0045,Saudi Sanchez Trading,,services,1019413388,Allison Jones,1979794948,2016-06-16,Tabuk,21337,52.81,404,[],low,['high_risk_category'],approved,
+MER-0046,Al Waha Johnson Co.,,retail,1073891211,Maria Williams,1938289640,2019-04-27,Dammam,32351,91.65,353,[],low,[],approved,
+MER-0047,Elite Rodriguez Group,,services,1084522759,Nicole Garrett,2255334439,2021-08-26,Abha,6329,16.48,384,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0048,Star Baker Trading,,retail,1047239408,Nancy Howard,2405062984,2016-01-05,Abha,26223,125.47,209,[],low,[],approved,
+MER-0049,Al Waha Barry Co.,,retail,1020817196,Lisa Buckley,2869870917,2024-08-27,Buraidah,56325,417.22,135,[],low,[],approved,
+MER-0050,Elite Green Trading,,services,1012349339,Tony House,2043674023,2015-12-22,Buraidah,5739,28.0,205,"['vat_certificate', 'cr_certificate']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: vat_certificate, cr_certificate"
+MER-0051,Al Faisaliah Zimmerman Group,,restaurants,1041115723,Andrew Esparza,1163847385,2019-11-04,Buraidah,87206,273.37,319,[],low,[],approved,
+MER-0052,Al Amal Porter Trading,,food,1032677456,Jamie Robinson,2198037880,2022-08-09,Tabuk,32968,116.91,282,['cr_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: cr_certificate
+MER-0053,Go Ibarra Co.,,transport,1067033138,Jesse Washington,2223565199,2015-05-11,Tabuk,16971,76.79,221,[],low,['high_risk_category'],approved,
+MER-0054,Rapid Hicks Co.,,transport,1085345137,Kenneth Collier,2759620198,2020-11-11,Riyadh,24805,93.25,266,[],low,['high_risk_category'],approved,
+MER-0055,Go Logan LLC,,transport,1007224650,Madison Rivera,1497999603,2024-10-06,Buraidah,9720,36.68,265,[],low,['high_risk_category'],approved,
+MER-0056,Digital Warner Group,,electronics,1075178179,Kenneth Carroll,1082633422,2017-11-20,Riyadh,88191,471.61,187,[],low,[],approved,
+MER-0057,Al Faisaliah Turner Trading,,restaurants,1041870532,Becky Oneill,2002680586,2023-01-24,Taif,58649,128.9,455,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0058,Rapid Miller LLC,,transport,1010856054,Tracey Stewart,2213041819,2020-11-06,Taif,10921,66.59,164,[],low,['high_risk_category'],approved,
+MER-0059,Al Amal Bryan Trading,,food,1025158461,Andrew Haley,1972589471,2015-02-28,Buraidah,15587,48.71,320,['health_certificate'],high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,Missing required documents: health_certificate
+MER-0060,Gulf Caldwell Trading,,retail,1096723795,Heather Curtis,2710905643,2018-05-31,Dammam,19877,42.2,471,['cr_certificate'],high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,Missing required documents: cr_certificate
+MER-0061,Gulf Holloway LLC,,retail,1032362309,Karen Anderson,1050674538,2023-09-23,Medina,63085,463.86,136,[],low,[],approved,
+MER-0062,Route Chambers Group,,transport,1015001199,Sydney Wilson,1623891935,2024-12-10,Tabuk,30721,415.15,74,['transport_license'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: transport_license
+MER-0063,Najd Thompson Est.,,restaurants,1045799837,Mario Sanchez,1539864784,2024-07-29,Dammam,49961,258.87,193,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0064,Al Amal Schultz Trading,,food,1069371626,Richard Blankenship,1797300879,2022-09-05,Abha,44773,370.02,121,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0065,Gulf Mitchell Est.,,retail,1043459611,Carly Jacobs,1723830288,2017-06-02,Abha,53199,618.59,86,['municipal_license'],medium,['incomplete_documentation'],rejected,Missing required documents: municipal_license
+MER-0066,Al Amal Humphrey Group,,food,1038546354,Michael Cook,2481961590,2024-06-29,Tabuk,41585,90.6,459,"['municipal_license', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: municipal_license, cr_certificate"
+MER-0067,Al Waha Hull Trading,,retail,1062776579,Shelby Wilson,2397411927,2016-11-24,Dammam,66194,232.26,285,[],low,[],approved,
+MER-0068,Speed Sanchez Co.,,transport,1000190066,Cynthia Stanley,2956182716,2017-05-22,Tabuk,12615,35.74,353,"['cr_certificate', 'transport_license']",high,"['incomplete_documentation', 'high_risk_category', 'suspicious_micro_transactions']",rejected,"Missing required documents: cr_certificate, transport_license"
+MER-0069,Al Safa Harper Group,,food,1020691533,Ashley Myers,2849184005,2019-01-07,Mecca,46698,146.39,319,[],low,[],approved,
+MER-0070,Najd Smith Trading,,restaurants,1082711064,Brenda Elliott,1176355024,2021-05-24,Medina,101153,483.99,209,[],low,['high_volume'],approved,
+MER-0071,Rapid Fernandez Trading,,transport,1081895990,Amber Gross,1254425112,2022-12-03,Taif,21935,44.4,494,['transport_license'],high,"['incomplete_documentation', 'high_risk_category', 'suspicious_micro_transactions']",rejected,Missing required documents: transport_license
+MER-0072,Learn Roberts Est.,,education,1028264506,Nicholas Robinson,1866631246,2019-08-17,Abha,19973,66.14,302,[],low,[],approved,
+MER-0073,Heritage Mejia LLC,,restaurants,1001433969,David Sanchez,2860884301,2015-05-21,Mecca,76514,444.85,172,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0074,Najd Phillips Trading,,restaurants,1002613753,Mr. Jonathan Taylor,2586322047,2016-02-01,Dammam,86609,651.2,133,[],low,[],approved,
+MER-0075,Heal Fisher Est.,,healthcare,1036317387,Mary Griffin,1138716395,2020-02-06,Khobar,12349,228.69,54,[],low,[],approved,
+MER-0076,Baraka Brown Co.,,food,1077536376,Grace Norman,2148121192,2022-11-14,Khobar,25877,80.11,323,[],low,[],approved,
+MER-0077,Gulf Klein Co.,,retail,1028330047,Sharon Taylor,2267934410,2017-05-22,Jeddah,66198,157.61,420,[],low,[],approved,
+MER-0078,Pro Johnson Est.,,services,1066045067,Andrea Powers,1465024596,2016-07-08,Taif,9507,43.02,221,[],low,['high_risk_category'],approved,
+MER-0079,Bab Burch Group,,restaurants,1072855720,Michael Cooper,1095361415,2015-09-30,Dammam,15001,34.17,439,['health_certificate'],high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,Missing required documents: health_certificate
+MER-0080,Al Safa Martinez Co.,,food,1099436802,Casey Klein,1572130708,2021-08-08,Mecca,23421,69.29,338,[],low,[],approved,
+MER-0081,Al Safa Olson Est.,,food,1055823429,Yvonne Mcgee,1479038082,2019-01-17,Jeddah,7929,22.53,352,"['cr_certificate', 'health_certificate']",high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,"Missing required documents: cr_certificate, health_certificate"
+MER-0082,Med Esparza Trading,,healthcare,1007141071,Christine Pierce,2335328048,2016-12-23,Medina,51072,112.49,454,[],low,[],approved,
+MER-0083,Swift Boyd Trading,,services,1001958335,Samuel Blake,2631085152,2019-03-15,Abha,24661,86.83,284,[],low,['high_risk_category'],approved,
+MER-0084,Swift Gonzalez Trading,,services,1002303953,Janet Turner PhD,1367485474,2019-12-03,Taif,20911,114.27,183,[],low,['high_risk_category'],approved,
+MER-0085,Gulf Clarke Est.,,retail,1034960746,Maureen Hess,2027368378,2019-02-12,Dammam,61078,132.49,461,[],low,[],approved,
+MER-0086,Future Yang Trading,,education,1032868798,Erica Glenn,1712874190,2021-09-24,Taif,16308,47.82,341,[],medium,['suspicious_micro_transactions'],approved,
+MER-0087,Elite Snyder Trading,,services,1071924198,Rebecca Mitchell,1545303263,2024-10-01,Buraidah,14370,83.06,173,[],low,['high_risk_category'],approved,
+MER-0088,Al Safa Chang Group,,food,1066542065,Kyle Cannon,1045304287,2019-02-21,Buraidah,16542,35.12,471,['municipal_license'],high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,Missing required documents: municipal_license
+MER-0089,Najd Collins LLC,,restaurants,1012171278,Kimberly Campbell,2848896656,2016-02-21,Medina,29134,118.43,246,[],low,[],approved,
+MER-0090,Najd Smith Trading,,restaurants,1035472438,Matthew Duke,2750431612,2023-10-30,Taif,23535,47.55,495,"['health_certificate', 'owner_id']",high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,"Missing required documents: health_certificate, owner_id"
+MER-0091,Star Davis Est.,,retail,1012218932,Karina Mendoza,2495078457,2022-04-26,Mecca,73211,212.82,344,[],low,[],approved,
+MER-0092,Elite Rios Group,,services,1017812374,Mary Rogers,2839607308,2015-07-13,Medina,3259,7.46,437,['owner_id'],high,"['incomplete_documentation', 'high_risk_category', 'suspicious_micro_transactions']",rejected,Missing required documents: owner_id
+MER-0093,Speed Black Group,,transport,1071111179,Christina Spencer,2474568496,2018-07-03,Tabuk,6634,161.8,41,"['owner_id', 'transport_license']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: owner_id, transport_license"
+MER-0094,Elite Baldwin Co.,,services,1089230891,Lisa Ellison,1681995557,2023-06-08,Jeddah,24584,311.19,79,[],low,['high_risk_category'],approved,
+MER-0095,Care Greene LLC,,healthcare,1019965845,Carlos Velazquez,1706421220,2015-08-15,Taif,46213,159.91,289,"['vat_certificate', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: vat_certificate, owner_id"
+MER-0096,Pro Clark LLC,,services,1011869535,Matthew Mendez,1185542629,2023-06-27,Buraidah,7497,19.99,375,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0097,Speed Rivas Co.,,transport,1010543403,Kelly Hall,1741620129,2021-04-08,Buraidah,5135,21.94,234,[],low,['high_risk_category'],approved,
+MER-0098,Learn Solis Group,,education,1090609624,Christina Medina,1010592177,2017-08-25,Taif,13345,31.47,424,[],medium,['suspicious_micro_transactions'],approved,
+MER-0099,Al Safa Kramer Trading,,food,1070042959,Andrew Ho,1148692583,2016-05-15,Dammam,47967,1370.49,35,"['cr_certificate', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, owner_id"
+MER-0100,Al Amal Schultz Trading,,food,1079149420,Jason Blair,1897927373,2015-06-23,Dammam,43256,298.32,145,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0101,Star Obrien Group,,retail,1026172793,Kelly Miller,1576730723,2022-02-03,Medina,55819,196.55,284,[],low,[],approved,
+MER-0102,Bab Hayden Trading,,restaurants,1030093481,Greg Wiley,1268608185,2020-12-15,Jeddah,20888,76.51,273,"['cr_certificate', 'health_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, health_certificate"
+MER-0103,Tech Kim Trading,,electronics,1005875441,Hannah Hernandez,2083299510,2024-08-22,Riyadh,156638,412.21,380,[],low,['high_volume'],approved,
+MER-0104,Swift Barrett LLC,,services,1062054760,Andrea Baker,1643315521,2023-12-26,Riyadh,19393,51.58,376,[],low,['high_risk_category'],approved,
+MER-0105,Speed Beck Co.,,transport,1048627823,Crystal Payne,2997758073,2019-06-16,Tabuk,11346,354.56,32,[],low,['high_risk_category'],approved,
+MER-0106,Smart Myers Est.,,electronics,1036408914,Breanna Smith,1225356684,2019-01-20,Dammam,79834,311.85,256,[],low,[],approved,
+MER-0107,Noor Aguirre Est.,,food,1077665216,Mrs. Sheila Davis,2950696556,2023-04-02,Dammam,24867,80.74,308,[],low,[],approved,
+MER-0108,Al Amal Davis LLC,,food,1013309667,Alex Diaz,2674528773,2022-11-20,Mecca,5035,15.54,324,[],medium,['suspicious_micro_transactions'],approved,
+MER-0109,Baraka Davis Group,,food,1081938894,Angela Dudley,2690005993,2024-10-12,Tabuk,32664,286.53,114,[],low,[],approved,
+MER-0110,Star Garcia Trading,,retail,1081162964,Misty Hanson,2115812426,2021-12-05,Taif,73070,244.38,299,"['owner_id', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: owner_id, cr_certificate"
+MER-0111,Future Dudley Trading,,education,1099873490,Robert Smith,2770350682,2021-07-18,Tabuk,23623,178.96,132,[],low,[],approved,
+MER-0112,Al Faisaliah Hogan LLC,,restaurants,1032121130,Christina Harris,2969251198,2021-01-19,Mecca,110461,690.38,160,[],low,['high_volume'],approved,
+MER-0113,Al Faisaliah Russell Co.,,restaurants,1094716408,Rodney Rosario,1740408714,2016-08-22,Dammam,68314,369.26,185,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0114,Med Mcgee Est.,,healthcare,1090345314,Kathy Rojas,2142198852,2022-09-17,Mecca,44328,92.93,477,[],low,[],approved,
+MER-0115,Baraka Morales LLC,,food,1083959296,Sonya Davis,2945683195,2021-08-12,Khobar,10739,325.42,33,['cr_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: cr_certificate
+MER-0116,Al Amal Diaz LLC,,food,1006870585,Kathy Holden,2785562711,2015-07-28,Buraidah,7227,17.25,419,[],medium,['suspicious_micro_transactions'],approved,
+MER-0117,Premium Miller LLC,,retail,1095013330,Danielle Collins,2757349645,2024-05-04,Tabuk,36699,130.14,282,[],low,[],approved,
+MER-0118,Heritage Hughes Group,,restaurants,1012765043,Ronald Sharp,2738603600,2017-03-31,Jeddah,93357,746.86,125,[],low,[],approved,
+MER-0119,Heal Hunt LLC,,healthcare,1047060770,Benjamin Weber,1859059303,2019-06-05,Taif,19056,160.13,119,[],low,[],approved,
+MER-0120,Al Amal Miller Co.,,food,1043112754,Tiffany Henry,1416811130,2019-05-24,Dammam,38342,345.42,111,"['cr_certificate', 'municipal_license']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, municipal_license"
+MER-0121,Al Amal Mueller Est.,,food,1004345918,Emily Greene,1556050776,2018-03-22,Khobar,43908,106.83,411,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0122,Premium Flynn LLC,,retail,1011792272,Theresa Coleman,2812831466,2023-06-15,Buraidah,71450,359.05,199,[],low,[],approved,
+MER-0123,Learn Baker Est.,,education,1062739227,Justin Mooney,1943748136,2021-04-20,Buraidah,6761,22.02,307,[],medium,['suspicious_micro_transactions'],approved,
+MER-0124,Al Faisaliah Hall Co.,,restaurants,1032052544,Lauren Lane,1978465936,2017-12-20,Tabuk,22205,70.27,316,[],low,[],approved,
+MER-0125,Smart Rogers Trading,,electronics,1005858544,Jennifer Smith,2151312449,2019-02-20,Buraidah,163312,650.65,251,"['owner_id', 'vat_certificate']",medium,"['incomplete_documentation', 'high_volume']",rejected,"Missing required documents: owner_id, vat_certificate"
+MER-0126,Go Hodges LLC,,transport,1073596444,Shawn Sampson,1473607597,2019-10-03,Medina,20428,126.1,162,['owner_id'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: owner_id
+MER-0127,Speed Ward Co.,,transport,1008650869,Kevin Rose,1514622720,2015-02-12,Abha,35469,74.2,478,[],low,['high_risk_category'],approved,
+MER-0128,Heal Burch Co.,,healthcare,1078876473,Tina Davis,2971601648,2019-12-09,Buraidah,45569,210.0,217,['vat_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: vat_certificate
+MER-0129,Star Gray Co.,,retail,1045326389,Brooke Stanley,1741833844,2023-12-21,Mecca,44595,441.53,101,[],low,[],approved,
+MER-0130,Noor Khan LLC,,food,1088564408,Melanie Arnold,1926681039,2017-07-08,Buraidah,40199,101.77,395,[],low,[],approved,
+MER-0131,Heritage Walton Group,,restaurants,1008555426,Tammie Carter,2353304508,2024-02-11,Khobar,116419,432.78,269,[],low,['high_volume'],approved,
+MER-0132,Star Cole Trading,,retail,1043951927,Samantha Bowen,2772782856,2015-09-01,Mecca,10958,24.96,439,"['municipal_license', 'owner_id']",high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,"Missing required documents: municipal_license, owner_id"
+MER-0133,Baraka Kim Trading,,food,1097972502,Joshua Butler,2722925443,2021-11-12,Riyadh,14855,44.88,331,[],medium,['suspicious_micro_transactions'],approved,
+MER-0134,Med Hardin Co.,,healthcare,1048286001,Cody Russell,2505342399,2016-11-23,Tabuk,37155,599.27,62,"['owner_id', 'moh_license']",medium,['incomplete_documentation'],rejected,"Missing required documents: owner_id, moh_license"
+MER-0135,Baraka Gould Co.,,food,1057800914,Amanda Dawson,2033301711,2015-08-29,Jeddah,38082,99.95,381,"['health_certificate', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: health_certificate, owner_id"
+MER-0136,Premium Perry Est.,,retail,1044893567,Natasha Cowan,1032215958,2019-06-29,Abha,78830,630.64,125,[],low,[],approved,
+MER-0137,Al Amal Lutz Est.,,food,1006420470,Kathy Peterson,2244691808,2017-11-08,Buraidah,28979,111.46,260,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0138,Najd Ellis LLC,,restaurants,1036127294,Ian Blevins,1092368731,2019-01-22,Riyadh,44644,130.54,342,[],low,[],approved,
+MER-0139,Med Guerrero LLC,,healthcare,1046559472,Meredith Johnson,2164229065,2019-05-22,Riyadh,41205,207.06,199,[],low,[],approved,
+MER-0140,Star Townsend Group,,retail,1022002279,Matthew Griffin,1612302252,2020-08-19,Medina,69087,863.59,80,[],low,[],approved,
+MER-0141,Rapid Wright Group,,transport,1098845833,Samuel Barajas,2521384446,2016-10-17,Tabuk,29773,164.49,181,[],low,['high_risk_category'],approved,
+MER-0142,Bright Sutton Trading,,education,1029730623,Rose Lynn,2260314417,2022-01-13,Buraidah,24078,74.54,323,"['moe_license', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: moe_license, cr_certificate"
+MER-0143,Tech Hartman Co.,,electronics,1042863978,Jacob Alexander,2845546924,2019-08-10,Abha,61144,377.43,162,[],low,[],approved,
+MER-0144,Al Waha Hickman Est.,,retail,1067706302,Amanda Hill,1079562330,2015-03-26,Khobar,36064,141.43,255,[],low,[],approved,
+MER-0145,Al Amal Mendoza Trading,,food,1024557584,Richard Olson,1618595672,2017-02-25,Tabuk,8953,18.77,477,[],medium,['suspicious_micro_transactions'],approved,
+MER-0146,Gulf Fischer Co.,,retail,1087475755,Diana Beck,1263376423,2021-06-26,Buraidah,44927,207.04,217,['cr_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: cr_certificate
+MER-0147,Tech Bautista LLC,,electronics,1013971823,Vicki Garner,1023611615,2020-06-22,Buraidah,154590,817.94,189,[],low,['high_volume'],approved,
+MER-0148,Baraka Rivera Trading,,food,1050204347,Leslie Miller,2789176927,2024-05-20,Tabuk,19330,42.67,453,[],medium,['suspicious_micro_transactions'],approved,
+MER-0149,Go Conway LLC,,transport,1045389662,James Flowers,1490443573,2023-04-11,Buraidah,38704,112.19,345,[],low,['high_risk_category'],approved,
+MER-0150,Star Scott Est.,,retail,1021658340,Melinda Allen,1336295324,2018-02-25,Mecca,79313,177.43,447,[],low,[],approved,
+MER-0151,Star Valenzuela Group,,retail,1093557686,Timothy Thomas,1416635216,2023-02-11,Buraidah,21828,119.28,183,"['municipal_license', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: municipal_license, owner_id"
+MER-0152,Future Wallace Est.,,education,1056892720,Melanie Byrd,2394923903,2017-09-08,Mecca,11399,26.95,423,[],medium,['suspicious_micro_transactions'],approved,
+MER-0153,Heal Taylor LLC,,healthcare,1060779604,Laura Lewis,2143231597,2019-02-27,Riyadh,17370,217.12,80,[],low,[],approved,
+MER-0154,Smart French Est.,,electronics,1021314528,Thomas Mitchell,2531442012,2017-04-03,Taif,84748,1366.9,62,[],low,[],approved,
+MER-0155,Baraka Roberts Co.,,food,1055032640,Joseph Hernandez,1332470328,2017-08-16,Khobar,41592,228.53,182,[],low,[],approved,
+MER-0156,Pro Boyle Co.,,services,1088974893,John Wilson,2255845606,2018-08-29,Abha,15884,40.01,397,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0157,Star Valdez Trading,,retail,1074412503,Misty Chase,2573858231,2022-07-10,Dammam,11378,112.65,101,[],low,[],approved,
+MER-0158,Smart Cobb Co.,,electronics,1067972992,Victor Medina,1944930348,2020-01-08,Abha,148448,345.23,430,[],low,['high_volume'],approved,
+MER-0159,Al Faisaliah Glass LLC,,restaurants,1070995930,Jeffrey Adkins,2783368156,2024-02-01,Abha,97771,205.4,476,[],low,[],approved,
+MER-0160,Noor Poole LLC,,food,1044149621,Steven Schultz,1616820172,2022-05-13,Khobar,29407,68.07,432,[],low,[],approved,
+MER-0161,Pro Howard Group,,services,1059648641,Mark Lambert,2059548358,2017-10-29,Medina,14601,33.26,439,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0162,Rapid Yang Est.,,transport,1050558618,Amy Kelly,1059453074,2023-06-21,Tabuk,25849,111.42,232,[],low,['high_risk_category'],approved,
+MER-0163,Elite Clark Est.,,services,1014042694,Edward Massey,1324663617,2021-01-31,Khobar,18819,49.01,384,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0164,Premium Brown Est.,,retail,1058878307,Logan Briggs,1540935020,2024-02-15,Riyadh,22950,151.99,151,[],low,[],approved,
+MER-0165,Med Gonzales Group,,healthcare,1053727085,Bobby Johnson,1114465932,2023-10-27,Jeddah,15863,278.3,57,[],low,[],approved,
+MER-0166,Star Perez Trading,,retail,1052271983,Ashley Sandoval,2794043980,2022-06-15,Medina,62250,268.32,232,['municipal_license'],medium,['incomplete_documentation'],rejected,Missing required documents: municipal_license
+MER-0167,Baraka Bell Group,,food,1094342369,Lawrence Robinson MD,2109772433,2016-04-14,Abha,11918,24.83,480,[],medium,['suspicious_micro_transactions'],approved,
+MER-0168,Al Waha Adams Trading,,retail,1016866024,Dennis Anderson,1905522224,2021-12-01,Jeddah,55638,113.32,491,[],low,[],approved,
+MER-0169,Noor Matthews LLC,,food,1015353510,Mary Nunez,1627191783,2018-03-16,Abha,31992,285.64,112,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0170,Baraka Braun Trading,,food,1029048190,Melissa Murray,2084288198,2017-05-24,Buraidah,27630,708.46,39,"['cr_certificate', 'health_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, health_certificate"
+MER-0171,Al Faisaliah Guerrero Co.,,restaurants,1087526517,Alexis Taylor,2538358323,2023-05-12,Riyadh,115856,762.21,152,[],low,['high_volume'],approved,
+MER-0172,Digital Kim Trading,,electronics,1081383875,Rodney Thompson,1298476938,2018-01-24,Dammam,109430,591.51,185,[],low,['high_volume'],approved,
+MER-0173,Gulf Hawkins Co.,,retail,1022772213,Victor Banks,2356572151,2017-06-23,Riyadh,37978,294.4,129,[],low,[],approved,
+MER-0174,Al Waha Anderson LLC,,retail,1043625319,Joel Sherman,2418815158,2019-11-22,Abha,29711,196.76,151,[],low,[],approved,
+MER-0175,Elite Baker Trading,,services,1091983975,Donald Gallagher,2675396037,2019-12-25,Jeddah,13281,174.75,76,[],low,['high_risk_category'],approved,
+MER-0176,Bab Hudson Trading,,restaurants,1035615858,Anne Huynh PhD,1406365562,2020-02-26,Khobar,56084,378.95,148,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0177,Route Velazquez Group,,transport,1072501359,Scott Gonzalez,2899934681,2018-06-16,Tabuk,34158,85.61,399,['transport_license'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: transport_license
+MER-0178,Al Faisaliah Harris Trading,,restaurants,1065154257,David Bowman,2853908024,2023-12-03,Khobar,114738,240.54,477,"['owner_id', 'cr_certificate']",medium,"['incomplete_documentation', 'high_volume']",rejected,"Missing required documents: owner_id, cr_certificate"
+MER-0179,Speed Williams Est.,,transport,1037438502,Melanie Bates,2405585145,2021-06-25,Mecca,13737,74.66,184,"['owner_id', 'cr_certificate']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: owner_id, cr_certificate"
+MER-0180,Al Safa Lowe LLC,,food,1042857775,Darryl Zhang,2437488616,2023-10-11,Buraidah,22930,114.08,201,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0181,Gulf Roberts Est.,,retail,1041312765,Edward Adams,2464465174,2019-03-22,Medina,76319,263.17,290,['municipal_license'],medium,['incomplete_documentation'],rejected,Missing required documents: municipal_license
+MER-0182,Elite Young LLC,,services,1091400285,Alex Pollard,2644353806,2016-06-02,Tabuk,17202,55.49,310,[],low,['high_risk_category'],approved,
+MER-0183,Al Safa Lucas Est.,,food,1025918534,Lee Rose,1806404460,2020-07-25,Mecca,28527,62.29,458,[],low,[],approved,
+MER-0184,Go Simpson LLC,,transport,1057990214,Joel Martinez,2950897058,2015-09-26,Medina,18792,54.16,347,[],low,['high_risk_category'],approved,
+MER-0185,Speed Kent Co.,,transport,1026839157,Desiree Gonzalez,2226622493,2018-09-23,Medina,28009,110.71,253,[],low,['high_risk_category'],approved,
+MER-0186,Digital Macdonald LLC,,electronics,1003924631,Dr. Sheila Howard,2825307641,2018-10-28,Riyadh,47149,175.93,268,[],low,[],approved,
+MER-0187,Saudi Hensley Co.,,services,1063120294,Dylan Berger,2579448774,2019-12-09,Medina,24097,86.99,277,['owner_id'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: owner_id
+MER-0188,Premium Rogers Co.,,retail,1045435102,Melissa Harris,1214823397,2022-01-20,Khobar,31712,83.67,379,[],low,[],approved,
+MER-0189,Al Faisaliah Williams Trading,,restaurants,1009650559,Theresa Vasquez,1609185206,2017-09-27,Taif,48829,217.02,225,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0190,Saudi Thompson Est.,,services,1011009078,William Woods,2146947532,2023-08-14,Riyadh,24922,541.78,46,[],low,['high_risk_category'],approved,
+MER-0191,Al Amal Chandler LLC,,food,1073911555,Chad Warner,2126245977,2023-06-30,Buraidah,17034,47.58,358,[],medium,['suspicious_micro_transactions'],approved,
+MER-0192,Star Anderson Trading,,retail,1087188923,Debra Chavez,2362860846,2016-04-03,Medina,53178,117.39,453,[],low,[],approved,
+MER-0193,Swift Williams LLC,,services,1049934227,Tyler Harris,1643438041,2020-03-01,Riyadh,25177,90.89,277,[],low,['high_risk_category'],approved,
+MER-0194,Bab Cain LLC,,restaurants,1020481468,Andrea Johnson,1903096936,2022-10-08,Buraidah,84515,266.61,317,[],low,[],approved,
+MER-0195,Al Amal Richmond LLC,,food,1010559825,Ashley Calderon,1758901980,2018-10-01,Khobar,49060,114.09,430,[],low,[],approved,
+MER-0196,Shifa Smith Est.,,healthcare,1070902134,Sierra King,2995053119,2022-08-14,Abha,45022,136.84,329,[],low,[],approved,
+MER-0197,Rapid Valentine Co.,,transport,1047297292,Ruben Johnson,2006122646,2015-04-22,Riyadh,29161,67.5,432,['cr_certificate'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: cr_certificate
+MER-0198,Bab Fitzgerald Group,,restaurants,1048450336,Tamara Mendoza,1531553105,2015-05-31,Taif,113903,284.05,401,[],low,['high_volume'],approved,
+MER-0199,Star Williams Est.,,retail,1071077440,Eric Young,2394322146,2024-02-26,Tabuk,20662,163.98,126,"['owner_id', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: owner_id, cr_certificate"
+MER-0200,Al Amal Maddox Group,,food,1075369025,Darren Perez,2853028639,2018-09-18,Abha,45677,141.41,323,[],low,[],approved,
+MER-0201,Star Wilson Trading,,retail,1056057555,Diane Parker,1898633360,2023-06-28,Riyadh,44209,210.52,210,[],low,[],approved,
+MER-0202,Premium Santiago Co.,,retail,1053520632,Jonathan Mcdonald,2798732609,2023-12-21,Dammam,25786,67.68,381,[],low,[],approved,
+MER-0203,Saudi Nicholson LLC,,services,1000869163,Miss Kayla Munoz MD,1477500051,2024-07-22,Riyadh,29367,120.85,243,[],low,['high_risk_category'],approved,
+MER-0204,Al Faisaliah Little LLC,,restaurants,1098157372,Jason James,2326048651,2021-09-26,Riyadh,119388,3979.6,30,[],low,['high_volume'],approved,
+MER-0205,Noor Fletcher Group,,food,1027238666,Mark Haas,2417977784,2024-03-21,Taif,17879,52.13,343,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0206,Premium Smith Est.,,retail,1051199126,Valerie Powell,1204189491,2022-06-25,Dammam,28083,70.38,399,"['municipal_license', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: municipal_license, owner_id"
+MER-0207,Smart Duncan Co.,,electronics,1071418680,Amanda West,2401447547,2021-05-15,Tabuk,119996,452.82,265,['owner_id'],medium,"['incomplete_documentation', 'high_volume']",rejected,Missing required documents: owner_id
+MER-0208,Baraka Ball Trading,,food,1082313583,Keith Randolph,2797596382,2017-02-23,Tabuk,48621,102.36,475,"['health_certificate', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: health_certificate, cr_certificate"
+MER-0209,Al Amal Horton Trading,,food,1032608623,Brian Lloyd,2882971979,2023-01-22,Dammam,10834,54.72,198,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0210,Premium King LLC,,retail,1041491374,Diane Carter,2978545510,2019-12-05,Buraidah,38469,167.26,230,[],low,[],approved,
+MER-0211,Go Gonzalez Co.,,transport,1015303423,Stephen Barber,1283379319,2016-01-02,Tabuk,11395,41.74,273,[],low,['high_risk_category'],approved,
+MER-0212,Al Safa Taylor Group,,food,1046390388,Wanda Gutierrez,1649290318,2018-08-24,Buraidah,24396,89.69,272,[],low,[],approved,
+MER-0213,Al Amal Knapp Trading,,food,1085551228,Megan Meadows,1047280189,2018-07-14,Khobar,37083,77.91,476,[],low,[],approved,
+MER-0214,Care Martinez Trading,,healthcare,1025053980,Judith Black,1731331925,2020-03-08,Dammam,25126,199.41,126,['moh_license'],medium,['incomplete_documentation'],rejected,Missing required documents: moh_license
+MER-0215,Smart Campbell Est.,,electronics,1091738696,John Miller,2577664969,2024-06-28,Abha,159784,1613.98,99,[],low,['high_volume'],approved,
+MER-0216,Bab Flores Est.,,restaurants,1066343910,Harold Bean,2690321816,2020-07-22,Tabuk,47850,117.86,406,[],low,[],approved,
+MER-0217,Noor Flynn Group,,food,1085218207,Joshua Carter,2385736136,2024-03-15,Tabuk,29591,59.9,494,[],low,[],approved,
+MER-0218,Bright Cunningham Est.,,education,1000889168,Toni Smith,2891425609,2015-03-12,Taif,6327,14.12,448,['owner_id'],high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,Missing required documents: owner_id
+MER-0219,Al Faisaliah Davis Trading,,restaurants,1098456889,Steven Thomas,2866960762,2016-02-16,Buraidah,31495,67.15,469,[],low,[],approved,
+MER-0220,Gulf Sharp LLC,,retail,1079473604,Heather Long,2141774653,2020-02-11,Mecca,61120,166.09,368,[],low,[],approved,
+MER-0221,Premium Stewart Co.,,retail,1054054546,Mr. Matthew Irwin DDS,2329617591,2015-03-01,Khobar,32723,351.86,93,[],low,[],approved,
+MER-0222,Elite Wood Trading,,services,1008645694,Tyler Simmons,1752058847,2016-12-22,Taif,14611,153.8,95,['owner_id'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: owner_id
+MER-0223,Al Waha Gonzales Est.,,retail,1089181628,Joshua Peterson,2078285858,2020-02-06,Medina,41940,113.97,368,[],low,[],approved,
+MER-0224,Route Butler Co.,,transport,1090595558,Keith Robertson,2483503142,2022-07-02,Abha,11746,37.65,312,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0225,Future Hull Group,,education,1057755837,Christopher Kim,2907048418,2020-12-08,Jeddah,13090,43.63,300,"['cr_certificate', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, owner_id"
+MER-0226,Al Faisaliah Richardson Group,,restaurants,1098570248,Jennifer Ross,2048117735,2023-10-09,Khobar,53147,139.86,380,"['cr_certificate', 'municipal_license']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, municipal_license"
+MER-0227,Digital Munoz Co.,,electronics,1094989804,Joanna Johnson,1863821091,2015-10-11,Riyadh,149303,313.66,476,[],low,['high_volume'],approved,
+MER-0228,Speed Parsons Est.,,transport,1053961937,Jeremy Benson,1462642347,2024-07-17,Abha,35027,156.37,224,[],low,['high_risk_category'],approved,
+MER-0229,Digital Moore LLC,,electronics,1007924465,James Reeves,2831930796,2022-10-01,Buraidah,92876,257.27,361,[],low,[],approved,
+MER-0230,Ilm Jackson Co.,,education,1054906257,Chris Reynolds,1614869030,2015-04-07,Tabuk,24468,71.54,342,[],low,[],approved,
+MER-0231,Smart Collins Est.,,electronics,1066719450,Thomas Henderson,1870310951,2021-06-15,Tabuk,146664,2365.55,62,[],low,['high_volume'],approved,
+MER-0232,Speed Elliott Group,,transport,1041955268,Allen Martin,2281675942,2022-02-10,Riyadh,23382,101.66,230,[],low,['high_risk_category'],approved,
+MER-0233,Care Perez Est.,,healthcare,1038930343,Sharon Morrison,2042748716,2016-01-06,Khobar,22544,56.36,400,[],low,[],approved,
+MER-0234,Al Faisaliah Patterson Est.,,restaurants,1082830003,Pamela Herring,1351298834,2021-03-18,Taif,111247,276.05,403,"['owner_id', 'municipal_license']",medium,"['incomplete_documentation', 'high_volume']",rejected,"Missing required documents: owner_id, municipal_license"
+MER-0235,Star Huber Trading,,retail,1072558686,Christopher Carter,1665797076,2021-06-28,Khobar,51278,182.48,281,[],low,[],approved,
+MER-0236,Route Ramos Co.,,transport,1086501684,Jason Thomas,1936421575,2018-08-09,Dammam,17082,47.06,363,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0237,Swift Lee Group,,services,1011794480,Adrian Freeman,1031982588,2022-04-16,Khobar,29658,74.33,399,[],low,['high_risk_category'],approved,
+MER-0238,Pro Smith LLC,,services,1090716316,Lawrence Blair,1753831686,2022-07-04,Taif,16300,49.39,330,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0239,Baraka Nelson Group,,food,1090120151,Jesse Weber,2366526397,2020-06-12,Tabuk,9742,73.8,132,[],low,[],approved,
+MER-0240,Najd Bell LLC,,restaurants,1021489893,Debbie Vance,2156433715,2020-12-22,Dammam,109637,6852.31,16,['owner_id'],high,"['incomplete_documentation', 'high_avg_transaction', 'high_volume']",rejected,Missing required documents: owner_id
+MER-0241,Tech Glover LLC,,electronics,1051342823,David Harris,2220117534,2016-01-06,Riyadh,107821,341.21,316,[],low,['high_volume'],approved,
+MER-0242,Noor Lewis Est.,,food,1028208593,Tina Rogers,1343839419,2021-12-31,Medina,43229,3087.79,14,['cr_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: cr_certificate
+MER-0243,Heritage Clark LLC,,restaurants,1001933585,Kenneth Curtis,2222256092,2016-11-24,Medina,10169,34.12,298,"['cr_certificate', 'health_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, health_certificate"
+MER-0244,Speed Thomas Trading,,transport,1003473560,Danielle Kelly,2974737856,2021-08-18,Jeddah,36947,86.73,426,['owner_id'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: owner_id
+MER-0245,Pro Jones Trading,,services,1016906999,Jennifer Thompson,2104234774,2017-12-22,Medina,6956,535.08,13,['cr_certificate'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: cr_certificate
+MER-0246,Ilm Garrett Group,,education,1084095634,Kim Solomon,2405197016,2015-06-10,Abha,8849,29.9,296,[],low,[],approved,
+MER-0247,Gulf Bridges Est.,,retail,1000910433,Dawn Bentley,1637417533,2019-12-06,Taif,32505,187.89,173,[],low,[],approved,
+MER-0248,Learn Martin Co.,,education,1071795627,David Davis,2108904880,2022-05-05,Medina,11901,35.95,331,[],medium,['suspicious_micro_transactions'],approved,
+MER-0249,Volt Snyder Est.,,electronics,1004635340,Richard Vega,1652089170,2021-03-08,Medina,150862,802.46,188,[],low,['high_volume'],approved,
+MER-0250,Baraka Wallace Trading,,food,1077833217,Jessica Henry,1689115613,2019-11-08,Mecca,29191,117.71,248,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0251,Smart Bennett LLC,,electronics,1010092080,Wesley Perez,1163526135,2016-02-02,Dammam,93511,261.2,358,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0252,Care Duran Co.,,healthcare,1082576230,Jesse Jones,1188060681,2015-10-21,Taif,11243,28.46,395,[],medium,['suspicious_micro_transactions'],approved,
+MER-0253,Star Smith Co.,,retail,1008596332,Amy Turner,1509528338,2021-12-21,Tabuk,10147,21.32,476,['cr_certificate'],high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,Missing required documents: cr_certificate
+MER-0254,Najd Schneider LLC,,restaurants,1094871212,George Harris,1959083501,2015-07-26,Jeddah,90060,376.82,239,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0255,Premium Ward Trading,,retail,1070137866,Kim Huber,2247425873,2019-03-09,Abha,48317,289.32,167,[],low,[],approved,
+MER-0256,Saudi Holt Trading,,services,1055522828,Rachel Russell,2511320781,2015-08-21,Taif,7251,151.06,48,"['owner_id', 'vat_certificate']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: owner_id, vat_certificate"
+MER-0257,Med Lopez LLC,,healthcare,1028652094,Christopher Stewart,1123303590,2023-05-22,Buraidah,27970,71.53,391,['moh_license'],medium,['incomplete_documentation'],rejected,Missing required documents: moh_license
+MER-0258,Swift Robles LLC,,services,1009886281,Elizabeth Cortez,2934343811,2018-11-14,Jeddah,14653,49.34,297,[],low,['high_risk_category'],approved,
+MER-0259,Heal Baker Est.,,healthcare,1013398970,Megan Melendez,2918103672,2016-10-07,Khobar,29644,152.02,195,"['moh_license', 'vat_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: moh_license, vat_certificate"
+MER-0260,Al Amal Lewis LLC,,food,1023529476,Barry Moody,1412510847,2015-06-20,Buraidah,22763,83.38,273,[],low,[],approved,
+MER-0261,Baraka Wade Co.,,food,1085652225,Ashley Oneill,2019523760,2021-01-29,Riyadh,45456,231.92,196,[],low,[],approved,
+MER-0262,Rapid Deleon Trading,,transport,1081085958,Maria Adams,1637683423,2021-01-16,Mecca,30362,799.0,38,[],low,['high_risk_category'],approved,
+MER-0263,Noor Spencer Co.,,food,1020975561,Timothy Johnson,1621596868,2016-05-05,Medina,35367,119.48,296,[],low,[],approved,
+MER-0264,Al Amal Larsen LLC,,food,1044143899,Kimberly Graves,2325897693,2017-03-09,Taif,24756,70.13,353,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0265,Gulf Velazquez Est.,,retail,1007774835,Sheena Williams,1523737295,2019-04-16,Dammam,39036,154.9,252,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0266,Star Haley Co.,,retail,1042951126,David Juarez,1417921795,2019-12-02,Khobar,17526,54.26,323,[],low,[],approved,
+MER-0267,Shifa Mclaughlin Trading,,healthcare,1083699198,Amy Jones,2584970305,2022-04-19,Buraidah,30611,81.85,374,[],low,[],approved,
+MER-0268,Elite Clayton Co.,,services,1041162548,James Johnston,1548747524,2016-10-07,Abha,27204,79.31,343,[],low,['high_risk_category'],approved,
+MER-0269,Noor Dickerson Trading,,food,1055237031,Kimberly Valentine,2984896326,2023-08-14,Medina,45792,109.55,418,['municipal_license'],medium,['incomplete_documentation'],rejected,Missing required documents: municipal_license
+MER-0270,Premium Webb Group,,retail,1084773737,Larry Clements,2475849278,2021-02-23,Abha,28317,64.5,439,[],low,[],approved,
+MER-0271,Al Waha Blair Co.,,retail,1057367605,Teresa Poole,1856641091,2018-05-22,Taif,30042,79.69,377,[],low,[],approved,
+MER-0272,Al Faisaliah Rogers Co.,,restaurants,1039843758,Renee Jackson,1928701680,2018-07-03,Riyadh,114795,268.21,428,"['owner_id', 'cr_certificate']",medium,"['incomplete_documentation', 'high_volume']",rejected,"Missing required documents: owner_id, cr_certificate"
+MER-0273,Elite Davidson Trading,,services,1097733739,Jeremy Williams,1177983624,2021-07-15,Khobar,24171,81.94,295,['cr_certificate'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: cr_certificate
+MER-0274,Al Faisaliah Griffin Co.,,restaurants,1023199077,Lucas Goodwin,2078922475,2021-10-27,Khobar,76094,314.44,242,"['health_certificate', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: health_certificate, owner_id"
+MER-0275,Future Stanley Group,,education,1039032849,David Kim,2883127736,2020-12-15,Khobar,4160,14.96,278,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0276,Gulf Sandoval Est.,,retail,1033268533,Jose Morris,1054218264,2022-09-19,Khobar,13079,28.07,466,[],medium,['suspicious_micro_transactions'],approved,
+MER-0277,Al Safa Baker LLC,,food,1053287793,Anthony Henderson,1132954690,2015-09-05,Buraidah,44694,95.5,468,[],low,[],approved,
+MER-0278,Baraka Esparza Co.,,food,1066710459,James Franklin,1231473996,2017-11-13,Riyadh,23762,133.49,178,"['owner_id', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: owner_id, cr_certificate"
+MER-0279,Route Davidson Trading,,transport,1033821928,John Scott,1430934732,2017-12-15,Medina,28998,168.59,172,[],low,['high_risk_category'],approved,
+MER-0280,Najd Davis Trading,,restaurants,1078606648,Amy Rhodes,2947393391,2017-01-27,Medina,90246,265.43,340,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0281,Al Waha Payne Group,,retail,1075569038,Michael Cabrera,2261248362,2023-04-27,Medina,61046,281.32,217,[],low,[],approved,
+MER-0282,Learn Carter Co.,,education,1082963616,Jessica Powell,2427644681,2016-02-08,Riyadh,8445,36.24,233,['moe_license'],medium,['incomplete_documentation'],rejected,Missing required documents: moe_license
+MER-0283,Digital Mckee Co.,,electronics,1094450635,Alyssa Thomas,1811966231,2018-11-26,Jeddah,125620,366.24,343,[],low,['high_volume'],approved,
+MER-0284,Ilm Nguyen Group,,education,1007891937,Zoe Nelson,2811378454,2016-04-30,Abha,3711,24.25,153,['moe_license'],medium,['incomplete_documentation'],rejected,Missing required documents: moe_license
+MER-0285,Saudi Shaw Est.,,services,1099991634,Ashley Martin,1613534138,2018-01-13,Khobar,11419,38.84,294,['vat_certificate'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: vat_certificate
+MER-0286,Ilm Smith Est.,,education,1086701143,Jeremy Morrison,1217971223,2015-04-22,Khobar,5412,11.66,464,[],medium,['suspicious_micro_transactions'],approved,
+MER-0287,Baraka Preston Est.,,food,1039840213,Kathy Perez,2543601387,2024-08-28,Buraidah,10065,52.7,191,"['cr_certificate', 'municipal_license']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, municipal_license"
+MER-0288,Digital Lin Trading,,electronics,1009966313,Kimberly Torres,1382257080,2023-09-07,Taif,65831,223.16,295,['vat_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: vat_certificate
+MER-0289,Route Peterson Co.,,transport,1008587885,Jade Miller,1801273846,2015-09-02,Mecca,19154,109.45,175,"['cr_certificate', 'owner_id']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: cr_certificate, owner_id"
+MER-0290,Speed Frazier Co.,,transport,1094549338,Kathleen Boone,1489387492,2017-09-24,Mecca,27802,292.65,95,"['cr_certificate', 'transport_license']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: cr_certificate, transport_license"
+MER-0291,Go Andrews LLC,,transport,1030954926,Maria Davis,2009631658,2019-01-16,Khobar,27788,65.54,424,[],low,['high_risk_category'],approved,
+MER-0292,Heritage Stevens Est.,,restaurants,1058769847,Nicholas Joseph,1590084516,2023-06-26,Tabuk,36161,502.24,72,[],low,[],approved,
+MER-0293,Al Faisaliah Stanley LLC,,restaurants,1072861727,Christopher Robertson,1091372237,2022-01-01,Taif,16386,50.26,326,[],low,[],approved,
+MER-0294,Bright Daniels Co.,,education,1016398244,Brittany Callahan,2911010546,2018-06-22,Buraidah,4320,14.12,306,[],medium,['suspicious_micro_transactions'],approved,
+MER-0295,Route Adams Trading,,transport,1063932533,Howard Smith,2203523691,2023-04-23,Abha,15528,71.23,218,"['owner_id', 'cr_certificate']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: owner_id, cr_certificate"
+MER-0296,Pro Welch LLC,,services,1077911724,Dana Mason,1505254196,2022-12-28,Buraidah,23895,76.83,311,[],low,['high_risk_category'],approved,
+MER-0297,Route Johnston Est.,,transport,1099556305,Michael Ramirez,1206668420,2016-06-25,Buraidah,25996,55.55,468,[],low,['high_risk_category'],approved,
+MER-0298,Volt Davis Co.,,electronics,1005710707,Anita Eaton,1243684192,2022-07-28,Khobar,82029,227.86,360,['vat_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: vat_certificate
+MER-0299,Gulf Cooke Trading,,retail,1085360206,Lauren Marsh,2940178150,2020-05-08,Mecca,61400,1006.56,61,[],low,[],approved,
+MER-0300,Saudi Phillips Group,,services,1007476869,Veronica Martinez,1772660419,2021-04-18,Riyadh,26094,65.89,396,"['cr_certificate', 'vat_certificate']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: cr_certificate, vat_certificate"
+MER-0301,Heritage Carter Co.,,restaurants,1047809292,Cindy Aguilar,2165051370,2020-07-02,Riyadh,75380,174.09,433,[],low,[],approved,
+MER-0302,Baraka Herrera Group,,food,1097884021,Joseph Wiley,1849192457,2021-12-13,Abha,43808,150.03,292,[],low,[],approved,
+MER-0303,Med Patrick LLC,,healthcare,1008390030,Nicholas Williams,1769398198,2015-11-28,Medina,23067,178.81,129,[],low,[],approved,
+MER-0304,Baraka Miller Trading,,food,1003908406,Deborah Santos,1030890027,2021-06-23,Taif,11830,65.72,180,[],low,[],approved,
+MER-0305,Noor Villegas Co.,,food,1051234137,Benjamin Powers,1269194484,2022-09-09,Khobar,15973,431.7,37,"['health_certificate', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: health_certificate, cr_certificate"
+MER-0306,Al Safa Palmer Est.,,food,1034628663,Dana Grant,1463142593,2018-10-22,Buraidah,14459,44.9,322,['health_certificate'],high,"['incomplete_documentation', 'suspicious_micro_transactions']",rejected,Missing required documents: health_certificate
+MER-0307,Al Waha Chase Group,,retail,1070353341,Annette Smith,1372861607,2015-02-03,Mecca,29669,104.47,284,[],low,[],approved,
+MER-0308,Baraka Foster Co.,,food,1069794001,Brett Hale,1376386366,2022-08-17,Medina,40491,95.27,425,[],low,[],approved,
+MER-0309,Star Lucas Est.,,retail,1093326493,Kimberly Graham,1390552792,2019-06-07,Abha,68631,143.58,478,[],low,[],approved,
+MER-0310,Pro Sanders LLC,,services,1026962696,Brian Love,1087163293,2018-02-24,Riyadh,8992,30.38,296,[],low,['high_risk_category'],approved,
+MER-0311,Rapid Carter Trading,,transport,1047185824,Aaron White,2511975082,2024-01-19,Jeddah,28666,158.38,181,[],low,['high_risk_category'],approved,
+MER-0312,Ilm Ramirez Est.,,education,1082214179,Michael Ellis,2215180837,2024-12-12,Riyadh,23811,183.16,130,[],low,[],approved,
+MER-0313,Al Amal Weiss Co.,,food,1081850690,Dale Freeman,2778437163,2023-10-30,Buraidah,45163,273.72,165,[],low,[],approved,
+MER-0314,Learn Carson LLC,,education,1039520277,Benjamin Castaneda,2271656155,2017-12-11,Jeddah,9399,51.36,183,[],low,[],approved,
+MER-0315,Premium Wu Est.,,retail,1082288469,Courtney Pace,2368745702,2023-01-24,Taif,35990,71.98,500,[],low,[],approved,
+MER-0316,Volt Jones Trading,,electronics,1049392836,Barbara Mayo,1292430110,2018-04-26,Khobar,99279,902.54,110,[],low,[],approved,
+MER-0317,Al Waha Estrada Est.,,retail,1002826022,Trevor Scott,2607592251,2017-09-10,Riyadh,51649,290.16,178,"['municipal_license', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: municipal_license, cr_certificate"
+MER-0318,Noor Cummings Group,,food,1039933681,Daniel Wong,1781389107,2021-09-13,Khobar,37348,91.09,410,['health_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: health_certificate
+MER-0319,Star Davis LLC,,retail,1030392936,Angelica Rivas,1456232921,2018-11-19,Jeddah,39019,163.95,238,['cr_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: cr_certificate
+MER-0320,Gulf Harper Trading,,retail,1045478753,James Jimenez,2656046911,2017-07-02,Khobar,68799,196.01,351,[],low,[],approved,
+MER-0321,Rapid Ewing Est.,,transport,1059417556,Sandra Jones,1639563911,2024-08-21,Taif,37801,160.86,235,['owner_id'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: owner_id
+MER-0322,Al Amal Howard Trading,,food,1097250651,Michelle Kaiser,1209857999,2017-09-17,Medina,18448,62.32,296,[],low,[],approved,
+MER-0323,Gulf Baker Trading,,retail,1002874862,Justin Carroll,1417615217,2018-06-12,Abha,21200,149.3,142,[],low,[],approved,
+MER-0324,Speed Johnson Group,,transport,1074453681,Chad Rivera,1093145651,2020-02-28,Riyadh,18660,40.04,466,"['owner_id', 'transport_license']",high,"['incomplete_documentation', 'high_risk_category', 'suspicious_micro_transactions']",rejected,"Missing required documents: owner_id, transport_license"
+MER-0325,Al Waha Guerrero Trading,,retail,1033522887,Amber Wright,1649962850,2022-02-10,Medina,79769,426.57,187,[],low,[],approved,
+MER-0326,Tech Robinson Trading,,electronics,1091508397,Heather Williams,2280429749,2022-03-26,Taif,117524,1004.48,117,['vat_certificate'],medium,"['incomplete_documentation', 'high_volume']",rejected,Missing required documents: vat_certificate
+MER-0327,Al Amal Holder Co.,,food,1024423171,Valerie Willis,1569895950,2021-01-02,Jeddah,40960,88.47,463,[],low,[],approved,
+MER-0328,Saudi Peterson Group,,services,1037614588,Denise Silva,1576284761,2015-06-28,Khobar,26533,262.7,101,[],low,['high_risk_category'],approved,
+MER-0329,Pro Richardson LLC,,services,1048241764,Haley Duran,1693302309,2018-01-11,Mecca,13594,54.16,251,[],low,['high_risk_category'],approved,
+MER-0330,Gulf Horn LLC,,retail,1060852062,Jasmine Ruiz,1180101210,2022-11-09,Abha,63789,2773.43,23,"['municipal_license', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: municipal_license, cr_certificate"
+MER-0331,Gulf Morris Trading,,retail,1024367964,Richard Ramos,1014294010,2018-01-10,Mecca,39696,149.8,265,"['owner_id', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: owner_id, cr_certificate"
+MER-0332,Go Rosario Est.,,transport,1074225682,Vincent Harmon,2089784475,2021-11-27,Riyadh,23724,308.1,77,[],low,['high_risk_category'],approved,
+MER-0333,Bab Burton Trading,,restaurants,1094896532,Sara Boyd,1897926015,2015-05-21,Abha,39618,157.84,251,[],low,[],approved,
+MER-0334,Gulf Salas Group,,retail,1017200356,Thomas Todd,1899277108,2020-12-21,Khobar,76445,171.79,445,"['owner_id', 'municipal_license']",medium,['incomplete_documentation'],rejected,"Missing required documents: owner_id, municipal_license"
+MER-0335,Noor Barnett Trading,,food,1077415796,Douglas Drake,2194544215,2017-06-29,Tabuk,5051,15.69,322,[],medium,['suspicious_micro_transactions'],approved,
+MER-0336,Baraka Booker LLC,,food,1001551558,Julia Glenn,1467738387,2023-04-02,Jeddah,30132,61.12,493,[],low,[],approved,
+MER-0337,Pro Bauer Co.,,services,1080117558,Brandon Green,2967202842,2021-11-14,Jeddah,10722,306.34,35,[],low,['high_risk_category'],approved,
+MER-0338,Premium Franklin Co.,,retail,1078580282,Michael Wheeler,2752715266,2017-05-02,Medina,65190,395.09,165,[],low,[],approved,
+MER-0339,Al Waha Thompson LLC,,retail,1074506612,Melissa Todd,2285050277,2024-11-17,Buraidah,17817,234.43,76,[],low,[],approved,
+MER-0340,Al Amal Beck Est.,,food,1084020699,Cheryl Hernandez,1030620052,2017-07-11,Buraidah,29263,124.0,236,"['health_certificate', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: health_certificate, owner_id"
+MER-0341,Rapid Carson LLC,,transport,1008415759,Victor Pruitt,1350574172,2019-10-08,Mecca,22399,476.57,47,[],low,['high_risk_category'],approved,
+MER-0342,Digital Burton Co.,,electronics,1076847434,Todd Lee,1615223343,2023-09-24,Abha,61094,157.46,388,[],low,[],approved,
+MER-0343,Al Waha Miller LLC,,retail,1048315692,Melinda Hess MD,2870303679,2024-12-28,Buraidah,53513,891.88,60,[],low,[],approved,
+MER-0344,Star Aguilar Trading,,retail,1063708247,Troy Clark,2212923487,2024-03-17,Riyadh,44406,250.88,177,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0345,Smart Bowman Trading,,electronics,1005646236,Megan Huang,1172808354,2019-04-09,Riyadh,166835,855.56,195,[],low,['high_volume'],approved,
+MER-0346,Smart Horne LLC,,electronics,1091085255,Joseph Hurley,2545712304,2024-05-15,Abha,135493,571.7,237,[],low,['high_volume'],approved,
+MER-0347,Med Wood Group,,healthcare,1046185518,Danielle Martinez,2169523802,2018-01-19,Taif,22559,82.94,272,"['cr_certificate', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, owner_id"
+MER-0348,Pro Brown LLC,,services,1045159395,Stephanie Graham,1952254417,2018-03-23,Taif,9662,357.85,27,"['cr_certificate', 'vat_certificate']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: cr_certificate, vat_certificate"
+MER-0349,Bab Lynch Co.,,restaurants,1072469604,Kelsey Williams,1944682460,2022-08-26,Jeddah,36317,132.06,275,[],low,[],approved,
+MER-0350,Gulf Webster LLC,,retail,1064290613,Charles Welch,2202305733,2018-10-08,Medina,38052,138.37,275,[],low,[],approved,
+MER-0351,Noor Morales Group,,food,1000483340,Nicholas James,1472415600,2022-10-14,Mecca,5622,17.09,329,[],medium,['suspicious_micro_transactions'],approved,
+MER-0352,Volt Newton Trading,,electronics,1000960588,Elizabeth Watson,1275885483,2019-04-24,Dammam,172924,1394.55,124,[],low,['high_volume'],approved,
+MER-0353,Saudi Benitez Group,,services,1090348924,John Underwood,1869141383,2021-01-29,Abha,24577,55.11,446,[],low,['high_risk_category'],approved,
+MER-0354,Al Safa Compton LLC,,food,1004039716,Sonia Aguilar,1734326007,2017-12-14,Medina,31746,675.45,47,['owner_id'],medium,['incomplete_documentation'],rejected,Missing required documents: owner_id
+MER-0355,Pro Mason Group,,services,1088475868,Susan Todd,1194409493,2024-02-24,Abha,19490,41.38,471,[],medium,"['high_risk_category', 'suspicious_micro_transactions']",escalate,Multiple risk indicators detected
+MER-0356,Care Williams LLC,,healthcare,1049507305,Daryl Jennings,2619161135,2015-07-30,Mecca,48633,212.37,229,"['owner_id', 'vat_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: owner_id, vat_certificate"
+MER-0357,Rapid Hancock Trading,,transport,1076711237,Ebony Hicks,2304650680,2015-07-14,Khobar,12725,106.93,119,"['cr_certificate', 'owner_id']",medium,"['incomplete_documentation', 'high_risk_category']",rejected,"Missing required documents: cr_certificate, owner_id"
+MER-0358,Med Sparks LLC,,healthcare,1073085689,Nathan Grant,2996637098,2015-02-17,Medina,11811,72.46,163,[],low,[],approved,
+MER-0359,Noor Rose Co.,,food,1056374975,Caitlyn Marks,1904892814,2023-11-25,Buraidah,26454,645.22,41,[],low,[],approved,
+MER-0360,Gulf Sheppard Est.,,retail,1060996098,Deborah King,2859272978,2019-04-28,Riyadh,48617,179.4,271,[],low,[],approved,
+MER-0361,Al Amal Mack Co.,,food,1062520380,Kyle Phelps,1814640204,2020-12-14,Taif,45941,1392.15,33,[],low,[],approved,
+MER-0362,Heal Barnett Est.,,healthcare,1088532984,Victoria Mcclain,2912272598,2021-10-01,Khobar,37747,539.24,70,[],low,[],approved,
+MER-0363,Future Landry Trading,,education,1048523928,Jeffrey Pierce,1439814192,2022-12-26,Buraidah,19833,210.99,94,[],low,[],approved,
+MER-0364,Star Powell Group,,retail,1045404804,James Smith,2807939514,2023-04-08,Mecca,47100,126.95,371,['cr_certificate'],medium,['incomplete_documentation'],rejected,Missing required documents: cr_certificate
+MER-0365,Najd Davis Est.,,restaurants,1074628277,Nicole Howell,2284548586,2020-11-11,Abha,78094,224.41,348,"['municipal_license', 'owner_id']",medium,['incomplete_documentation'],rejected,"Missing required documents: municipal_license, owner_id"
+MER-0366,Premium Greer Est.,,retail,1027619522,Charlotte Williams,2068390045,2021-07-29,Khobar,35291,146.44,241,[],low,[],approved,
+MER-0367,Ilm Romero Group,,education,1034900278,Jesus Butler,2897687698,2020-08-20,Medina,7636,93.12,82,[],low,[],approved,
+MER-0368,Future Phillips Est.,,education,1001931380,Jennifer Martinez,1249393349,2023-08-19,Mecca,15073,52.16,289,[],low,[],approved,
+MER-0369,Swift Willis Trading,,services,1047617039,Cole Burke,2533046371,2021-04-14,Taif,18019,38.01,474,['owner_id'],high,"['incomplete_documentation', 'high_risk_category', 'suspicious_micro_transactions']",rejected,Missing required documents: owner_id
+MER-0370,Gulf Wilkins Group,,retail,1024769326,Brandon Brown PhD,1783109114,2015-08-03,Khobar,52627,158.99,331,[],low,[],approved,
+MER-0371,Gulf King Trading,,retail,1090337367,Tiffany Brown,1306341726,2018-06-30,Dammam,25508,62.83,406,[],low,[],approved,
+MER-0372,Volt Robertson LLC,,electronics,1060554332,Nicole Hines,2228541109,2020-07-31,Khobar,154992,717.56,216,[],low,['high_volume'],approved,
+MER-0373,Smart Padilla Group,,electronics,1078493385,Michele Wilson,2559277731,2015-02-22,Riyadh,191162,827.54,231,[],low,['high_volume'],approved,
+MER-0374,Pro Owens LLC,,services,1026362534,Eric Lang,1318060910,2017-05-15,Abha,8642,34.16,253,[],low,['high_risk_category'],approved,
+MER-0375,Noor Booker Group,,food,1047817071,Kelli Lewis,2574141696,2018-10-30,Dammam,49862,692.53,72,[],low,[],approved,
+MER-0376,Heritage Young LLC,,restaurants,1036609287,Brady Farley,2797718348,2023-12-24,Khobar,15367,548.82,28,[],low,[],approved,
+MER-0377,Saudi Campbell LLC,,services,1097313554,Rodney Carr,1714678066,2021-12-01,Taif,21029,109.53,192,['owner_id'],medium,"['incomplete_documentation', 'high_risk_category']",rejected,Missing required documents: owner_id
+MER-0378,Bright Jackson Est.,,education,1009150298,William Smith,1704340939,2022-07-03,Dammam,22075,134.6,164,"['moe_license', 'cr_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: moe_license, cr_certificate"
+MER-0379,Go Levy Co.,,transport,1057108731,Donald Jones,2162522744,2020-02-17,Jeddah,25367,70.66,359,[],low,['high_risk_category'],approved,
+MER-0380,Bab Campbell Co.,,restaurants,1071256603,Timothy Williams,2412471585,2018-07-01,Mecca,91000,229.22,397,[],low,[],approved,
+MER-0381,Al Waha Gardner LLC,,retail,1069174719,Mary Clark,2509597099,2020-12-17,Tabuk,74681,508.03,147,[],low,[],approved,
+MER-0382,Baraka Reynolds Group,,food,1099642190,Hector Cummings,1602646031,2018-12-18,Riyadh,17277,308.52,56,[],low,[],approved,
+MER-0383,Premium Carney Trading,,retail,1064482838,Johnny Brown,1478637230,2017-12-10,Tabuk,77971,1499.44,52,[],low,[],approved,
+MER-0384,Smart Brown Trading,,electronics,1070959780,Cindy Boyer,1759097090,2022-02-08,Khobar,149403,4980.1,30,[],low,['high_volume'],approved,
+MER-0385,Al Amal Thompson Trading,,food,1079471154,Laura Perry,1934289602,2023-08-18,Tabuk,13789,70.35,196,['municipal_license'],medium,['incomplete_documentation'],rejected,Missing required documents: municipal_license
+MER-0386,Star Stevens Est.,,retail,1084337339,Ashley Price,1336384166,2021-03-31,Riyadh,21286,47.62,447,[],medium,['suspicious_micro_transactions'],approved,
+MER-0387,Najd Martin Trading,,restaurants,1061749592,Charles Schmitt,1501514325,2022-05-01,Tabuk,39504,115.51,342,[],low,[],approved,
+MER-0388,Baraka Wilson Trading,,food,1066093412,Karen Benitez,1143644566,2023-06-03,Mecca,21239,146.48,145,[],low,[],approved,
+MER-0389,Baraka Smith Co.,,food,1079076022,Jessica Solis,1523796430,2023-07-21,Taif,39671,134.94,294,[],low,[],approved,
+MER-0390,Ilm Reyes LLC,,education,1081249159,Alexander Murray,1888752048,2015-05-08,Tabuk,4524,17.74,255,[],low,[],approved,
+MER-0391,Shifa Anderson Group,,healthcare,1008554690,William Austin,2493085402,2024-01-13,Buraidah,31095,154.7,201,[],low,[],approved,
+MER-0392,Al Amal Noble LLC,,food,1018760061,Laura Brown,2178757781,2018-06-01,Jeddah,43008,232.48,185,[],low,[],approved,
+MER-0393,Al Safa Morse Trading,,food,1064504194,Jo Mann,1373443245,2019-03-11,Abha,6802,25.1,271,[],low,[],approved,
+MER-0394,Swift Rodriguez Group,,services,1029217405,Ashley Smith,2474063212,2016-06-03,Abha,28342,121.12,234,[],low,['high_risk_category'],approved,
+MER-0395,Care Mendoza Group,,healthcare,1096654141,Clinton Fisher,1068806075,2021-05-19,Mecca,29266,74.47,393,"['moh_license', 'vat_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: moh_license, vat_certificate"
+MER-0396,Rapid Davila LLC,,transport,1069454569,Tanya Kim,2898887225,2022-05-05,Jeddah,35107,126.74,277,[],low,['high_risk_category'],approved,
+MER-0397,Al Safa White LLC,,food,1037033668,John Patton,1606116000,2020-07-06,Dammam,21738,557.38,39,"['cr_certificate', 'municipal_license']",medium,['incomplete_documentation'],rejected,"Missing required documents: cr_certificate, municipal_license"
+MER-0398,Rapid Nunez Est.,,transport,1062902179,Nicole Armstrong,1580661730,2018-10-30,Buraidah,9950,80.89,123,[],low,['high_risk_category'],approved,
+MER-0399,Baraka Garcia Est.,,food,1035620773,Ryan Thornton,1457364086,2022-08-12,Buraidah,45904,128.22,358,"['municipal_license', 'health_certificate']",medium,['incomplete_documentation'],rejected,"Missing required documents: municipal_license, health_certificate"
+MER-0400,Najd Robertson Group,,restaurants,1008221034,Lindsey Cobb,2984930387,2021-09-11,Riyadh,119133,447.87,266,[],low,['high_volume'],approved,

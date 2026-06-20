@@ -7,9 +7,14 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 
+from app.api.v1.admin import router as admin_router
+from app.api.v1.auth import router as auth_router
+from app.api.v1.compliance import router as compliance_router
 from app.api.v1.kyc import router as kyc_router
+from app.api.v1.merchant import router as merchant_router
 from app.core.config import get_settings
 from app.core.database import init_database
+from app.rag import bootstrap_compliance_retriever
 
 
 settings = get_settings()
@@ -19,6 +24,7 @@ frontend_dist_path = settings.frontend_dist_path
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     init_database()
+    bootstrap_compliance_retriever()
     yield
 
 
@@ -37,7 +43,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(auth_router, prefix=settings.api_v1_prefix)
+app.include_router(admin_router, prefix=settings.api_v1_prefix)
 app.include_router(kyc_router, prefix=settings.api_v1_prefix)
+app.include_router(compliance_router, prefix=settings.api_v1_prefix)
+app.include_router(merchant_router, prefix=settings.api_v1_prefix)
 
 
 @app.get("/health")

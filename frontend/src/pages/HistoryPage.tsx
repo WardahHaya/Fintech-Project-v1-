@@ -1,30 +1,16 @@
 import { useDeferredValue, useEffect, useState } from 'react'
-import { useOutletContext } from 'react-router-dom'
-import {
-  Area,
-  AreaChart,
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Cell,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts'
+import { useOutletContext, useSearchParams } from 'react-router-dom'
 
 import { DecisionBadge } from '../components/DecisionBadge'
-import { ReviewTimeline } from '../components/ReviewTimeline'
-import { fetchKycReviews } from '../lib/api'
-import type { AppShellContext, KycReviewRecord } from '../types'
+import { fetchComplianceHistory, fetchKycReviews, fetchMerchantReviews } from '../lib/api'
+import type {
+  AgentKey,
+  AppShellContext,
+  ComplianceQueryRecord,
+  KycReviewRecord,
+  MerchantReviewRecord,
+} from '../types'
 
-const decisionColors = {
-  APPROVED: '#0f8f77',
-  REVIEW_REQUIRED: '#d39c3f',
-  REJECTED: '#d15a5a',
-} as const
 
 function formatTimestamp(value: string) {
   return new Intl.DateTimeFormat('en-GB', {
@@ -33,23 +19,52 @@ function formatTimestamp(value: string) {
   }).format(new Date(value))
 }
 
+
+function normalizeAgent(rawValue: string | null): AgentKey {
+  if (rawValue === 'compliance' || rawValue === 'merchant') {
+    return rawValue
+  }
+  return 'kyc'
+}
+
+
+function approvalRate(reviews: KycReviewRecord[] | MerchantReviewRecord[]) {
+  if (reviews.length === 0) {
+    return '0%'
+  }
+  const approved = reviews.filter((review) => review.decision === 'APPROVED').length
+  return `${Math.round((approved / reviews.length) * 100)}%`
+}
+
+
 export function HistoryPage() {
-  const [reviews, setReviews] = useState<KycReviewRecord[]>([])
+  const [searchParams, setSearchParams] = useSearchParams()
+  const agent = normalizeAgent(searchParams.get('agent'))
+  const [kycReviews, setKycReviews] = useState<KycReviewRecord[]>([])
+  const [merchantReviews, setMerchantReviews] = useState<MerchantReviewRecord[]>([])
+  const [complianceHistory, setComplianceHistory] = useState<ComplianceQueryRecord[]>([])
   const [search, setSearch] = useState('')
   const [error, setError] = useState('')
   const deferredSearch = useDeferredValue(search)
-  const { role, setRole } = useOutletContext<AppShellContext>()
+  const { isAdmin } = useOutletContext<AppShellContext>()
 
   useEffect(() => {
     let active = true
 
     async function load() {
       try {
-        const response = await fetchKycReviews()
+        const [kycResponse, merchantResponse, complianceResponse] = await Promise.all([
+          fetchKycReviews(),
+          fetchMerchantReviews(),
+          fetchComplianceHistory(),
+        ])
         if (!active) {
           return
         }
-        setReviews(response)
+
+        setKycReviews(kycResponse)
+        setMerchantReviews(merchantResponse)
+        setComplianceHistory(complianceResponse)
       } catch {
         if (!active) {
           return
@@ -65,81 +80,112 @@ export function HistoryPage() {
     }
   }, [])
 
-  const filteredReviews = reviews.filter((review) => {
-    const query = deferredSearch.trim().toLowerCase()
+  function changeAgent(nextAgent: AgentKey) {
+    const nextParams = new URLSearchParams(searchParams)
+    nextParams.set('agent', nextAgent)
+    setSearchParams(nextParams)
+  }
+
+  const query = deferredSearch.trim().toLowerCase()
+
+  const filteredKyc = kycReviews.filter((review) => {
     if (!query) {
       return true
     }
     return (
-      review.customer_id.toLowerCase().includes(query) ||
-      review.full_name.toLowerCase().includes(query) ||
-      review.decision.toLowerCase().includes(query)
+      review.customer_id.toLowerCase().includes(query)
+      || review.full_name.toLowerCase().includes(query)
+      || review.decision.toLowerCase().includes(query)
     )
   })
 
-  const decisionCounts = (['APPROVED', 'REVIEW_REQUIRED', 'REJECTED'] as const).map((decision) => ({
-    name: decision.replace('_', ' '),
-    value: filteredReviews.filter((review) => review.decision === decision).length,
-    color: decisionColors[decision],
-  }))
+  const filteredMerchant = merchantReviews.filter((review) => {
+    if (!query) {
+      return true
+    }
+    return (
+      review.merchant_id.toLowerCase().includes(query)
+      || review.business_name.toLowerCase().includes(query)
+      || review.decision.toLowerCase().includes(query)
+    )
+  })
 
-  const recentRiskTrend = filteredReviews
-    .slice()
-    .reverse()
-    .slice(-8)
-    .map((review) => ({
-      customer: review.customer_id,
-      risk: review.risk_score,
-      confidence: Math.round(review.confidence_score * 100),
-    }))
+  const filteredCompliance = complianceHistory.filter((record) => {
+    if (!query) {
+      return true
+    }
+    return (
+      record.query_text.toLowerCase().includes(query)
+      || record.answer.toLowerCase().includes(query)
+      || record.source_chunk_ids.join(' ').toLowerCase().includes(query)
+    )
+  })
 
-  const missingDocumentData = filteredReviews.map((review) => ({
-    customer: review.customer_id,
-    missing: review.missing_documents.length,
-  }))
+  const kycFlagged = filteredKyc.filter((review) => review.decision !== 'APPROVED').length
+  const merchantFlagged = filteredMerchant.filter((review) => review.decision !== 'APPROVED').length
+  const complianceGroq = filteredCompliance.filter((record) => record.has_groq).length
 
-  if (role === 'user') {
+  if (!isAdmin) {
+    const items = agent === 'kyc' ? filteredKyc : agent === 'merchant' ? filteredMerchant : filteredCompliance
+
     return (
       <div className="space-y-6">
         <section className="surface-card px-6 py-8 sm:px-8">
-          <span className="eyebrow">User access</span>
-          <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950">
-            Internal audit analytics stay inside the admin lane.
+          <span className="eyebrow">User history</span>
+          <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-navy">
+            Simple activity view without the internal audit language.
           </h2>
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
-            Customer mode keeps the story simple: status, confidence, and timing. Deep reasoning,
-            queue analytics, and internal review history are reserved for operations teams.
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-slate">
+            Your account can still review recent platform activity, but staff-management controls and deeper analytics stay restricted to admins.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <button type="button" onClick={() => setRole('admin')} className="action-primary">
-              Switch to admin access
-            </button>
-          </div>
         </section>
 
         <section className="surface-card p-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
-            Customer-safe status feed
-          </p>
-          <h3 className="mt-2 text-2xl font-semibold text-slate-950">Recent onboarding outcomes</h3>
-          <div className="mt-6 space-y-3">
-            {filteredReviews.slice(0, 8).map((review) => (
-              <div
-                key={review.id}
-                className="flex flex-wrap items-center justify-between gap-3 rounded-[24px] border border-teal-900/10 bg-white/85 px-4 py-4"
+          <div className="mb-5 flex flex-wrap gap-3">
+            {(['kyc', 'compliance', 'merchant'] as AgentKey[]).map((agentKey) => (
+              <button
+                key={agentKey}
+                type="button"
+                onClick={() => changeAgent(agentKey)}
+                className={['nav-pill', agentKey === agent ? 'is-active' : ''].join(' ')}
               >
-                <div>
-                  <p className="text-sm font-semibold text-slate-950">{review.full_name}</p>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-slate-400">
-                    {review.customer_id}
-                  </p>
-                </div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <DecisionBadge decision={review.decision} />
-                  <span className="text-sm text-slate-500">{formatTimestamp(review.reviewed_at)}</span>
-                </div>
-              </div>
+                {agentKey}
+              </button>
             ))}
+          </div>
+
+          <div className="space-y-3">
+            {agent === 'compliance'
+              ? filteredCompliance.slice(0, 10).map((record) => (
+                  <article key={record.id} className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
+                    <p className="text-sm font-semibold text-navy">{record.query_text}</p>
+                    <p className="mt-2 text-sm leading-7 text-slate">{record.answer}</p>
+                    <p className="mt-3 text-xs uppercase tracking-[0.18em] text-slate">
+                      {formatTimestamp(record.queried_at)}
+                    </p>
+                  </article>
+                ))
+              : items.slice(0, 10).map((record) => (
+                  <article
+                    key={record.id}
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-4"
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div>
+                        <p className="text-sm font-semibold text-navy">
+                          {'full_name' in record ? record.full_name : record.business_name}
+                        </p>
+                        <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-slate">
+                          {'customer_id' in record ? record.customer_id : record.merchant_id}
+                        </p>
+                      </div>
+                      <DecisionBadge decision={record.decision} />
+                    </div>
+                    <p className="mt-3 text-sm text-slate">
+                      {formatTimestamp(record.reviewed_at)}
+                    </p>
+                  </article>
+                ))}
           </div>
         </section>
       </div>
@@ -151,133 +197,168 @@ export function HistoryPage() {
       <section className="surface-card px-6 py-8 sm:px-8">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <span className="eyebrow">Admin audit trail</span>
-            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950">
-              Internal decision history, queue pressure, and screening patterns.
+            <span className="eyebrow">Admin history</span>
+            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-navy">
+              Unified audit trail across KYC, compliance, and merchant onboarding.
             </h2>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
-              This view is intentionally operator-facing: it keeps the analytics, reasoning, and
-              documentation gaps visible for the compliance desk without leaking that language into
-              the customer journey.
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate">
+              Switch the agent lane, filter the records, and inspect only the details that matter.
             </p>
           </div>
 
           <label className="block min-w-[280px]">
-            <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
-              Filter reviews
+            <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
+              Filter records
             </span>
             <input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Search by name, ID, or decision"
-              className="w-full rounded-[20px] border border-teal-900/10 bg-white px-4 py-3 text-sm text-slate-950 outline-none transition focus:border-teal-700"
+              placeholder="Search by ID, decision, question, or business name"
+              className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-navy outline-none transition focus:border-primary"
             />
           </label>
         </div>
 
+        <div className="mt-6 flex flex-wrap gap-3">
+          {(['kyc', 'compliance', 'merchant'] as AgentKey[]).map((agentKey) => (
+            <button
+              key={agentKey}
+              type="button"
+              onClick={() => changeAgent(agentKey)}
+              className={['nav-pill', agentKey === agent ? 'is-active' : ''].join(' ')}
+            >
+              {agentKey}
+            </button>
+          ))}
+        </div>
+
         {error ? (
-          <div className="mt-6 rounded-2xl border border-rose-300/70 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+          <div className="mt-6 rounded-2xl border border-danger/15 bg-danger/5 px-4 py-3 text-sm text-danger">
             {error}
           </div>
         ) : null}
       </section>
 
-      <section className="grid gap-5 xl:grid-cols-[1.15fr_0.85fr]">
-        <div className="surface-card p-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
-            Risk trajectory
-          </p>
-          <h3 className="mt-2 text-2xl font-semibold text-slate-950">Latest screening movement</h3>
-          <div className="mt-6 h-80">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={recentRiskTrend}>
-                <defs>
-                  <linearGradient id="riskFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#0f8f77" stopOpacity={0.36} />
-                    <stop offset="95%" stopColor="#0f8f77" stopOpacity={0.02} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#d7dfda" />
-                <XAxis dataKey="customer" tick={{ fill: '#64748b', fontSize: 12 }} />
-                <YAxis tick={{ fill: '#64748b', fontSize: 12 }} />
-                <Tooltip />
-                <Area dataKey="risk" stroke="#0f8f77" fillOpacity={1} fill="url(#riskFill)" strokeWidth={3} />
-                <Area dataKey="confidence" stroke="#b07d2f" fillOpacity={0} strokeWidth={2} />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
+      {agent === 'kyc' ? (
+        <>
+          <section className="grid gap-5 md:grid-cols-3">
+            <div className="metric-chip">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Total reviews</p>
+              <p className="mt-2 text-3xl font-semibold text-navy">{filteredKyc.length}</p>
+            </div>
+            <div className="metric-chip">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Approval rate</p>
+              <p className="mt-2 text-3xl font-semibold text-navy">{approvalRate(filteredKyc)}</p>
+            </div>
+            <div className="metric-chip">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Flagged</p>
+              <p className="mt-2 text-3xl font-semibold text-navy">{kycFlagged}</p>
+            </div>
+          </section>
 
-        <div className="surface-card p-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
-            Portfolio mix
-          </p>
-          <h3 className="mt-2 text-2xl font-semibold text-slate-950">Decision distribution</h3>
-          <div className="mt-6 h-80">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={decisionCounts}
-                  dataKey="value"
-                  nameKey="name"
-                  innerRadius={70}
-                  outerRadius={110}
-                  paddingAngle={4}
-                >
-                  {decisionCounts.map((entry) => (
-                    <Cell key={entry.name} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {decisionCounts.map((entry) => (
-              <div key={entry.name} className="rounded-2xl border border-teal-900/10 bg-stone-100/70 px-4 py-3">
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="status-dot" style={{ backgroundColor: entry.color }} />
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
-                    {entry.name}
-                  </p>
+          <section className="space-y-3">
+            {filteredKyc.map((review) => (
+              <article key={review.id} className="surface-card p-5">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-navy">{review.full_name}</p>
+                    <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-slate">{review.customer_id}</p>
+                  </div>
+                  <DecisionBadge decision={review.decision} />
                 </div>
-                <p className="text-2xl font-semibold text-slate-950">{entry.value}</p>
-              </div>
+                <div className="mt-4 flex flex-wrap gap-4 text-sm text-slate">
+                  <span>Risk {review.risk_score}/100</span>
+                  <span>Confidence {Math.round(review.confidence_score * 100)}%</span>
+                  <span>{formatTimestamp(review.reviewed_at)}</span>
+                </div>
+                <p className="mt-4 text-sm leading-7 text-slate">{review.reasoning[0]}</p>
+              </article>
             ))}
-          </div>
-        </div>
-      </section>
+          </section>
+        </>
+      ) : null}
 
-      <section className="surface-card p-6">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
-          Documentation pressure
-        </p>
-        <h3 className="mt-2 text-2xl font-semibold text-slate-950">Missing document count by record</h3>
-        <div className="mt-6 h-72">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={missingDocumentData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#d7dfda" />
-              <XAxis dataKey="customer" tick={{ fill: '#64748b', fontSize: 12 }} />
-              <YAxis tick={{ fill: '#64748b', fontSize: 12 }} allowDecimals={false} />
-              <Tooltip />
-              <Bar dataKey="missing" radius={[10, 10, 0, 0]} fill="#123844" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </section>
+      {agent === 'merchant' ? (
+        <>
+          <section className="grid gap-5 md:grid-cols-3">
+            <div className="metric-chip">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Total reviews</p>
+              <p className="mt-2 text-3xl font-semibold text-navy">{filteredMerchant.length}</p>
+            </div>
+            <div className="metric-chip">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Approval rate</p>
+              <p className="mt-2 text-3xl font-semibold text-navy">{approvalRate(filteredMerchant)}</p>
+            </div>
+            <div className="metric-chip">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Flagged</p>
+              <p className="mt-2 text-3xl font-semibold text-navy">{merchantFlagged}</p>
+            </div>
+          </section>
 
-      <section className="surface-card p-6">
-        <div className="mb-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
-            Full review log
-          </p>
-          <h3 className="mt-2 text-2xl font-semibold text-slate-950">Internal audit timeline</h3>
-        </div>
-        <ReviewTimeline
-          reviews={filteredReviews}
-          emptyLabel="No reviews match the current filter."
-        />
-      </section>
+          <section className="space-y-3">
+            {filteredMerchant.map((review) => (
+              <article key={review.id} className="surface-card p-5">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-navy">{review.business_name}</p>
+                    <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-slate">{review.merchant_id}</p>
+                  </div>
+                  <DecisionBadge decision={review.decision} />
+                </div>
+                <div className="mt-4 flex flex-wrap gap-4 text-sm text-slate">
+                  <span>Risk {review.risk_score}/100</span>
+                  <span>Confidence {Math.round(review.confidence_score * 100)}%</span>
+                  <span>{formatTimestamp(review.reviewed_at)}</span>
+                </div>
+                <p className="mt-4 text-sm leading-7 text-slate">{review.reasoning[0]}</p>
+              </article>
+            ))}
+          </section>
+        </>
+      ) : null}
+
+      {agent === 'compliance' ? (
+        <>
+          <section className="grid gap-5 md:grid-cols-3">
+            <div className="metric-chip">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Total queries</p>
+              <p className="mt-2 text-3xl font-semibold text-navy">{filteredCompliance.length}</p>
+            </div>
+            <div className="metric-chip">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Groq assisted</p>
+              <p className="mt-2 text-3xl font-semibold text-navy">{complianceGroq}</p>
+            </div>
+            <div className="metric-chip">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Cited answers</p>
+              <p className="mt-2 text-3xl font-semibold text-navy">
+                {filteredCompliance.filter((record) => record.source_chunk_ids.length > 0).length}
+              </p>
+            </div>
+          </section>
+
+          <section className="space-y-3">
+            {filteredCompliance.map((record) => (
+              <article key={record.id} className="surface-card p-5">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-navy">{record.query_text}</p>
+                    <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-slate">
+                      {record.has_groq ? 'Groq assisted' : 'Corpus fallback'}
+                    </p>
+                  </div>
+                  <span className="rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+                    {formatTimestamp(record.queried_at)}
+                  </span>
+                </div>
+                <p className="mt-4 text-sm leading-7 text-slate">{record.answer}</p>
+                <p className="mt-4 text-xs uppercase tracking-[0.18em] text-slate">
+                  Sources: {record.source_chunk_ids.join(', ') || 'None'}
+                </p>
+              </article>
+            ))}
+          </section>
+        </>
+      ) : null}
     </div>
   )
 }

@@ -1,15 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@config "../tailwind.config.js";
 @import "tailwindcss";
 
 :root {
-  color: #dcf7f4;
-  background:
-    radial-gradient(circle at 14% 16%, rgba(16, 185, 129, 0.24), transparent 24%),
-    radial-gradient(circle at 82% 14%, rgba(59, 130, 246, 0.2), transparent 22%),
-    radial-gradient(circle at 82% 78%, rgba(245, 158, 11, 0.18), transparent 24%),
-    linear-gradient(145deg, #dff8f1 0%, #f5fbff 34%, #fff3da 100%);
+  color: #0a2540;
+  background: #f6f9fc;
   font-family:
-    "Manrope", "Aptos", "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Inter", "Aptos", "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,13 +25,12 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  color: #0f172a;
+  color: #0a2540;
   position: relative;
   background:
-    radial-gradient(circle at 12% 18%, rgba(45, 212, 191, 0.34), transparent 20%),
-    radial-gradient(circle at 82% 14%, rgba(56, 189, 248, 0.26), transparent 20%),
-    radial-gradient(circle at 72% 78%, rgba(251, 191, 36, 0.18), transparent 22%),
-    linear-gradient(135deg, #d9f7ef 0%, #edf8ff 42%, #fff2d7 100%);
+    radial-gradient(circle at 12% 12%, rgba(99, 91, 255, 0.12), transparent 24%),
+    radial-gradient(circle at 84% 14%, rgba(255, 107, 71, 0.08), transparent 22%),
+    linear-gradient(180deg, #f8fbff 0%, #f6f9fc 42%, #f3f7fd 100%);
   background-attachment: fixed;
 }
 
@@ -46,8 +42,8 @@ body::before {
   height: 34rem;
   width: 34rem;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(20, 184, 166, 0.34) 0%, rgba(20, 184, 166, 0.08) 48%, transparent 72%);
-  filter: blur(16px);
+  background: radial-gradient(circle, rgba(99, 91, 255, 0.18) 0%, rgba(99, 91, 255, 0.04) 48%, transparent 72%);
+  filter: blur(18px);
   pointer-events: none;
 }
 
@@ -59,7 +55,7 @@ body::after {
   height: 32rem;
   width: 32rem;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.28) 0%, rgba(59, 130, 246, 0.14) 44%, transparent 74%);
+  background: radial-gradient(circle, rgba(255, 107, 71, 0.16) 0%, rgba(255, 107, 71, 0.03) 44%, transparent 74%);
   filter: blur(20px);
   pointer-events: none;
 }
@@ -70,7 +66,9 @@ a {
 }
 
 button,
-input {
+input,
+textarea,
+select {
   font: inherit;
 }
 
@@ -80,66 +78,45 @@ input {
 
 @layer base {
   body {
-    @apply bg-transparent text-slate-950;
+    @apply bg-background text-navy font-sans;
   }
 }
 
 @layer components {
   .app-shell {
     background:
-      radial-gradient(circle at top left, rgba(15, 118, 110, 0.2), transparent 26%),
-      radial-gradient(circle at 90% 8%, rgba(59, 130, 246, 0.18), transparent 20%),
-      radial-gradient(circle at 76% 76%, rgba(245, 158, 11, 0.12), transparent 18%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.1));
+      radial-gradient(circle at top left, rgba(99, 91, 255, 0.08), transparent 28%),
+      radial-gradient(circle at 90% 10%, rgba(255, 107, 71, 0.05), transparent 20%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.18));
   }
 
   .surface-card {
-    @apply rounded-[28px] border border-white/70 bg-white/68 shadow-[0_28px_90px_rgba(15,23,42,0.12)] backdrop-blur-xl;
-    background-image:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(245, 252, 251, 0.72)),
-      radial-gradient(circle at top right, rgba(45, 212, 191, 0.1), transparent 30%);
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-panel;
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-teal-900/10 bg-white/75 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-600;
-  }
-
-  .gradient-wordmark {
-    @apply bg-gradient-to-r from-teal-800 via-teal-600 to-amber-500 bg-clip-text text-transparent;
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary;
   }
 
   .brand-badge {
-    @apply flex h-12 w-12 items-center justify-center rounded-[20px] text-white shadow-[0_20px_50px_rgba(15,23,42,0.24)];
-    background: linear-gradient(135deg, #0f766e, #0f172a 55%, #d97706);
-  }
-
-  .role-switcher {
-    @apply inline-flex flex-wrap items-center gap-2 rounded-full border border-white/80 bg-white/55 p-1.5 backdrop-blur-md;
-  }
-
-  .role-switcher__button {
-    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-slate-500 transition hover:bg-white hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-teal-700/20;
-  }
-
-  .role-switcher__button.is-active {
-    @apply bg-white/90 text-slate-950 shadow-sm;
+    @apply flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-lg shadow-primary/20;
+    background: linear-gradient(135deg, #635bff 0%, #0a2540 100%);
   }
 
   .action-primary {
-    @apply inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-teal-700/25 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
-    background: linear-gradient(135deg, #0f766e 0%, #0f172a 58%, #2563eb 100%);
+    @apply inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:bg-primary-light focus:outline-none focus:ring-2 focus:ring-primary/20 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
   }
 
   .action-secondary {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/65 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:border-teal-300 hover:bg-white/82 focus:outline-none focus:ring-2 focus:ring-teal-700/15 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 backdrop-blur-md;
+    @apply inline-flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-navy transition hover:-translate-y-0.5 hover:border-primary/20 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/12 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
   }
 
   .nav-pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-transparent bg-white/42 px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-teal-900/10 hover:bg-white/82 hover:text-slate-950;
+    @apply inline-flex items-center gap-2 rounded-md border border-transparent bg-white px-4 py-2.5 text-sm font-semibold text-slate transition hover:border-primary/12 hover:text-primary;
   }
 
   .nav-pill.is-active {
-    @apply border-white/80 bg-white/88 text-slate-950 shadow-sm;
+    @apply border-primary/15 bg-primary/6 text-primary shadow-sm;
   }
 
   .hero-shell {
@@ -155,8 +132,8 @@ input {
     width: 28rem;
     transform: rotate(-9deg);
     border-radius: 999px;
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.28), rgba(59, 130, 246, 0.12));
-    filter: blur(8px);
+    background: linear-gradient(135deg, rgba(99, 91, 255, 0.16), rgba(126, 107, 253, 0.05));
+    filter: blur(10px);
   }
 
   .hero-shell::after {
@@ -167,15 +144,15 @@ input {
     width: 24rem;
     transform: rotate(22deg);
     border-radius: 3rem;
-    background: linear-gradient(160deg, rgba(37, 99, 235, 0.1), rgba(245, 158, 11, 0.18));
+    background: linear-gradient(160deg, rgba(255, 107, 71, 0.08), rgba(99, 91, 255, 0.05));
   }
 
   .signal-panel {
-    @apply relative overflow-hidden rounded-[30px] border border-slate-800/70 text-slate-50 shadow-[0_30px_100px_rgba(15,23,42,0.42)];
+    @apply relative overflow-hidden rounded-2xl border border-navy/60 text-white shadow-[0_28px_72px_rgba(10,37,64,0.24)];
     background:
-      radial-gradient(circle at top left, rgba(45, 212, 191, 0.22), transparent 28%),
-      radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.12), transparent 30%),
-      linear-gradient(160deg, #08131b 8%, #0f3d48 52%, #10222d 100%);
+      radial-gradient(circle at top left, rgba(126, 107, 253, 0.2), transparent 28%),
+      radial-gradient(circle at bottom right, rgba(255, 107, 71, 0.12), transparent 30%),
+      linear-gradient(160deg, #07182c 8%, #0a2540 52%, #102d4d 100%);
   }
 
   .signal-panel::before {
@@ -183,19 +160,12 @@ input {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(120deg, rgba(13, 148, 136, 0.22), transparent 34%),
-      linear-gradient(180deg, transparent, rgba(217, 119, 6, 0.08));
+      linear-gradient(120deg, rgba(99, 91, 255, 0.15), transparent 34%),
+      linear-gradient(180deg, transparent, rgba(255, 107, 71, 0.05));
     pointer-events: none;
   }
 
   .metric-chip {
-    @apply rounded-[26px] border border-white/80 bg-white/74 px-5 py-5 shadow-[0_16px_40px_rgba(15,23,42,0.07)] backdrop-blur-md;
-    background-image:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 251, 249, 0.68)),
-      radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 28%);
-  }
-
-  .status-dot {
-    @apply inline-block h-2.5 w-2.5 rounded-full;
+    @apply rounded-2xl border border-slate-200 bg-white px-5 py-5;
   }
 }
