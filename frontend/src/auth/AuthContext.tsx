@@ -24,7 +24,11 @@ interface AuthContextValue {
   fullName: string
   isAuthenticated: boolean
   isHydrating: boolean
-  login: (email: string, password: string) => Promise<LoginResponse>
+  login: (
+    email: string,
+    password: string,
+    options?: { requireAdmin?: boolean },
+  ) => Promise<LoginResponse>
   logout: () => void
 }
 
@@ -120,9 +124,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, [token])
 
-  async function login(email: string, password: string) {
-    setIsHydrating(true)
+  async function login(
+    email: string,
+    password: string,
+    options?: { requireAdmin?: boolean },
+  ) {
     const response = await loginRequest(email, password)
+    if (options?.requireAdmin && response.role !== 'admin') {
+      throw new Error('NOT_ADMIN')
+    }
+    setIsHydrating(true)
     setToken(response.access_token)
     return response
   }

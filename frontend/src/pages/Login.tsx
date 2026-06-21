@@ -32,14 +32,22 @@ export function LoginPage() {
     setError('')
 
     try {
-      await login(email.trim(), password)
+      await login(email.trim(), password, { requireAdmin: portal === 'admin' })
       navigate('/', { replace: true })
-    } catch {
-      setError(
-        isArabic
-          ? 'فشل تسجيل الدخول. تحقق من البريد الإلكتروني وكلمة المرور.'
-          : 'Login failed. Check your email and password.',
-      )
+    } catch (err) {
+      if (err instanceof Error && err.message === 'NOT_ADMIN') {
+        setError(
+          isArabic
+            ? 'هذا الحساب ليس حساب مدير. اختر "موظف" لتسجيل الدخول.'
+            : 'This account is not an admin. Choose "Staff" to sign in.',
+        )
+      } else {
+        setError(
+          isArabic
+            ? 'فشل تسجيل الدخول. تحقق من البريد الإلكتروني وكلمة المرور.'
+            : 'Login failed. Check your email and password.',
+        )
+      }
     } finally {
       setIsSubmitting(false)
     }
