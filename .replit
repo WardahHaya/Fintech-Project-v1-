@@ -3,9 +3,11 @@ language = "python3"
 hidden = [".local-logs", "frontend/node_modules", "frontend/dist"]
 build = "python3 -m pip install -r requirements.txt && cd frontend && npm ci && npm run build"
 run = ["python3", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "5000"]
+modules = ["python-3.11", "nodejs-20"]
 
 [nix]
 channel = "stable-23_11"
+packages = ["cargo", "libiconv", "libxcrypt", "postgresql", "rustc"]
 
 [gitHubImport]
 requiredFiles = [".replit", "replit.nix", "requirements.txt", "frontend/package.json"]
@@ -26,3 +28,27 @@ run = ["python3", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port"
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "export TMPDIR=/home/runner/workspace/.tmp && pip install torch --index-url https://download.pytorch.org/whl/cpu --no-cache-dir && pip install -r requirements.txt --no-cache-dir && cd frontend && npm install && npm run build && cd .. && uvicorn app.main:app --host 0.0.0.0 --port 5000"
+waitForPort = 5000
