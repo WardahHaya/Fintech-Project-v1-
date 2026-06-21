@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from app.agents.merchant_agent import MerchantNotFoundError, get_merchant_review_agent
 from app.core.database import get_db
-from app.core.security import get_current_user
+from app.core.security import require_admin
 from app.models.merchant import MerchantReview
 from app.models.user import User
 from app.schemas.merchant import MerchantReviewRecord, MerchantReviewResponse
@@ -21,7 +21,7 @@ router = APIRouter(prefix="/merchant", tags=["merchant"])
 async def review_merchant(
     merchant_id: str,
     db: Session = Depends(get_db),
-    _current_user: User = Depends(get_current_user),
+    _current_user: User = Depends(require_admin),
 ) -> MerchantReviewResponse:
     agent = get_merchant_review_agent()
 
@@ -54,7 +54,7 @@ async def review_merchant(
 @router.get("/reviews", response_model=list[MerchantReviewRecord])
 def list_merchant_reviews(
     db: Session = Depends(get_db),
-    _current_user: User = Depends(get_current_user),
+    _current_user: User = Depends(require_admin),
 ) -> list[MerchantReviewRecord]:
     statement = select(MerchantReview).order_by(MerchantReview.reviewed_at.desc())
     reviews = db.scalars(statement).all()

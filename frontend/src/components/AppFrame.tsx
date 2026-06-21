@@ -18,19 +18,18 @@ export function AppFrame() {
   const { role, fullName, logout } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
-  const isAdmin = role === 'admin'
 
   const navItems = [
     { to: '/', label: 'Overview', icon: LayoutDashboard },
     { to: '/review', label: 'Reviews', icon: ShieldCheck },
     { to: '/history', label: 'History', icon: TableProperties },
-    ...(isAdmin ? [{ to: '/staff', label: 'Staff', icon: UsersRound }] : []),
+    { to: '/staff', label: 'Staff', icon: UsersRound },
   ]
 
   const context: AppShellContext = {
     role,
     fullName,
-    isAdmin,
+    isAdmin: true,
   }
 
   return (
@@ -51,7 +50,7 @@ export function AppFrame() {
                 </h1>
                 <div className="mt-3 flex flex-wrap items-center gap-2 text-sm text-slate">
                   <span className="rounded-full border border-primary/10 bg-primary/5 px-3 py-1.5 font-medium text-primary">
-                    {isAdmin ? 'Admin account' : 'User account'}
+                    Admin account
                   </span>
                   <span>{fullName}</span>
                 </div>
@@ -107,7 +106,7 @@ export function AppFrame() {
         <footer className="mt-8 flex flex-col gap-2 px-2 text-sm text-slate md:flex-row md:items-center md:justify-between">
           <p>Tiqmo Intelligence Layer for KYC, SAMA compliance, and merchant onboarding.</p>
           <div className="text-slate">
-            <span>Authenticated staff access with admin role enforcement.</span>
+            <span>Admin-only operations access across all agent workflows.</span>
           </div>
         </footer>
       </div>

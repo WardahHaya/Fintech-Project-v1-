@@ -8,7 +8,7 @@ from app.core.database import get_db
 from app.core.security import create_access_token, get_current_user, verify_password
 from app.models.user import User
 from app.schemas.auth import LoginRequest, LoginResponse
-from app.schemas.user import UserProfile
+from app.schemas.user import UserProfile, UserRole
 
 
 router = APIRouter(prefix="/auth", tags=["auth"])
@@ -30,6 +30,12 @@ def login(payload: LoginRequest, db: Session = Depends(get_db)) -> LoginResponse
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="This account is inactive.",
+        )
+
+    if user.role != UserRole.ADMIN.value:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="This console is restricted to admin accounts.",
         )
 
     return LoginResponse(

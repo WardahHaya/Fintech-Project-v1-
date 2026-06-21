@@ -75,7 +75,7 @@ export function HomePage() {
   const [complianceHistory, setComplianceHistory] = useState<ComplianceQueryRecord[]>([])
   const [merchantReviews, setMerchantReviews] = useState<MerchantReviewRecord[]>([])
   const [error, setError] = useState('')
-  const { role, fullName, isAdmin } = useOutletContext<AppShellContext>()
+  const { role, fullName } = useOutletContext<AppShellContext>()
   const navigate = useNavigate()
 
   const kycReduction = useCountUp(97)
@@ -187,7 +187,7 @@ export function HomePage() {
           </div>
 
           <div className="text-sm text-slate">
-            Signed in as <span className="font-semibold text-navy">{fullName}</span> | {role}
+            Signed in as <span className="font-semibold text-navy">{fullName}</span> | {role ?? 'admin'}
           </div>
         </div>
 
@@ -214,7 +214,7 @@ export function HomePage() {
             One fintech control layer for KYC, SAMA guidance, and merchant onboarding.
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-slate">
-            Real authentication is now active across the platform. The frontend reflects the live backend and the role attached to your account.
+            Real authentication is now active across the platform. This workspace is reserved for Tiqmo administrators managing the full operations stack.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
@@ -222,17 +222,15 @@ export function HomePage() {
               Open review workspace
               <ArrowRight className="h-4 w-4" />
             </button>
-            {isAdmin ? (
-              <button type="button" onClick={() => navigate('/staff')} className="action-secondary">
-                Open staff console
-                <UsersRound className="h-4 w-4" />
-              </button>
-            ) : null}
+            <button type="button" onClick={() => navigate('/staff')} className="action-secondary">
+              Open staff console
+              <UsersRound className="h-4 w-4" />
+            </button>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3 text-sm">
             <div className="rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-slate">
-              Access: <span className="font-semibold text-navy">{isAdmin ? 'Admin' : 'User'}</span>
+              Access: <span className="font-semibold text-navy">Admin</span>
             </div>
             <div className="rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-slate">
               API: <span className="font-semibold text-navy">{health?.status === 'ok' ? 'Healthy' : 'Checking'}</span>
@@ -266,13 +264,11 @@ export function HomePage() {
             <div className="mb-3 flex items-center justify-between gap-3">
               <p className="text-sm font-semibold text-white">Current workspace status</p>
               <span className="text-xs uppercase tracking-[0.22em] text-white/70">
-                {isAdmin ? 'Operations' : 'Staff user'}
+                Operations
               </span>
             </div>
             <p className="text-sm leading-7 text-white/72">
-              {isAdmin
-                ? 'You can access all agent workflows and the staff management console.'
-                : 'You can run the three live agents, while admin-only staff controls remain restricted.'}
+              You can access all agent workflows, audit history, and administrative account controls from one console.
             </p>
           </div>
         </div>
@@ -343,15 +339,11 @@ export function HomePage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
                 Your access lane
               </p>
-              <h3 className="text-2xl font-semibold text-navy">
-                {isAdmin ? 'Admin operations access' : 'Authenticated staff access'}
-              </h3>
+              <h3 className="text-2xl font-semibold text-navy">Admin operations access</h3>
             </div>
           </div>
           <p className="mt-4 text-sm leading-7 text-slate">
-            {isAdmin
-              ? 'You can run live agent reviews, inspect history, and manage staff accounts.'
-              : 'You can run agent workflows and view the simplified history surface tied to your staff role.'}
+            You can run live agent reviews, inspect audit history, and manage administrative access without switching interfaces.
           </p>
         </div>
 

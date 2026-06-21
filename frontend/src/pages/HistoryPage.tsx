@@ -46,7 +46,7 @@ export function HistoryPage() {
   const [search, setSearch] = useState('')
   const [error, setError] = useState('')
   const deferredSearch = useDeferredValue(search)
-  const { isAdmin } = useOutletContext<AppShellContext>()
+  useOutletContext<AppShellContext>()
 
   useEffect(() => {
     let active = true
@@ -124,73 +124,6 @@ export function HistoryPage() {
   const kycFlagged = filteredKyc.filter((review) => review.decision !== 'APPROVED').length
   const merchantFlagged = filteredMerchant.filter((review) => review.decision !== 'APPROVED').length
   const complianceGroq = filteredCompliance.filter((record) => record.has_groq).length
-
-  if (!isAdmin) {
-    const items = agent === 'kyc' ? filteredKyc : agent === 'merchant' ? filteredMerchant : filteredCompliance
-
-    return (
-      <div className="space-y-6">
-        <section className="surface-card px-6 py-8 sm:px-8">
-          <span className="eyebrow">User history</span>
-          <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-navy">
-            Simple activity view without the internal audit language.
-          </h2>
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-slate">
-            Your account can still review recent platform activity, but staff-management controls and deeper analytics stay restricted to admins.
-          </p>
-        </section>
-
-        <section className="surface-card p-6">
-          <div className="mb-5 flex flex-wrap gap-3">
-            {(['kyc', 'compliance', 'merchant'] as AgentKey[]).map((agentKey) => (
-              <button
-                key={agentKey}
-                type="button"
-                onClick={() => changeAgent(agentKey)}
-                className={['nav-pill', agentKey === agent ? 'is-active' : ''].join(' ')}
-              >
-                {agentKey}
-              </button>
-            ))}
-          </div>
-
-          <div className="space-y-3">
-            {agent === 'compliance'
-              ? filteredCompliance.slice(0, 10).map((record) => (
-                  <article key={record.id} className="rounded-2xl border border-slate-200 bg-white px-4 py-4">
-                    <p className="text-sm font-semibold text-navy">{record.query_text}</p>
-                    <p className="mt-2 text-sm leading-7 text-slate">{record.answer}</p>
-                    <p className="mt-3 text-xs uppercase tracking-[0.18em] text-slate">
-                      {formatTimestamp(record.queried_at)}
-                    </p>
-                  </article>
-                ))
-              : items.slice(0, 10).map((record) => (
-                  <article
-                    key={record.id}
-                    className="rounded-2xl border border-slate-200 bg-white px-4 py-4"
-                  >
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <div>
-                        <p className="text-sm font-semibold text-navy">
-                          {'full_name' in record ? record.full_name : record.business_name}
-                        </p>
-                        <p className="mt-1 text-[11px] uppercase tracking-[0.22em] text-slate">
-                          {'customer_id' in record ? record.customer_id : record.merchant_id}
-                        </p>
-                      </div>
-                      <DecisionBadge decision={record.decision} />
-                    </div>
-                    <p className="mt-3 text-sm text-slate">
-                      {formatTimestamp(record.reviewed_at)}
-                    </p>
-                  </article>
-                ))}
-          </div>
-        </section>
-      </div>
-    )
-  }
 
   return (
     <div className="space-y-6">

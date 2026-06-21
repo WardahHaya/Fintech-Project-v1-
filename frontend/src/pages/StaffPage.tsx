@@ -2,14 +2,14 @@ import { CheckCircle2, Shield, ShieldCheck, UserPlus2, XCircle } from 'lucide-re
 import { useEffect, useState } from 'react'
 
 import { createStaffUser, fetchUsers, updateStaffUser } from '../lib/api'
-import type { AppAccessRole, StaffCreatePayload, UserProfile } from '../types'
+import type { StaffCreatePayload, UserProfile } from '../types'
 
 
 const defaultForm: StaffCreatePayload = {
   email: '',
   password: '',
   full_name: '',
-  role: 'user',
+  role: 'admin',
 }
 
 
@@ -79,17 +79,6 @@ export function StaffPage() {
     }
   }
 
-  async function handleRoleChange(user: UserProfile, nextRole: AppAccessRole) {
-    setError('')
-    setSuccess('')
-    try {
-      await updateStaffUser(user.id, { role: nextRole })
-      await refreshUsers()
-    } catch {
-      setError('The staff role could not be updated.')
-    }
-  }
-
   return (
     <div className="space-y-6">
       <section className="surface-card px-6 py-8 sm:px-8">
@@ -98,7 +87,7 @@ export function StaffPage() {
           Manage access to the Tiqmo operations platform.
         </h2>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-slate">
-          Create staff accounts, assign roles, and deactivate access without touching the agent logic.
+          Create and maintain administrative access without touching the agent logic.
         </p>
       </section>
 
@@ -139,14 +128,9 @@ export function StaffPage() {
                       </div>
                     </td>
                     <td className="px-4 py-4">
-                      <select
-                        value={user.role}
-                        onChange={(event) => void handleRoleChange(user, event.target.value as AppAccessRole)}
-                        className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-navy"
-                      >
-                        <option value="admin">admin</option>
-                        <option value="user">user</option>
-                      </select>
+                      <span className="inline-flex rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                        admin
+                      </span>
                     </td>
                     <td className="px-4 py-4">
                       <span className={['inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]', user.is_active ? 'bg-success/10 text-success' : 'bg-danger/10 text-danger'].join(' ')}>
@@ -211,15 +195,10 @@ export function StaffPage() {
             </label>
 
             <label className="block">
-              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Role</span>
-              <select
-                value={form.role}
-                onChange={(event) => setForm((current) => ({ ...current, role: event.target.value as AppAccessRole }))}
-                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-navy outline-none focus:border-primary"
-              >
-                <option value="user">user</option>
-                <option value="admin">admin</option>
-              </select>
+              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Access level</span>
+              <div className="w-full rounded-2xl border border-slate-200 bg-background px-4 py-3 text-sm font-semibold text-navy">
+                Admin
+              </div>
             </label>
 
             {error ? (

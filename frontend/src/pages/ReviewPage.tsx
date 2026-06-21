@@ -148,7 +148,7 @@ export function ReviewPage() {
   const [activeStage, setActiveStage] = useState(0)
   const [showPipeline, setShowPipeline] = useState(false)
   const [error, setError] = useState('')
-  const { role, isAdmin } = useOutletContext<AppShellContext>()
+  const { role } = useOutletContext<AppShellContext>()
 
   const stageTimerRef = useRef<number | null>(null)
   const stageIndexRef = useRef(0)
@@ -398,7 +398,7 @@ export function ReviewPage() {
                 <DecisionBadge decision={review.decision} />
               </div>
               <p className="mt-3 text-sm text-slate">
-                {isAdmin ? review.reasoning[0] : 'Latest customer screening outcome is available.'}
+                {review.reasoning[0]}
               </p>
             </article>
           ))}
@@ -424,7 +424,7 @@ export function ReviewPage() {
                 <DecisionBadge decision={review.decision} />
               </div>
               <p className="mt-3 text-sm text-slate">
-                {isAdmin ? review.reasoning[0] : 'Latest merchant onboarding outcome is available.'}
+                {review.reasoning[0]}
               </p>
             </article>
           ))}
@@ -519,7 +519,7 @@ export function ReviewPage() {
           <div className="mt-6 grid gap-4 xl:grid-cols-[1.22fr_0.9fr]">
             <div className="rounded-2xl border border-slate-200 bg-white p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
-                {isAdmin ? 'Reasoning' : 'Status summary'}
+                Reasoning
               </p>
               <ul className="mt-4 space-y-3">
                 {result.reasoning.map((reason) => (
@@ -713,16 +713,16 @@ export function ReviewPage() {
         <section className="surface-card p-6 sm:p-8">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <span className="eyebrow">{isAdmin ? 'Admin workspace' : 'Staff workspace'}</span>
+              <span className="eyebrow">Admin workspace</span>
               <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-navy">
                 Run the live Tiqmo agents.
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-slate">
-                Authentication is now enforced by the backend. Switch between KYC, compliance, and merchant onboarding without leaving the same review surface.
+                Authentication is now enforced by the backend. Switch between KYC, compliance, and merchant onboarding from the same admin control surface.
               </p>
             </div>
             <div className="rounded-2xl border border-primary/10 bg-primary/5 px-4 py-3 text-sm text-slate">
-              Signed in as <span className="font-semibold text-navy">{role}</span>
+              Signed in as <span className="font-semibold text-navy">{role ?? 'admin'}</span>
             </div>
           </div>
 
@@ -840,9 +840,7 @@ export function ReviewPage() {
         <section className="surface-card p-6">
           <div className="mb-4 flex items-center justify-between gap-3">
             <h3 className="text-xl font-semibold text-navy">Recent activity</h3>
-            <p className="text-sm text-slate">
-              {isAdmin ? 'Internal view' : 'Simplified view'}
-            </p>
+            <p className="text-sm text-slate">Internal audit view</p>
           </div>
           {renderRecentActivity()}
         </section>

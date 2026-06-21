@@ -70,13 +70,13 @@ export function LoginPage() {
               Secure access to KYC, SAMA compliance, and merchant onboarding.
             </h1>
             <p className="mt-5 max-w-md text-sm leading-7 text-white/72">
-              Real authentication now controls every agent route. Sign in with a staff account to continue.
+              Real authentication now controls every agent route. Sign in with an admin account to continue.
             </p>
 
             <div className="mt-10 space-y-4">
               {[
-                'JWT-based staff authentication',
-                'Admin-only staff management route',
+                'JWT-based admin authentication',
+                'Administrative access management',
                 'Protected live agent workflows',
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
@@ -94,7 +94,7 @@ export function LoginPage() {
               </div>
               <h2 className="mt-6 text-3xl font-semibold tracking-[-0.04em] text-navy">Log in</h2>
               <p className="mt-3 text-sm leading-7 text-slate">
-                Use your staff credentials to open the platform.
+                Use your admin credentials to open the platform.
               </p>
 
               <form className="mt-8 space-y-4" onSubmit={handleSubmit}>

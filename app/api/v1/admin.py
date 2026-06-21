@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.core.security import hash_password, require_admin
 from app.models.user import User
-from app.schemas.user import StaffCreateRequest, StaffUpdateRequest, UserProfile
+from app.schemas.user import StaffCreateRequest, StaffUpdateRequest, UserProfile, UserRole
 
 
 router = APIRouter(prefix="/admin", tags=["admin"], dependencies=[Depends(require_admin)])
@@ -30,11 +30,17 @@ def create_user(payload: StaffCreateRequest, db: Session = Depends(get_db)) -> U
             detail="A user with this email already exists.",
         )
 
+    if payload.role != UserRole.ADMIN:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Only admin accounts are supported in this console.",
+        )
+
     user = User(
         email=normalized_email,
         hashed_password=hash_password(payload.password),
         full_name=payload.full_name.strip(),
-        role=payload.role.value,
+        role=UserRole.ADMIN.value,
         is_active=True,
     )
     db.add(user)
@@ -52,7 +58,12 @@ def update_user(user_id: str, payload: StaffUpdateRequest, db: Session = Depends
     if payload.full_name is not None:
         user.full_name = payload.full_name.strip()
     if payload.role is not None:
-        user.role = payload.role.value
+        if payload.role != UserRole.ADMIN:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Only admin accounts are supported in this console.",
+            )
+        user.role = UserRole.ADMIN.value
     if payload.is_active is not None:
         user.is_active = payload.is_active
 

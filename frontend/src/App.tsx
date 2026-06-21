@@ -2,7 +2,6 @@ import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
 import { AdminRoute } from './auth/AdminRoute'
-import { ProtectedRoute } from './auth/ProtectedRoute'
 import { AppFrame } from './components/AppFrame'
 
 
@@ -45,15 +44,12 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
 
-        <Route element={<ProtectedRoute />}>
+        <Route element={<AdminRoute />}>
           <Route element={<AppFrame />}>
             <Route index element={<HomePage />} />
             <Route path="/review" element={<ReviewPage />} />
             <Route path="/history" element={<HistoryPage />} />
-
-            <Route element={<AdminRoute />}>
-              <Route path="/staff" element={<StaffPage />} />
-            </Route>
+            <Route path="/staff" element={<StaffPage />} />
           </Route>
         </Route>
 
