@@ -12,6 +12,7 @@ export function LoginPage() {
   const { isArabic, toggleLanguage } = useLanguage()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [portal, setPortal] = useState<'admin' | 'staff'>('admin')
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const navigate = useNavigate()
@@ -120,8 +121,8 @@ export function LoginPage() {
               </h1>
               <p className="mt-5 max-w-md text-sm leading-7 text-slate">
                 {isArabic
-                  ? 'هذه البوابة مخصصة لحسابات الإدارة في تيقمو فقط، مع تسجيل دخول حقيقي وحماية كاملة لمسارات الوكلاء.'
-                  : 'This portal is reserved for Tiqmo administrative accounts only, with real authentication protecting every agent workflow.'}
+                  ? 'هذه البوابة مخصصة لحسابات الإدارة وأعضاء الفريق في تيقمو، مع تسجيل دخول حقيقي وحماية كاملة لمسارات الوكلاء.'
+                  : 'This portal is for Tiqmo administrators and staff members, with real authentication protecting every agent workflow.'}
               </p>
 
               <div className="mt-10 tiqmo-stage-card max-w-[24rem]">
@@ -153,12 +154,50 @@ export function LoginPage() {
                 {isArabic ? 'تسجيل الدخول' : 'Log in'}
               </h2>
               <p className="mt-3 text-sm leading-7 text-slate">
-                {isArabic
-                  ? 'استخدم بيانات الإدارة للوصول إلى لوحة التحكم.'
-                  : 'Use your admin credentials to open the platform.'}
+                {portal === 'admin'
+                  ? isArabic
+                    ? 'استخدم بيانات الإدارة للوصول إلى لوحة التحكم.'
+                    : 'Use your admin credentials to open the platform.'
+                  : isArabic
+                    ? 'استخدم بيانات الموظف للوصول إلى لوحة التحكم.'
+                    : 'Use your staff credentials to open the platform.'}
               </p>
 
-              <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
+              <div className="mt-6">
+                <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
+                  {isArabic ? 'نوع الحساب' : 'Sign in as'}
+                </span>
+                <div className="grid grid-cols-2 gap-2">
+                  {(['admin', 'staff'] as const).map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      onClick={() => setPortal(option)}
+                      className={[
+                        'rounded-2xl border px-4 py-3 text-sm font-semibold transition',
+                        portal === option
+                          ? 'border-primary bg-primary/5 text-primary'
+                          : 'border-slate-200 bg-white text-slate hover:border-primary/40',
+                      ].join(' ')}
+                    >
+                      {option === 'admin'
+                        ? isArabic
+                          ? 'إداري'
+                          : 'Admin'
+                        : isArabic
+                          ? 'موظف'
+                          : 'Staff'}
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs leading-5 text-slate">
+                  {isArabic
+                    ? 'يعتمد الوصول النهائي على دور حسابك.'
+                    : 'Final access is based on your account role.'}
+                </p>
+              </div>
+
+              <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
                 <label className="block">
                   <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
                     {isArabic ? 'البريد الإلكتروني' : 'Email'}

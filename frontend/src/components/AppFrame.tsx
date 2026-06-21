@@ -91,7 +91,13 @@ export function AppFrame() {
 
                 <div className="mt-4 flex flex-wrap items-center gap-2 text-sm text-slate">
                   <span className="rounded-full border border-primary/10 bg-primary/5 px-3 py-1.5 font-medium text-primary">
-                    {isArabic ? 'وصول إداري فقط' : 'Admin-only access'}
+                    {isAdmin
+                      ? isArabic
+                        ? 'وصول إداري'
+                        : 'Admin access'
+                      : isArabic
+                        ? 'موظف'
+                        : 'Staff member'}
                   </span>
                   <span>{fullName}</span>
                 </div>

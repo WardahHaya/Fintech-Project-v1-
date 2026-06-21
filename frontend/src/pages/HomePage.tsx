@@ -71,7 +71,8 @@ export function HomePage() {
   const { role, fullName, isAdmin } = useOutletContext<AppShellContext>()
   const { isArabic, locale } = useLanguage()
   const navigate = useNavigate()
-  const localizedRole = role === 'admin' || !role ? (isArabic ? 'إداري' : 'Admin') : role
+  const localizedRole =
+    role === 'user' ? (isArabic ? 'موظف' : 'Staff') : isArabic ? 'إداري' : 'Admin'
 
   const kycReduction = useCountUp(97)
   const fasterProcessing = useCountUp(83)
@@ -282,9 +283,7 @@ export function HomePage() {
           <div className="mt-8 flex flex-wrap gap-3 text-sm">
             <div className="rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-slate">
               {isArabic ? 'الوصول:' : 'Access:'}{' '}
-              <span className="font-semibold text-navy">
-                {isArabic ? 'إداري' : 'Admin'}
-              </span>
+              <span className="font-semibold text-navy">{localizedRole}</span>
             </div>
             <div className="rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-slate">
               API:{' '}
