@@ -124,6 +124,10 @@ def _normalize_reasoning_content(content: str) -> list[str]:
         stripped = stripped.strip("`").strip()
         if stripped.lower().startswith("json"):
             stripped = stripped[4:].strip()
+
+    while stripped.startswith(("* ", "- ", "• ")):
+        stripped = stripped[2:].strip()
+
     if not stripped:
         return []
 

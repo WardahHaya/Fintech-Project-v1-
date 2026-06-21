@@ -1,6 +1,8 @@
 import { Check, LoaderCircle } from 'lucide-react'
 import { motion } from 'framer-motion'
 
+import { useLanguage } from '../i18n/useLanguage'
+
 
 export function PipelineStepper({
   title,
@@ -8,18 +10,24 @@ export function PipelineStepper({
   activeStage,
 }: {
   title: string
-  stages: string[]
+  stages: readonly string[]
   activeStage: number
 }) {
+  const { isArabic } = useLanguage()
+
   return (
     <div className="surface-card relative overflow-hidden p-6 sm:p-8">
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-primary-light to-accent" />
 
       <div className="mb-8">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate">Live pipeline</p>
+        <p className={['text-[11px] font-semibold text-slate', isArabic ? 'tracking-normal' : 'uppercase tracking-[0.28em]'].join(' ')}>
+          {isArabic ? 'مراحل التنفيذ الحية' : 'Live pipeline'}
+        </p>
         <h3 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-navy">{title}</h3>
         <p className="mt-2 text-sm leading-7 text-slate">
-          The review is progressing through the agent stages in sequence.
+          {isArabic
+            ? 'الطلب يتحرك الآن عبر مراحل الوكيل بالتسلسل حتى تظهر النتيجة النهائية.'
+            : 'The review is progressing through the agent stages in sequence.'}
         </p>
       </div>
 
@@ -82,10 +90,16 @@ export function PipelineStepper({
                 <p className="text-sm font-semibold text-navy">{stage}</p>
                 <p className="mt-1 text-sm text-slate">
                   {isCompleted
-                    ? 'Completed'
+                    ? isArabic
+                      ? 'اكتملت'
+                      : 'Completed'
                     : isActive
-                      ? 'In progress'
-                      : 'Queued'}
+                      ? isArabic
+                        ? 'قيد التنفيذ'
+                        : 'In progress'
+                      : isArabic
+                        ? 'بانتظار الدور'
+                        : 'Queued'}
                 </p>
               </motion.div>
             </div>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap");
 @config "../tailwind.config.js";
 @import "tailwindcss";
 
@@ -6,8 +6,8 @@
   color: #0a2540;
   background: #f6f9fc;
   font-family:
-    "Inter", "Aptos", "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    sans-serif;
+    "Inter", "Tajawal", "Aptos", "Segoe UI", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -28,36 +28,43 @@ body {
   color: #0a2540;
   position: relative;
   background:
-    radial-gradient(circle at 12% 12%, rgba(99, 91, 255, 0.12), transparent 24%),
-    radial-gradient(circle at 84% 14%, rgba(255, 107, 71, 0.08), transparent 22%),
-    linear-gradient(180deg, #f8fbff 0%, #f6f9fc 42%, #f3f7fd 100%);
+    radial-gradient(circle at 15% 15%, rgba(62, 143, 255, 0.12), transparent 24%),
+    radial-gradient(circle at 82% 18%, rgba(255, 107, 71, 0.09), transparent 20%),
+    linear-gradient(90deg, rgba(184, 214, 245, 0.44) 0%, rgba(184, 214, 245, 0.26) 46%, rgba(208, 229, 250, 0.4) 100%),
+    linear-gradient(180deg, #edf6ff 0%, #f6f9fc 45%, #eef5fd 100%);
   background-attachment: fixed;
 }
 
 body::before {
   content: "";
   position: fixed;
-  inset: -14rem auto auto -12rem;
+  inset: -12rem auto auto -10rem;
   z-index: -2;
-  height: 34rem;
-  width: 34rem;
+  height: 32rem;
+  width: 32rem;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(99, 91, 255, 0.18) 0%, rgba(99, 91, 255, 0.04) 48%, transparent 72%);
-  filter: blur(18px);
+  background: radial-gradient(circle, rgba(62, 143, 255, 0.2) 0%, rgba(62, 143, 255, 0.05) 46%, transparent 72%);
+  filter: blur(22px);
   pointer-events: none;
 }
 
 body::after {
   content: "";
   position: fixed;
-  inset: auto -10rem -12rem auto;
+  inset: auto -8rem -10rem auto;
   z-index: -2;
-  height: 32rem;
-  width: 32rem;
+  height: 28rem;
+  width: 28rem;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 107, 71, 0.16) 0%, rgba(255, 107, 71, 0.03) 44%, transparent 74%);
-  filter: blur(20px);
+  background: radial-gradient(circle, rgba(255, 107, 71, 0.18) 0%, rgba(255, 107, 71, 0.04) 44%, transparent 74%);
+  filter: blur(24px);
   pointer-events: none;
+}
+
+html[dir="rtl"] body {
+  font-family:
+    "Tajawal", "Inter", "Aptos", "Segoe UI", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
 }
 
 a {
@@ -85,22 +92,43 @@ select {
 @layer components {
   .app-shell {
     background:
-      radial-gradient(circle at top left, rgba(99, 91, 255, 0.08), transparent 28%),
-      radial-gradient(circle at 90% 10%, rgba(255, 107, 71, 0.05), transparent 20%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.18));
+      radial-gradient(circle at top left, rgba(62, 143, 255, 0.11), transparent 24%),
+      radial-gradient(circle at 94% 8%, rgba(255, 107, 71, 0.06), transparent 20%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.2));
   }
 
   .surface-card {
-    @apply rounded-2xl border border-slate-200/80 bg-white shadow-panel;
+    @apply rounded-[1.6rem] border border-white/80 bg-white/95 shadow-panel backdrop-blur-sm;
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary;
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/6 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-primary;
   }
 
   .brand-badge {
-    @apply flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-lg shadow-primary/20;
-    background: linear-gradient(135deg, #635bff 0%, #0a2540 100%);
+    @apply relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-[1.4rem] border border-white/80 text-white shadow-lg shadow-sky-200/50;
+    background: linear-gradient(160deg, #4ca1ff 0%, #0a2540 100%);
+  }
+
+  .brand-badge::before {
+    content: "";
+    position: absolute;
+    inset: 0.4rem;
+    border-radius: 1rem;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.02));
+    pointer-events: none;
+  }
+
+  .lang-toggle {
+    @apply inline-flex items-center gap-1 rounded-full border border-primary/10 bg-white px-1 py-1 shadow-sm;
+  }
+
+  .lang-toggle button {
+    @apply rounded-full px-3 py-2 text-sm font-semibold text-slate transition;
+  }
+
+  .lang-toggle button.is-active {
+    @apply bg-navy text-white shadow-sm;
   }
 
   .action-primary {
@@ -127,32 +155,32 @@ select {
   .hero-shell::before {
     content: "";
     position: absolute;
-    inset: -22% auto auto -14%;
-    height: 16rem;
-    width: 28rem;
-    transform: rotate(-9deg);
+    inset: -18% auto auto -10%;
+    height: 18rem;
+    width: 30rem;
+    transform: rotate(-8deg);
     border-radius: 999px;
-    background: linear-gradient(135deg, rgba(99, 91, 255, 0.16), rgba(126, 107, 253, 0.05));
-    filter: blur(10px);
+    background: linear-gradient(135deg, rgba(108, 176, 255, 0.26), rgba(126, 107, 253, 0.06));
+    filter: blur(14px);
   }
 
   .hero-shell::after {
     content: "";
     position: absolute;
-    inset: auto -10% -28% auto;
-    height: 18rem;
-    width: 24rem;
-    transform: rotate(22deg);
-    border-radius: 3rem;
-    background: linear-gradient(160deg, rgba(255, 107, 71, 0.08), rgba(99, 91, 255, 0.05));
+    inset: auto -8% -24% auto;
+    height: 19rem;
+    width: 25rem;
+    transform: rotate(20deg);
+    border-radius: 3.2rem;
+    background: linear-gradient(160deg, rgba(255, 107, 71, 0.14), rgba(108, 176, 255, 0.06));
   }
 
   .signal-panel {
     @apply relative overflow-hidden rounded-2xl border border-navy/60 text-white shadow-[0_28px_72px_rgba(10,37,64,0.24)];
     background:
-      radial-gradient(circle at top left, rgba(126, 107, 253, 0.2), transparent 28%),
-      radial-gradient(circle at bottom right, rgba(255, 107, 71, 0.12), transparent 30%),
-      linear-gradient(160deg, #07182c 8%, #0a2540 52%, #102d4d 100%);
+      radial-gradient(circle at top left, rgba(76, 161, 255, 0.24), transparent 26%),
+      radial-gradient(circle at bottom right, rgba(255, 107, 71, 0.16), transparent 28%),
+      linear-gradient(160deg, #09203a 8%, #0a2540 50%, #12385f 100%);
   }
 
   .signal-panel::before {
@@ -167,5 +195,35 @@ select {
 
   .metric-chip {
     @apply rounded-2xl border border-slate-200 bg-white px-5 py-5;
+  }
+
+  .tiqmo-stage-card {
+    @apply relative overflow-hidden rounded-[2rem] border border-white/60 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(245,249,255,0.86))] p-6 shadow-panel;
+  }
+
+  .tiqmo-stage-card::before {
+    content: "";
+    position: absolute;
+    inset: auto -2rem -3rem auto;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 999px;
+    border: 20px solid rgba(76, 161, 255, 0.18);
+    pointer-events: none;
+  }
+
+  .promo-card {
+    background: linear-gradient(135deg, #ffb14f 0%, #ff8b45 48%, #f25b3d 100%);
+    box-shadow: 0 22px 48px rgba(242, 91, 61, 0.24);
+  }
+
+  .sky-card {
+    background:
+      radial-gradient(circle at top left, rgba(108, 176, 255, 0.22), transparent 28%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(240, 247, 255, 0.9));
+  }
+
+  .table-dot {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-full border border-primary/10 bg-primary/6 text-primary;
   }
 }

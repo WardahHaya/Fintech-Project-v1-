@@ -1,6 +1,7 @@
 import { CheckCircle2, Shield, ShieldCheck, UserPlus2, XCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
+import { useLanguage } from '../i18n/useLanguage'
 import { createStaffUser, fetchUsers, updateStaffUser } from '../lib/api'
 import type { StaffCreatePayload, UserProfile } from '../types'
 
@@ -12,13 +13,13 @@ const defaultForm: StaffCreatePayload = {
   role: 'admin',
 }
 
-
 export function StaffPage() {
   const [users, setUsers] = useState<UserProfile[]>([])
   const [form, setForm] = useState<StaffCreatePayload>(defaultForm)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
+  const { isArabic } = useLanguage()
 
   useEffect(() => {
     let active = true
@@ -34,7 +35,7 @@ export function StaffPage() {
         if (!active) {
           return
         }
-        setError('Staff accounts could not be loaded.')
+        setError(isArabic ? 'تعذر تحميل حسابات الفريق.' : 'Staff accounts could not be loaded.')
       }
     }
 
@@ -43,7 +44,7 @@ export function StaffPage() {
     return () => {
       active = false
     }
-  }, [])
+  }, [isArabic])
 
   async function refreshUsers() {
     const response = await fetchUsers()
@@ -59,10 +60,12 @@ export function StaffPage() {
     try {
       await createStaffUser(form)
       setForm(defaultForm)
-      setSuccess('Staff account created.')
+      setSuccess(isArabic ? 'تم إنشاء الحساب الإداري.' : 'Staff account created.')
       await refreshUsers()
     } catch {
-      setError('The staff account could not be created.')
+      setError(
+        isArabic ? 'تعذر إنشاء الحساب الإداري.' : 'The staff account could not be created.',
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -75,42 +78,52 @@ export function StaffPage() {
       await updateStaffUser(user.id, { is_active: !user.is_active })
       await refreshUsers()
     } catch {
-      setError('The staff account could not be updated.')
+      setError(
+        isArabic ? 'تعذر تحديث حالة الحساب.' : 'The staff account could not be updated.',
+      )
     }
   }
 
   return (
     <div className="space-y-6">
       <section className="surface-card px-6 py-8 sm:px-8">
-        <span className="eyebrow">Admin staff console</span>
+        <span className="eyebrow">{isArabic ? 'إدارة الفريق' : 'Admin staff console'}</span>
         <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-navy">
-          Manage access to the Tiqmo operations platform.
+          {isArabic
+            ? 'إدارة الوصول إلى منصة تشغيل تيقمو.'
+            : 'Manage access to the Tiqmo operations platform.'}
         </h2>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-slate">
-          Create and maintain administrative access without touching the agent logic.
+          {isArabic
+            ? 'أنشئ الحسابات الإدارية وفعّلها أو عطّلها دون المساس بمنطق الوكلاء.'
+            : 'Create, activate, and deactivate administrative access without touching the agent logic.'}
         </p>
       </section>
 
       <section className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
         <div className="surface-card p-6">
           <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+            <div className="table-dot">
               <ShieldCheck className="h-5 w-5" />
             </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Staff directory</p>
-              <h3 className="text-2xl font-semibold text-navy">Current accounts</h3>
+            <div className="text-start">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
+                {isArabic ? 'دليل الفريق' : 'Staff directory'}
+              </p>
+              <h3 className="text-2xl font-semibold text-navy">
+                {isArabic ? 'الحسابات الحالية' : 'Current accounts'}
+              </h3>
             </div>
           </div>
 
           <div className="overflow-x-auto">
             <table className="min-w-full border-separate border-spacing-y-3">
               <thead>
-                <tr className="text-left text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
-                  <th className="px-4">Staff</th>
-                  <th className="px-4">Role</th>
-                  <th className="px-4">Status</th>
-                  <th className="px-4">Action</th>
+                <tr className="text-start text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
+                  <th className="px-4">{isArabic ? 'الحساب' : 'Staff'}</th>
+                  <th className="px-4">{isArabic ? 'الدور' : 'Role'}</th>
+                  <th className="px-4">{isArabic ? 'الحالة' : 'Status'}</th>
+                  <th className="px-4">{isArabic ? 'الإجراء' : 'Action'}</th>
                 </tr>
               </thead>
               <tbody>
@@ -118,10 +131,10 @@ export function StaffPage() {
                   <tr key={user.id} className="rounded-2xl bg-background">
                     <td className="rounded-l-2xl px-4 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <div className="table-dot">
                           <Shield className="h-4 w-4" />
                         </div>
-                        <div>
+                        <div className="text-start">
                           <p className="text-sm font-semibold text-navy">{user.full_name}</p>
                           <p className="text-sm text-slate">{user.email}</p>
                         </div>
@@ -129,18 +142,43 @@ export function StaffPage() {
                     </td>
                     <td className="px-4 py-4">
                       <span className="inline-flex rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                        admin
+                        {isArabic ? 'إداري' : 'admin'}
                       </span>
                     </td>
                     <td className="px-4 py-4">
-                      <span className={['inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]', user.is_active ? 'bg-success/10 text-success' : 'bg-danger/10 text-danger'].join(' ')}>
-                        {user.is_active ? <CheckCircle2 className="h-3.5 w-3.5" /> : <XCircle className="h-3.5 w-3.5" />}
-                        {user.is_active ? 'Active' : 'Inactive'}
+                      <span
+                        className={[
+                          'inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]',
+                          user.is_active ? 'bg-success/10 text-success' : 'bg-danger/10 text-danger',
+                        ].join(' ')}
+                      >
+                        {user.is_active ? (
+                          <CheckCircle2 className="h-3.5 w-3.5" />
+                        ) : (
+                          <XCircle className="h-3.5 w-3.5" />
+                        )}
+                        {user.is_active
+                          ? isArabic
+                            ? 'نشط'
+                            : 'Active'
+                          : isArabic
+                            ? 'معطل'
+                            : 'Inactive'}
                       </span>
                     </td>
                     <td className="rounded-r-2xl px-4 py-4">
-                      <button type="button" onClick={() => void handleToggle(user)} className="action-secondary">
-                        {user.is_active ? 'Deactivate' : 'Activate'}
+                      <button
+                        type="button"
+                        onClick={() => void handleToggle(user)}
+                        className="action-secondary"
+                      >
+                        {user.is_active
+                          ? isArabic
+                            ? 'تعطيل'
+                            : 'Deactivate'
+                          : isArabic
+                            ? 'تفعيل'
+                            : 'Activate'}
                       </button>
                     </td>
                   </tr>
@@ -152,52 +190,70 @@ export function StaffPage() {
 
         <div className="surface-card p-6">
           <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+            <div className="table-dot bg-accent/10 text-accent">
               <UserPlus2 className="h-5 w-5" />
             </div>
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Add staff</p>
-              <h3 className="text-2xl font-semibold text-navy">Create an account</h3>
+            <div className="text-start">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
+                {isArabic ? 'إضافة عضو' : 'Add staff'}
+              </p>
+              <h3 className="text-2xl font-semibold text-navy">
+                {isArabic ? 'إنشاء حساب إداري' : 'Create an account'}
+              </h3>
             </div>
           </div>
 
           <form className="space-y-4" onSubmit={handleCreate}>
             <label className="block">
-              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Full name</span>
+              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
+                {isArabic ? 'الاسم الكامل' : 'Full name'}
+              </span>
               <input
                 value={form.full_name}
-                onChange={(event) => setForm((current) => ({ ...current, full_name: event.target.value }))}
+                onChange={(event) =>
+                  setForm((current) => ({ ...current, full_name: event.target.value }))
+                }
                 className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-navy outline-none focus:border-primary"
-                placeholder="Team member name"
+                placeholder={isArabic ? 'اسم عضو الفريق' : 'Team member name'}
               />
             </label>
 
             <label className="block">
-              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Email</span>
+              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
+                {isArabic ? 'البريد الإلكتروني' : 'Email'}
+              </span>
               <input
                 type="email"
                 value={form.email}
-                onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
+                onChange={(event) =>
+                  setForm((current) => ({ ...current, email: event.target.value }))
+                }
                 className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-navy outline-none focus:border-primary"
                 placeholder="name@tiqmo.sa"
               />
             </label>
 
             <label className="block">
-              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Temporary password</span>
+              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
+                {isArabic ? 'كلمة مرور مؤقتة' : 'Temporary password'}
+              </span>
               <input
                 type="password"
                 value={form.password}
-                onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
+                onChange={(event) =>
+                  setForm((current) => ({ ...current, password: event.target.value }))
+                }
                 className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-navy outline-none focus:border-primary"
-                placeholder="Minimum 8 characters"
+                placeholder={isArabic ? 'ثمانية أحرف على الأقل' : 'Minimum 8 characters'}
               />
             </label>
 
             <label className="block">
-              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">Access level</span>
+              <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
+                {isArabic ? 'مستوى الوصول' : 'Access level'}
+              </span>
               <div className="w-full rounded-2xl border border-slate-200 bg-background px-4 py-3 text-sm font-semibold text-navy">
-                Admin
+                {isArabic ? 'إداري' : 'Admin'}
               </div>
             </label>
 
@@ -212,8 +268,18 @@ export function StaffPage() {
               </div>
             ) : null}
 
-            <button type="submit" disabled={isSubmitting} className="action-primary w-full justify-center">
-              {isSubmitting ? 'Creating account...' : 'Create staff account'}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="action-primary w-full justify-center"
+            >
+              {isSubmitting
+                ? isArabic
+                  ? 'جار الإنشاء...'
+                  : 'Creating account...'
+                : isArabic
+                  ? 'إنشاء الحساب الإداري'
+                  : 'Create staff account'}
             </button>
           </form>
         </div>
