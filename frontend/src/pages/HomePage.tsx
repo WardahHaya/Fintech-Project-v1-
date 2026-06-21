@@ -415,6 +415,7 @@ export function HomePage() {
       </section>
 
       <DashboardCharts
+        key={isArabic ? 'charts-ar' : 'charts-en'}
         kycReviews={kycReviews}
         merchantReviews={merchantReviews}
         complianceHistory={complianceHistory}

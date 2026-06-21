@@ -1,1 +1,2 @@
 - [users table schema drift](users-table-schema-drift.md) — create_all never drops stale columns; orphaned NOT NULL cols silently break inserts (e.g. users.username).
+- [RTL language switch chart crash](rtl-language-switch-charts.md) — flipping recharts axis props on ar<->en throws; remount charts via key + keep a root ErrorBoundary.
