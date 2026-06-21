@@ -1,2 +1,3 @@
 - [users table schema drift](users-table-schema-drift.md) — create_all never drops stale columns; orphaned NOT NULL cols silently break inserts (e.g. users.username).
 - [RTL language switch chart crash](rtl-language-switch-charts.md) — flipping recharts axis props on ar<->en throws; remount charts via key + keep a root ErrorBoundary.
+- [Deployment build (Python+torch)](deployment-build-python-torch.md) — publish build must use plain `pip` not `python3 -m pip` (externally-managed-environment); pre-install CPU torch since sentence-transformers pulls it transitively.
