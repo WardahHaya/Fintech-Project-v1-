@@ -70,7 +70,7 @@ export function LoginPage() {
           className="surface-card grid w-full max-w-5xl overflow-hidden lg:grid-cols-[1.02fr_0.98fr]"
         >
           <div className="relative overflow-hidden bg-[linear-gradient(180deg,#d7ebff_0%,#c8e2fb_50%,#dcedff_100%)] px-8 py-10 sm:px-10">
-            <div className="absolute right-6 top-6">
+            <div className="absolute end-6 top-6">
               <div className="lang-toggle">
                 <button
                   type="button"
@@ -205,7 +205,7 @@ export function LoginPage() {
                     : isArabic
                       ? 'دخول'
                       : 'Sign in'}
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 rtl:rotate-180" />
                 </button>
               </form>
             </div>

@@ -240,7 +240,7 @@ export function HomePage() {
           ].map((item, index) => (
             <div key={item.label} className="relative">
               {index > 0 ? (
-                <div className="absolute -left-3 top-2 hidden h-16 w-px bg-slate-200 xl:block" />
+                <div className="absolute -start-3 top-2 hidden h-16 w-px bg-slate-200 xl:block" />
               ) : null}
               <p className="text-4xl font-semibold tracking-[-0.05em] text-navy">{item.value}</p>
               <p className="mt-2 text-sm text-slate">{item.label}</p>
@@ -268,7 +268,7 @@ export function HomePage() {
           <div className="mt-7 flex flex-wrap gap-3">
             <button type="button" onClick={() => openReview('kyc')} className="action-primary">
               {isArabic ? 'افتح مساحة المراجعة' : 'Open review workspace'}
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </button>
             <button type="button" onClick={() => navigate('/staff')} className="action-secondary">
               {isArabic ? 'إدارة الفريق' : 'Open staff console'}
@@ -330,7 +330,7 @@ export function HomePage() {
               </div>
             </div>
 
-            <div className="promo-card absolute -bottom-2 right-0 w-full max-w-[20rem] rounded-[2rem] p-5 text-white md:bottom-6">
+            <div className="promo-card absolute -bottom-2 end-0 w-full max-w-[20rem] rounded-[2rem] p-5 text-white md:bottom-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/70">
                 {isArabic ? 'المؤشر التشغيلي' : 'Operations pulse'}
               </p>
@@ -397,7 +397,7 @@ export function HomePage() {
                   className="action-primary"
                 >
                   {isArabic ? 'افتح الوكيل' : 'Open workspace'}
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 rtl:rotate-180" />
                 </button>
                 <button
                   type="button"

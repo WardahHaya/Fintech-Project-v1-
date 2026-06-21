@@ -134,7 +134,7 @@ export function AppFrame() {
                 className="action-primary"
               >
                 {isArabic ? 'افتح المراجعة المباشرة' : 'Open live review'}
-                <ArrowUpRight className="h-4 w-4" />
+                <ArrowUpRight className="h-4 w-4 rtl:rotate-[-90deg]" />
               </button>
 
               <button type="button" onClick={logout} className="action-secondary">
