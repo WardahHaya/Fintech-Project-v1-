@@ -68,7 +68,7 @@ export function HomePage() {
   const [complianceHistory, setComplianceHistory] = useState<ComplianceQueryRecord[]>([])
   const [merchantReviews, setMerchantReviews] = useState<MerchantReviewRecord[]>([])
   const [error, setError] = useState('')
-  const { role, fullName } = useOutletContext<AppShellContext>()
+  const { role, fullName, isAdmin } = useOutletContext<AppShellContext>()
   const { isArabic, locale } = useLanguage()
   const navigate = useNavigate()
   const localizedRole = role === 'admin' || !role ? (isArabic ? 'إداري' : 'Admin') : role
@@ -271,10 +271,12 @@ export function HomePage() {
               {isArabic ? 'افتح مساحة المراجعة' : 'Open review workspace'}
               <ArrowRight className="h-4 w-4 rtl:rotate-180" />
             </button>
-            <button type="button" onClick={() => navigate('/staff')} className="action-secondary">
-              {isArabic ? 'إدارة الفريق' : 'Open staff console'}
-              <UsersRound className="h-4 w-4" />
-            </button>
+            {isAdmin ? (
+              <button type="button" onClick={() => navigate('/staff')} className="action-secondary">
+                {isArabic ? 'إدارة الفريق' : 'Open staff console'}
+                <UsersRound className="h-4 w-4" />
+              </button>
+            ) : null}
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3 text-sm">

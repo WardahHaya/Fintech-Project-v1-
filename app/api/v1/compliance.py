@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.agents.compliance_agent import get_compliance_agent
 from app.core.database import get_db
-from app.core.security import require_admin
+from app.core.security import get_current_user
 from app.models.compliance import ComplianceQuery
 from app.models.user import User
 from app.rag import get_compliance_bootstrap_error, is_compliance_ready
@@ -33,7 +33,7 @@ def require_compliance_ready() -> None:
 async def query_compliance(
     payload: ComplianceQueryRequest,
     db: Session = Depends(get_db),
-    _current_user: User = Depends(require_admin),
+    _current_user: User = Depends(get_current_user),
     _ready: None = Depends(require_compliance_ready),
 ) -> ComplianceQueryResponse:
     agent = get_compliance_agent()
@@ -44,7 +44,7 @@ async def query_compliance(
 @router.get("/history", response_model=list[ComplianceQueryRecord])
 def list_compliance_history(
     db: Session = Depends(get_db),
-    _current_user: User = Depends(require_admin),
+    _current_user: User = Depends(get_current_user),
     _ready: None = Depends(require_compliance_ready),
 ) -> list[ComplianceQueryRecord]:
     statement = select(ComplianceQuery).order_by(ComplianceQuery.queried_at.desc())

@@ -30,17 +30,11 @@ def create_user(payload: StaffCreateRequest, db: Session = Depends(get_db)) -> U
             detail="A user with this email already exists.",
         )
 
-    if payload.role != UserRole.ADMIN:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Only admin accounts are supported in this console.",
-        )
-
     user = User(
         email=normalized_email,
         hashed_password=hash_password(payload.password),
         full_name=payload.full_name.strip(),
-        role=UserRole.ADMIN.value,
+        role=payload.role.value,
         is_active=True,
     )
     db.add(user)
@@ -55,15 +49,32 @@ def update_user(user_id: str, payload: StaffUpdateRequest, db: Session = Depends
     if user is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found.")
 
+    demotes_admin = (
+        user.role == UserRole.ADMIN.value
+        and payload.role is not None
+        and payload.role != UserRole.ADMIN
+    )
+    deactivates_admin = (
+        user.role == UserRole.ADMIN.value
+        and user.is_active
+        and payload.is_active is False
+    )
+    if demotes_admin or deactivates_admin:
+        locked_admins = db.scalars(
+            select(User)
+            .where(User.role == UserRole.ADMIN.value, User.is_active.is_(True))
+            .with_for_update()
+        ).all()
+        if len(locked_admins) <= 1:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Cannot remove the last active admin account.",
+            )
+
     if payload.full_name is not None:
         user.full_name = payload.full_name.strip()
     if payload.role is not None:
-        if payload.role != UserRole.ADMIN:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Only admin accounts are supported in this console.",
-            )
-        user.role = UserRole.ADMIN.value
+        user.role = payload.role.value
     if payload.is_active is not None:
         user.is_active = payload.is_active
 

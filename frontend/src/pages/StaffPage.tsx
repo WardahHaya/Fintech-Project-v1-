@@ -3,14 +3,21 @@ import { useEffect, useState } from 'react'
 
 import { useLanguage } from '../i18n/useLanguage'
 import { createStaffUser, fetchUsers, updateStaffUser } from '../lib/api'
-import type { StaffCreatePayload, UserProfile } from '../types'
+import type { AppAccessRole, StaffCreatePayload, UserProfile } from '../types'
 
 
 const defaultForm: StaffCreatePayload = {
   email: '',
   password: '',
   full_name: '',
-  role: 'admin',
+  role: 'user',
+}
+
+function roleLabel(role: AppAccessRole, isArabic: boolean) {
+  if (role === 'admin') {
+    return isArabic ? 'إداري' : 'Admin'
+  }
+  return isArabic ? 'موظف' : 'Staff'
 }
 
 export function StaffPage() {
@@ -60,11 +67,11 @@ export function StaffPage() {
     try {
       await createStaffUser(form)
       setForm(defaultForm)
-      setSuccess(isArabic ? 'تم إنشاء الحساب الإداري.' : 'Staff account created.')
+      setSuccess(isArabic ? 'تم إنشاء حساب الفريق.' : 'Staff account created.')
       await refreshUsers()
     } catch {
       setError(
-        isArabic ? 'تعذر إنشاء الحساب الإداري.' : 'The staff account could not be created.',
+        isArabic ? 'تعذر إنشاء حساب الفريق.' : 'The staff account could not be created.',
       )
     } finally {
       setIsSubmitting(false)
@@ -95,8 +102,8 @@ export function StaffPage() {
         </h2>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-slate">
           {isArabic
-            ? 'أنشئ الحسابات الإدارية وفعّلها أو عطّلها دون المساس بمنطق الوكلاء.'
-            : 'Create, activate, and deactivate administrative access without touching the agent logic.'}
+            ? 'أنشئ حسابات الفريق بصلاحيات إدارية أو موظف، وفعّلها أو عطّلها دون المساس بمنطق الوكلاء.'
+            : 'Create staff accounts with admin or staff access, and activate or deactivate them without touching the agent logic.'}
         </p>
       </section>
 
@@ -141,8 +148,15 @@ export function StaffPage() {
                       </div>
                     </td>
                     <td className="px-4 py-4">
-                      <span className="inline-flex rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                        {isArabic ? 'إداري' : 'admin'}
+                      <span
+                        className={[
+                          'inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]',
+                          user.role === 'admin'
+                            ? 'border border-primary/10 bg-primary/5 text-primary'
+                            : 'border border-slate-200 bg-slate-100 text-slate',
+                        ].join(' ')}
+                      >
+                        {roleLabel(user.role, isArabic)}
                       </span>
                     </td>
                     <td className="px-4 py-4">
@@ -248,14 +262,37 @@ export function StaffPage() {
               />
             </label>
 
-            <label className="block">
+            <div className="block">
               <span className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate">
                 {isArabic ? 'مستوى الوصول' : 'Access level'}
               </span>
-              <div className="w-full rounded-2xl border border-slate-200 bg-background px-4 py-3 text-sm font-semibold text-navy">
-                {isArabic ? 'إداري' : 'Admin'}
+              <div className="grid grid-cols-2 gap-2">
+                {(['user', 'admin'] as AppAccessRole[]).map((roleOption) => (
+                  <button
+                    key={roleOption}
+                    type="button"
+                    onClick={() => setForm((current) => ({ ...current, role: roleOption }))}
+                    className={[
+                      'rounded-2xl border px-4 py-3 text-sm font-semibold transition',
+                      form.role === roleOption
+                        ? 'border-primary bg-primary/5 text-primary'
+                        : 'border-slate-200 bg-background text-slate hover:border-primary/40',
+                    ].join(' ')}
+                  >
+                    {roleLabel(roleOption, isArabic)}
+                  </button>
+                ))}
               </div>
-            </label>
+              <p className="mt-2 text-xs leading-5 text-slate">
+                {form.role === 'admin'
+                  ? isArabic
+                    ? 'وصول كامل، بما في ذلك إدارة حسابات الفريق.'
+                    : 'Full access, including managing staff accounts.'
+                  : isArabic
+                    ? 'وصول للوكلاء والسجل فقط، دون إدارة الحسابات.'
+                    : 'Access to agents and history only — cannot manage accounts.'}
+              </p>
+            </div>
 
             {error ? (
               <div className="rounded-2xl border border-danger/15 bg-danger/5 px-4 py-3 text-sm text-danger">
@@ -278,7 +315,7 @@ export function StaffPage() {
                   ? 'جار الإنشاء...'
                   : 'Creating account...'
                 : isArabic
-                  ? 'إنشاء الحساب الإداري'
+                  ? 'إنشاء حساب الفريق'
                   : 'Create staff account'}
             </button>
           </form>

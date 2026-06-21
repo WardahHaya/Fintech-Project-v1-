@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from app.agents.kyc_agent import CustomerNotFoundError, get_kyc_review_agent
 from app.core.database import get_db
-from app.core.security import require_admin
+from app.core.security import get_current_user
 from app.models.kyc import KYCReview
 from app.models.user import User
 from app.schemas.kyc import KYCReviewRecord, KYCReviewResponse
@@ -21,7 +21,7 @@ router = APIRouter(prefix="/kyc", tags=["kyc"])
 async def review_customer_kyc(
     customer_id: str,
     db: Session = Depends(get_db),
-    _current_user: User = Depends(require_admin),
+    _current_user: User = Depends(get_current_user),
 ) -> KYCReviewResponse:
     agent = get_kyc_review_agent()
 
@@ -54,7 +54,7 @@ async def review_customer_kyc(
 @router.get("/reviews", response_model=list[KYCReviewRecord])
 def list_kyc_reviews(
     db: Session = Depends(get_db),
-    _current_user: User = Depends(require_admin),
+    _current_user: User = Depends(get_current_user),
 ) -> list[KYCReviewRecord]:
     statement = select(KYCReview).order_by(KYCReview.reviewed_at.desc())
     reviews = db.scalars(statement).all()

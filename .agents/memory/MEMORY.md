@@ -1,0 +1,1 @@
+- [users table schema drift](users-table-schema-drift.md) — create_all never drops stale columns; orphaned NOT NULL cols silently break inserts (e.g. users.username).

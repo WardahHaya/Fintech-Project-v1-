@@ -20,6 +20,8 @@ export function AppFrame() {
   const navigate = useNavigate()
   const location = useLocation()
 
+  const isAdmin = role === 'admin'
+
   const navItems = [
     {
       to: '/',
@@ -36,17 +38,21 @@ export function AppFrame() {
       label: isArabic ? 'السجل' : 'History',
       icon: TableProperties,
     },
-    {
-      to: '/staff',
-      label: isArabic ? 'الفريق' : 'Staff',
-      icon: UsersRound,
-    },
+    ...(isAdmin
+      ? [
+          {
+            to: '/staff',
+            label: isArabic ? 'الفريق' : 'Staff',
+            icon: UsersRound,
+          },
+        ]
+      : []),
   ]
 
   const context: AppShellContext = {
     role,
     fullName,
-    isAdmin: true,
+    isAdmin,
   }
 
   return (
