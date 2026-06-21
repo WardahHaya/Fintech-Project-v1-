@@ -102,7 +102,7 @@ export function LoginPage() {
                 <div className="brand-badge">
                   <div className="relative z-10 flex items-center justify-center">
                     <span className="text-3xl font-bold leading-none">t</span>
-                    <span className="absolute -right-1.5 -top-1 h-3.5 w-3.5 rounded-full bg-accent" />
+                    <span className="absolute -end-1.5 -top-1 h-3.5 w-3.5 rounded-full bg-accent" />
                   </div>
                 </div>
                 <div>

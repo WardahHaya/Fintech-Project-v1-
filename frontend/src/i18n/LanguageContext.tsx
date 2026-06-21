@@ -1,5 +1,5 @@
 import {
-  useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
 } from 'react'
@@ -20,7 +20,7 @@ function readStoredLanguage(): AppLanguage {
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<AppLanguage>(readStoredLanguage)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window === 'undefined') {
       return
     }

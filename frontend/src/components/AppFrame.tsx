@@ -56,16 +56,11 @@ export function AppFrame() {
           <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-400 via-primary to-accent" />
 
           <div className="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
-            <div
-              className={[
-                'flex items-start gap-4',
-                isArabic ? 'xl:flex-row-reverse xl:text-right' : 'xl:text-left',
-              ].join(' ')}
-            >
+            <div className="flex items-start gap-4 text-start">
               <div className="brand-badge shrink-0">
                 <div className="relative z-10 flex items-center justify-center">
                   <span className="text-3xl font-bold leading-none">t</span>
-                  <span className="absolute -right-1.5 -top-1 h-3.5 w-3.5 rounded-full bg-accent" />
+                  <span className="absolute -end-1.5 -top-1 h-3.5 w-3.5 rounded-full bg-accent" />
                 </div>
               </div>
 
@@ -97,12 +92,7 @@ export function AppFrame() {
               </div>
             </div>
 
-            <div
-              className={[
-                'flex flex-wrap items-center gap-3',
-                isArabic ? 'xl:flex-row-reverse' : '',
-              ].join(' ')}
-            >
+            <div className="flex flex-wrap items-center gap-3">
               <div className="lang-toggle">
                 <button
                   type="button"
@@ -174,12 +164,7 @@ export function AppFrame() {
           </AnimatePresence>
         </main>
 
-        <footer
-          className={[
-            'mt-8 flex flex-col gap-2 px-2 text-sm text-slate md:flex-row md:items-center md:justify-between',
-            isArabic ? 'md:flex-row-reverse' : '',
-          ].join(' ')}
-        >
+        <footer className="mt-8 flex flex-col gap-2 px-2 text-sm text-slate md:flex-row md:items-center md:justify-between">
           <p>
             {isArabic
               ? 'طبقة تيقمو الذكية لعمليات اعرف عميلك والامتثال وانضمام التجار.'
