@@ -14,7 +14,7 @@ from app.api.v1.kyc import router as kyc_router
 from app.api.v1.merchant import router as merchant_router
 from app.core.config import get_settings
 from app.core.database import init_database
-from app.rag import bootstrap_compliance_retriever
+from app.rag import is_compliance_ready, start_compliance_bootstrap
 
 
 settings = get_settings()
@@ -24,7 +24,7 @@ frontend_dist_path = settings.frontend_dist_path
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     init_database()
-    bootstrap_compliance_retriever()
+    start_compliance_bootstrap()
     yield
 
 
@@ -52,7 +52,11 @@ app.include_router(merchant_router, prefix=settings.api_v1_prefix)
 
 @app.get("/health")
 async def health() -> dict[str, str]:
-    return {"status": "ok", "service": settings.app_name}
+    return {
+        "status": "ok",
+        "service": settings.app_name,
+        "compliance_ready": "true" if is_compliance_ready() else "false",
+    }
 
 
 def _resolve_frontend_asset(full_path: str) -> Path | None:

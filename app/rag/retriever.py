@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 import json
+import threading
 from dataclasses import dataclass
-from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
-from sentence_transformers import SentenceTransformer
 from sqlalchemy import create_engine, func, insert, select, text
 from sqlalchemy.orm import Session
 
@@ -19,6 +18,13 @@ EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
 EMBEDDING_DIMENSIONS = 384
 TOP_K = 3
 CORPUS_PATH = Path(__file__).resolve().parents[2] / "data" / "compliance" / "compliance_corpus.json"
+
+_retriever_lock = threading.Lock()
+_bootstrap_lock = threading.Lock()
+_bootstrap_thread: threading.Thread | None = None
+_bootstrap_complete = threading.Event()
+_bootstrap_error: str | None = None
+_retriever_instance: "ComplianceRetriever | None" = None
 
 
 @dataclass(frozen=True)
@@ -44,6 +50,8 @@ def _direct_database_url(database_url: str) -> str:
 class ComplianceRetriever:
     def __init__(self) -> None:
         self.settings = get_settings()
+        from sentence_transformers import SentenceTransformer
+
         self.embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME)
         dimensions = self.embedding_model.get_sentence_embedding_dimension()
         if dimensions != EMBEDDING_DIMENSIONS:
@@ -173,10 +181,49 @@ class ComplianceRetriever:
         return scored_chunks[:top_k]
 
 
-@lru_cache
 def get_compliance_retriever() -> ComplianceRetriever:
-    return ComplianceRetriever()
+    global _retriever_instance
+
+    with _retriever_lock:
+        if _retriever_instance is None:
+            _retriever_instance = ComplianceRetriever()
+        return _retriever_instance
 
 
 def bootstrap_compliance_retriever() -> None:
-    get_compliance_retriever().bootstrap()
+    global _bootstrap_error
+
+    try:
+        get_compliance_retriever().bootstrap()
+        _bootstrap_error = None
+    except Exception as exc:
+        _bootstrap_error = f"{type(exc).__name__}: {exc}"
+    finally:
+        _bootstrap_complete.set()
+
+
+def start_compliance_bootstrap() -> None:
+    global _bootstrap_thread
+
+    with _bootstrap_lock:
+        if _bootstrap_complete.is_set():
+            return
+        if _bootstrap_thread is not None and _bootstrap_thread.is_alive():
+            return
+
+        _bootstrap_thread = threading.Thread(
+            target=bootstrap_compliance_retriever,
+            name="compliance-bootstrap",
+            daemon=True,
+        )
+        _bootstrap_thread.start()
+
+
+def is_compliance_ready() -> bool:
+    return _bootstrap_complete.is_set() and _bootstrap_error is None
+
+
+def get_compliance_bootstrap_error() -> str | None:
+    if not _bootstrap_complete.is_set():
+        return None
+    return _bootstrap_error
