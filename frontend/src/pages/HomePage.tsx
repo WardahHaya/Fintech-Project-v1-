@@ -10,6 +10,7 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useNavigate, useOutletContext } from 'react-router-dom'
 
+import { DashboardCharts } from '../components/DashboardCharts'
 import { useLanguage } from '../i18n/useLanguage'
 import {
   fetchComplianceHistory,
@@ -411,6 +412,12 @@ export function HomePage() {
           )
         })}
       </section>
+
+      <DashboardCharts
+        kycReviews={kycReviews}
+        merchantReviews={merchantReviews}
+        complianceHistory={complianceHistory}
+      />
 
       <section className="grid gap-5 lg:grid-cols-2">
         <div className="surface-card p-6">
